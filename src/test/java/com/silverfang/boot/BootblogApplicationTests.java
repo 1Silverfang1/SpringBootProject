@@ -1,4 +1,4 @@
-package com.silverfang.bootblog;
+package com.silverfang.boot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,5 +1,6 @@
-package com.silverfang.bootblog;
+package com.silverfang.boot;
 
+import com.silverfang.boot.model.Post;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,5 +10,4 @@ public class BootblogApplication {
     public static void main(String[] args) {
         SpringApplication.run(BootblogApplication.class, args);
     }
-
 }
