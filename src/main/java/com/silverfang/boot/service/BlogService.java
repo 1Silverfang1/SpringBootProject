@@ -64,5 +64,25 @@ public List<Post> search(String key)
     public Category getCategory(String key) {
    return  categoryServiceDao.getCategory(key);
     }
+public List<Post> searchMyBlog(String key)
+{
+    List<Post> postList = search(key);
+    try{
 
+        Category category = getCategory(key);
+        System.out.println(category.getName());
+        List<Post> allPostList=filterPost(category, Pageable.unpaged());
+        for(Post post:allPostList)
+        {
+            if(!postList.contains(post))
+            {
+                postList.add(post);
+            }
+        }
+    }catch (Exception e)
+    {
+        System.out.println("it is not a valid key");
+    }
+    return postList;
+}
 }

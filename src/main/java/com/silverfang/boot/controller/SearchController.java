@@ -22,25 +22,8 @@ private BlogService blogService;
 
     @GetMapping("/inPost")
     public ModelAndView searchKey(@RequestParam("key") String key) {
-        List<Post> postList = blogService.search(key);
-        try{
 
-            Category category = blogService.getCategory(key);
-            System.out.println(category.getName());
-            if (category != null) {
-                List<Post> allPostList=blogService.filterPost(category, Pageable.unpaged());
-                for(Post post:allPostList)
-                {
-                    if(!postList.contains(post))
-                    {
-                        postList.add(post);
-                    }
-                }
-            }
-        }catch (Exception e)
-        {
-            System.out.println("it is not a valid key");
-        }
+        List<Post> postList=blogService.searchMyBlog(key);
         ModelAndView modelAndView = new ModelAndView("searchedresult");
         modelAndView.addObject("allPost", postList);
         return modelAndView;
