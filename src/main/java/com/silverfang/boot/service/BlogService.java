@@ -6,6 +6,9 @@ import com.silverfang.boot.dao.UserServiceInterface;
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,11 +24,13 @@ public class BlogService {
     private CategoryServiceInterface categoryServiceInterface;
 
     public String saveMyBlog(Post myPost, Category myCategory) {
-        String[] cat = myCategory.getName().split(",");
-        for (String category : cat) {
-            Category category1 = new Category(category);
-            category1.getCategoryPost().add(myPost);
-            myPost.getListCategory().add(category1);
+        if(myCategory.getName()!=null) {
+            String[] cat = myCategory.getName().split(",");
+            for (String category : cat) {
+                Category category1 = new Category(category);
+                category1.getCategoryPost().add(myPost);
+                myPost.getListCategory().add(category1);
+            }
         }
         postServiceInterface.savePost(myPost);
         return "blog Saved";
@@ -42,28 +47,9 @@ public class BlogService {
         return postServiceInterface.getPost();
 
     }
-    public void editMyBlog(Post myPost,Category myCategory)
+    public List<Post> getMyPost(Pageable pageRequest)
     {
-     postServiceInterface.savePost(myPost);
-//
-//        List<Category> categoryList= categoryServiceInterface.getCategory();
-//        List<Post> postList= new ArrayList<>();
-//        for( Category category:categoryList)
-//        {
-//            postList= category.getCategoryPost();
-//            category.getCategoryPost().clear();
-//            for(Post post:postList)
-//            {
-//                if(post.getPostId()==myPost.getPostId())
-//                {
-//                    postList.remove(post);
-//                }
-//            }
-//            category.setCategoryPost(postList);
-//        categoryServiceInterface.saveCategory(category);
-//        }
-        saveMyBlog(myPost, myCategory);
-
+        return postServiceInterface.getPost(pageRequest);
     }
 public void deleteBlog(Post post)
 {

@@ -54,7 +54,7 @@ public class UserController {
     @PostMapping("/edit/{postId}")
     public ModelAndView confirmEditThiPost(@ModelAttribute("myPost") Post post, @ModelAttribute("yourCategory") Category category) {
         System.out.println(post.getPostId());
-        blogService.editMyBlog(post, category);
+        blogService.saveMyBlog(post, category);
         ModelAndView modelAndView = new ModelAndView("DataSucess");
         return modelAndView;
     }
