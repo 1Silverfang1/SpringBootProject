@@ -17,13 +17,13 @@ public class CategoryService implements CategoryServiceInterface {
         return categoryRepository.findAll();
     }
 
+    public Category getsingleCategory(String name)
+    {
+        return categoryRepository.findById(name).get();
+    }
     @Override
     public void saveCategory(Category category) {
         categoryRepository.save(category);
     }
 
-    @Override
-    public Category findCategory(int id) {
-        return categoryRepository.findById(id).get();
-    }
 }

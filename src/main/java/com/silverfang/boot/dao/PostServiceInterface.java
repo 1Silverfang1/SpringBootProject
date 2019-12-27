@@ -1,5 +1,6 @@
 package com.silverfang.boot.dao;
 
+import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,4 +15,5 @@ public interface PostServiceInterface {
     public void editPost(Post post);
     public void deleteBlog(Post post);
     public List<Post> getPost(Pageable pageRequest);
+    public List<Post> filterPost(Category filter);
 }

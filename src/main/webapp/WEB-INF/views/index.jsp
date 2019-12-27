@@ -78,6 +78,26 @@
 </table>
 <br>
 <br>
+Page ${CurPage} of total ${totalPage}
+<%
+    int curPage= (int) request.getAttribute("CurPage");
+    int totalPage= (int) request.getAttribute("totalPage");
+    if(curPage<totalPage)
+    {
+%>
+<a href="./${CurPage+1}">Next Page</a>
+<br>
+<%
+    }
+%>
+<%
+    if(curPage>0)
+    {
+%>
+<a href="./${CurPage-1}">Previous Page</a>
 <hr>
+<%
+    }
+%>
 </body>
 </html>

@@ -17,14 +17,22 @@
                     SortBy
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/sort-by-title">SortByTitle</a>
-                    <a class="dropdown-item" href="/sort-by-content">SortByContent</a>
-                    <a class="dropdown-item" href="/sort-by-creation">SortByCreation</a>
-                    <a class="dropdown-item" href="/sort-by-updated">SortByLastUpdated</a>
+                    <a class="dropdown-item" href="/sort-by-title/${CurPage}">SortByTitle</a>
+                    <a class="dropdown-item" href="/sort-by-content/${CurPage}">SortByContent</a>
+                    <a class="dropdown-item" href="/sort-by-creation/${CurPage}">SortByCreation</a>
+                    <a class="dropdown-item" href="/sort-by-updated/${CurPage}">SortByLastUpdated</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" postId="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter By
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/filterby/horror">Filter by horror</a>
+                    <a class="dropdown-item" href="/filterby/SCI-FI">Filer by SCI-FI</a>
+                    <a class="dropdown-item" href="/filterby/Comic">Filter by Comic</a>
+                    <a class="dropdown-item" href="/filterby/Romance">Filer by Romance</a>
+                </div>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

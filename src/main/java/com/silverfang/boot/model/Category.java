@@ -11,11 +11,7 @@ import java.util.List;
 @Entity
 public class Category {
     @Id
-    private
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int categoryId;
-    String name;@GeneratedValue(strategy = GenerationType.IDENTITY)
-//
+    private String name;
     @CreationTimestamp
     @Column(updatable = false)
     private Date createdAt;
@@ -26,14 +22,6 @@ public class Category {
 
     public List<Post> getCategoryPost() {
         return categoryPost;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 
     public void setCategoryPost(List<Post> categoryPost) {

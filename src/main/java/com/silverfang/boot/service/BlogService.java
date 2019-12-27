@@ -27,14 +27,12 @@ public class BlogService {
         if(myCategory.getName()!=null) {
             String[] cat = myCategory.getName().split(",");
             for (String category : cat) {
-                Category category1 = new Category(category);
-                category1.getCategoryPost().add(myPost);
+                Category category1= categoryServiceInterface.getsingleCategory(category);
                 myPost.getListCategory().add(category1);
             }
         }
         postServiceInterface.savePost(myPost);
-        return "blog Saved";
-
+        return "Blog saved";
     }
 
     public Post viewMyPost(int id)
@@ -54,5 +52,9 @@ public class BlogService {
 public void deleteBlog(Post post)
 {
     postServiceInterface.deleteBlog(post);
+}
+public List<Post> filterPost(Category filter)
+{
+    return postServiceInterface.filterPost(filter);
 }
 }

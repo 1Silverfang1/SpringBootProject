@@ -1,5 +1,6 @@
 package com.silverfang.boot.service;
 
+import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
 import com.silverfang.boot.repository.PostRepository;
 import com.silverfang.boot.dao.PostServiceInterface;
@@ -24,6 +25,12 @@ public class PostService implements PostServiceInterface {
     {
         return  postRepository.findAllBy(pageRequest);
     }
+
+    @Override
+    public List<Post> filterPost(Category filter) {
+        return postRepository.findPostByListCategoryIsContaining(filter);
+    }
+
     public void savePost(Post post)
     {
         postRepository.save(post);

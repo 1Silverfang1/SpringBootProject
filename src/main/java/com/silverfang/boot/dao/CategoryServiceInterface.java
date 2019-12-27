@@ -7,5 +7,5 @@ import java.util.List;
 public interface CategoryServiceInterface {
         public List<Category> getCategory();
         public void saveCategory(Category category);
-        public Category findCategory(int name);
+        public Category getsingleCategory(String name);
 }
