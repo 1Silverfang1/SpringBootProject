@@ -78,7 +78,7 @@
 </table>
 <br>
 <br>
-Page ${CurPage} of total ${totalPage}
+Page ${CurPage+1} of total ${totalPage+1}
 <%
     int curPage= (int) request.getAttribute("CurPage");
     int totalPage= (int) request.getAttribute("totalPage");

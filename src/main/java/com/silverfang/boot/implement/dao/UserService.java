@@ -1,14 +1,14 @@
-package com.silverfang.boot.service;
+package com.silverfang.boot.implement.dao;
 
 import com.silverfang.boot.model.UserTable;
 import com.silverfang.boot.repository.UserRepository;
-import com.silverfang.boot.dao.UserServiceInterface;
+import com.silverfang.boot.dao.UserServiceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class UserService implements UserServiceInterface {
+public class UserService implements UserServiceDao {
     @Autowired
 private UserRepository userRepository;
     @Override

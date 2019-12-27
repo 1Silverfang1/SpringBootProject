@@ -1,18 +1,16 @@
-package com.silverfang.boot.service;
+package com.silverfang.boot.implement.dao;
 
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
 import com.silverfang.boot.repository.PostRepository;
-import com.silverfang.boot.dao.PostServiceInterface;
+import com.silverfang.boot.dao.PostServiceDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class PostService implements PostServiceInterface {
+public class PostService implements PostServiceDao {
     @Autowired
     private PostRepository postRepository;
     public List<Post> getPost()
@@ -27,8 +25,8 @@ public class PostService implements PostServiceInterface {
     }
 
     @Override
-    public List<Post> filterPost(Category filter) {
-        return postRepository.findPostByListCategoryIsContaining(filter);
+    public List<Post> filterPost(Category filter , Pageable pageable) {
+        return postRepository.findPostByListCategoryIsContaining(filter,pageable);
     }
 
     public void savePost(Post post)

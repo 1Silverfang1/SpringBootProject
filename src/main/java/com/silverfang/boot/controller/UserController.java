@@ -2,9 +2,6 @@ package com.silverfang.boot.controller;
 
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
-import com.silverfang.boot.dao.CategoryServiceInterface;
-import com.silverfang.boot.dao.PostServiceInterface;
-import com.silverfang.boot.dao.UserServiceInterface;
 import com.silverfang.boot.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

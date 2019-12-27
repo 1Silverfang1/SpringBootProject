@@ -6,7 +6,7 @@ import com.silverfang.boot.model.UserTable;
 
 import java.util.List;
 
-public interface UserServiceInterface {
+public interface UserServiceDao {
     public List<UserTable> getUser();
     public void saveUser(UserTable userTable);
 }

@@ -17,10 +17,10 @@
                     SortBy
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/sort-by-title/${CurPage}">SortByTitle</a>
-                    <a class="dropdown-item" href="/sort-by-content/${CurPage}">SortByContent</a>
-                    <a class="dropdown-item" href="/sort-by-creation/${CurPage}">SortByCreation</a>
-                    <a class="dropdown-item" href="/sort-by-updated/${CurPage}">SortByLastUpdated</a>
+                    <a class="dropdown-item" href="/sortby/title/0">SortByTitle</a>
+                    <a class="dropdown-item" href="/sortby/content/0">SortByContent</a>
+                    <a class="dropdown-item" href="/sortby/createdAt/0">SortByCreation</a>
+                    <a class="dropdown-item" href="/sortby/updatedAt/0">SortByLastUpdated</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -28,10 +28,10 @@
                     Filter By
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/filterby/horror">Filter by horror</a>
-                    <a class="dropdown-item" href="/filterby/SCI-FI">Filer by SCI-FI</a>
-                    <a class="dropdown-item" href="/filterby/Comic">Filter by Comic</a>
-                    <a class="dropdown-item" href="/filterby/Romance">Filer by Romance</a>
+                    <a class="dropdown-item" href="/filterby/horror/0">Filter by horror</a>
+                    <a class="dropdown-item" href="/filterby/SCI-FI/0">Filer by SCI-FI</a>
+                    <a class="dropdown-item" href="/filterby/Comic/0">Filter by Comic</a>
+                    <a class="dropdown-item" href="/filterby/Romance/0">Filer by Romance</a>
                 </div>
             </li>
         </ul>

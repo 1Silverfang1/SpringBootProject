@@ -1,14 +1,14 @@
-package com.silverfang.boot.service;
+package com.silverfang.boot.implement.dao;
 
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.repository.CategoryRepository;
-import com.silverfang.boot.dao.CategoryServiceInterface;
+import com.silverfang.boot.dao.CategoryServiceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class CategoryService implements CategoryServiceInterface {
+public class CategoryService implements CategoryServiceDao {
     @Autowired
     private CategoryRepository categoryRepository;
 
