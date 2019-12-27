@@ -57,4 +57,12 @@ public List<Post> filterPost(Category filter,Pageable pageable)
 {
     return postServiceDao.filterPost(filter,pageable);
 }
+public List<Post> search(String key)
+{
+    return postServiceDao.searchInPost(key);
+}
+    public Category getCategory(String key) {
+   return  categoryServiceDao.getCategory(key);
+    }
+
 }

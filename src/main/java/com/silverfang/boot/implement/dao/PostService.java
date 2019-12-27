@@ -29,6 +29,11 @@ public class PostService implements PostServiceDao {
         return postRepository.findPostByListCategoryIsContaining(filter,pageable);
     }
 
+    @Override
+    public List<Post> searchInPost(String key) {
+       return postRepository.findPostByTitleContainsOrContentContains(key,key);
+    }
+
     public void savePost(Post post)
     {
         postRepository.save(post);
@@ -49,4 +54,8 @@ public class PostService implements PostServiceDao {
     {
     postRepository.delete(post);
     }
+//    public void search(String key)
+//    {
+//        postRepository.
+//    }
 }

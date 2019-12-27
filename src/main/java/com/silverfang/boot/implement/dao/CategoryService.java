@@ -21,6 +21,12 @@ public class CategoryService implements CategoryServiceDao {
     {
         return categoryRepository.findById(name).get();
     }
+
+    @Override
+    public Category getCategory(String key) {
+        return categoryRepository.findCategoryByNameContains(key);
+    }
+
     @Override
     public void saveCategory(Category category) {
         categoryRepository.save(category);

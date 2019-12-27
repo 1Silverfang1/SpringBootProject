@@ -16,4 +16,5 @@ public interface PostServiceDao {
     public void deleteBlog(Post post);
     public List<Post> getPost(Pageable pageRequest);
     public List<Post> filterPost(Category filter,Pageable pageable);
+    public List<Post> searchInPost(String key);
 }
