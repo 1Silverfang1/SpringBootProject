@@ -1,6 +1,7 @@
 package com.silverfang.boot.model;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -88,6 +89,6 @@ public class UserTable {
     String password;
     @CreationTimestamp
     private Date createdAt;
-    @CreationTimestamp
+    @UpdateTimestamp
     private Date updatedAt;
 }

@@ -1,6 +1,7 @@
 package com.silverfang.boot.model;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
@@ -13,14 +14,15 @@ import java.util.List;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false)
     int postId;
     String title;
-    @Column(columnDefinition="TEXT")
+    @Column(columnDefinition = "TEXT")
     String content;
     @Column(updatable = false)
     @CreationTimestamp
     private Date createdAt;
-    @CreationTimestamp
+    @UpdateTimestamp
     private Date updatedAt;
 
     public List<Category> getListCategory() {
@@ -31,9 +33,16 @@ public class Post {
         this.listCategory = listCategory;
     }
 
-    @ManyToMany(mappedBy = "categoryPost")
-    private List<Category> listCategory = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "postCategory",
+            joinColumns = { @JoinColumn(name = "post_id", unique = false) },
+            inverseJoinColumns = { @JoinColumn(name = "category_id", unique = false) })
 
+    private List<Category> listCategory = new ArrayList<>();
+    public void removeAllCategory()
+    {
+        this.listCategory.clear();
+    }
     public Date getCreatedAt() {
         return createdAt;
     }

@@ -1,6 +1,7 @@
 package com.silverfang.boot.model;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -10,23 +11,21 @@ import java.util.List;
 @Entity
 public class Category {
     @Id
+    private
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int categoryId;
-    String name;
+    String name;@GeneratedValue(strategy = GenerationType.IDENTITY)
+//
     @CreationTimestamp
     @Column(updatable = false)
     private Date createdAt;
-    @CreationTimestamp
+    @UpdateTimestamp
     private Date updatedAt;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "listCategory")
     private List<Post> categoryPost = new ArrayList<>();
 
     public List<Post> getCategoryPost() {
         return categoryPost;
-    }
-
-    public void setCategoryPost(List<Post> categoryPost) {
-        this.categoryPost = categoryPost;
     }
 
     public int getCategoryId() {
@@ -35,6 +34,10 @@ public class Category {
 
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public void setCategoryPost(List<Post> categoryPost) {
+        this.categoryPost = categoryPost;
     }
 
     public String getName() {

@@ -1,6 +1,8 @@
 <%@ page import="com.silverfang.boot.model.Post" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.silverfang.boot.model.UserTable" %>
+<%@ page import="com.silverfang.boot.model.Category" %>
+<%@ page import="java.util.List" %>
 <%@page isELIgnored="false" %>
 <html>
 <body>
@@ -17,40 +19,57 @@
         <th scope="col">#</th>
         <th scope="col">AuthorName</th>
         <th scope="col">PostTitle</th>
-        <th scope="col">Post Category</th>
         <th scope="col">Post Content</th>
         <th scope="col">Created At</th>
-        <th scope="col">Updated At</th>
+        <th scope="col">Last Updated At</th>
+        <th scope="col">Category</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <th scope="row">1</th>
+
         <%
             ArrayList<Post> allPost= (ArrayList<Post>) request.getAttribute("allPost");
+            int i=0;
             for(Post post:allPost)
             {
+                i++;
         %>
+        <td scope="row"><%=i%></td>
+        <td>
+            User
+        </td>
+        <td>
+            <a href="/post/view/<%=post.getPostId()%>"><%=post.getTitle()%></a>
+        </td>
         <td>
             <%=post.getContent()%>
         </td>
-        <td>
-            <%=post.getTitle()%>
-        </td>
+
         <td>
             <%=post.getCreatedAt()%>
-        </td>
-        <td>
-            <%=post.getPublished()%>
         </td>
         <td>
             <%=post.getUpdatedAt()%>
         </td>
         <td>
-            <%=post.getAuthorId()%>
+            <%
+                List<Category> categoryList=post.getListCategory();
+                for(Category category:categoryList)
+                {
+
+            %>
+
+        <%=category.getName()%>
+        <%
+            }
+        %>
         </td>
         <td>
-            <%=post.getPostId()%>
+            <a href="/post/edit/<%=post.getPostId()%>">Edit</a>
+        </td>
+        <td>
+            <a href="/post/delete/<%=post.getPostId()%>">Delete</a>
         </td>
     </tr>
     </tbody>

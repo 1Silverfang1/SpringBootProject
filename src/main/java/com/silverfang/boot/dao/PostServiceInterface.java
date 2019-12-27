@@ -8,4 +8,6 @@ public interface PostServiceInterface {
     public List<Post> getPost();
     public void savePost(Post post);
     public Post getPostById(int id);
+    public void editPost(Post post);
+    public void deleteBlog(Post post);
 }

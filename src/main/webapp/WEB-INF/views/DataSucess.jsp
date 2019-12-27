@@ -12,7 +12,6 @@
 </head>
 <body>
 <p>Your data has been successfully updated</p>
-${BlogData}
 <a href="/post/create">Click here to add Form</a>
 <a href="/">Click here for Homepage</a>
 </body>

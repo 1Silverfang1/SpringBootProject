@@ -16,15 +16,19 @@
 <body>
  <h2>Update your Blog Here</h2>
  <%--@elvariable postId="BlogObject" type="jpa.model.BlogModel"--%>
-<form:form action="/post/updateConfirm" modelAttribute="BlogObject" method="post" >
-<form:input path="authorName"></form:input>
-    <form:input path="blogTitle"></form:input>
-<%--    <form:input path="blogPost"></form:input>--%>
-    <form:textarea path="blogPost"/>
-    <form:hidden path="postId"></form:hidden>
-    <form:hidden path="country"/>
-     <input type="submit" value="update">
+<form:form action="/post/edit/${myPost.postId}" modelAttribute="myPost" method="post" >
+<form:input path="title"/>
+    <form:textarea path="content"/>
+    <form:hidden path="postId"/>
+<%--    <form:hidden path="listCategory"/>--%>
+    <form:form  cssclass="form-control" modelAttribute="yourCategory" ><br>
+        <form:checkbox path="name"  value="horror" cssStyle="width: available"/> Horror <br>
+        <form:checkbox path="name"  value="Comic" cssStyle="width: available"/> Comic <br>
+        <form:checkbox path="name" value="SCI-FI" cssclass="form-control"/> SCI-FI <br>
+        <form:checkbox path="name" value="Romance" cssclass="form-control"/> Romance <br>
+        <input type="submit" value="update">
+     </form:form>
+
  </form:form>
-${BlogId};
 </body>
 </html>

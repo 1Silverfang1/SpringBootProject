@@ -11,6 +11,7 @@ import java.util.List;
 public class CategoryService implements CategoryServiceInterface {
     @Autowired
     private CategoryRepository categoryRepository;
+
     @Override
     public List<Category> getCategory() {
         return categoryRepository.findAll();
@@ -19,5 +20,10 @@ public class CategoryService implements CategoryServiceInterface {
     @Override
     public void saveCategory(Category category) {
         categoryRepository.save(category);
+    }
+
+    @Override
+    public Category findCategory(int id) {
+        return categoryRepository.findById(id).get();
     }
 }

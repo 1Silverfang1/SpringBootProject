@@ -1,4 +1,4 @@
-<%@ page import="jpa.model.BlogModel" %>
+<%@ page import="com.silverfang.boot.model.Post" %>
 <%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
@@ -15,21 +15,19 @@
 </head>
 <body>
 <%
-BlogModel curBlog = (BlogModel)request.getAttribute("BlogObject");%>
+Post post= (Post)request.getAttribute("deletePost");
+%>
 <h2>Are you Sure You want to delete the Following Post</h2>
 <br>
 <br>
 <br>
-<h2><%=curBlog.getAuthorName()%></h2>
+<h2><%=post.getTitle()%></h2>
 <hr>
-<p><%=curBlog.getBlogPost()%></p>
+<p><%=post.getContent()%></p>
 <hr>
 <%--@elvariable postId="BlogObject" type="jpa.model.BlogModel"--%>
-<form:form action="/post/delete/" modelAttribute="BlogObject" method="post">
-    <form:hidden path="authorName"/>
+<form:form action="/post/delete/" modelAttribute="deletePost" method="post">
     <form:hidden path="postId"/>
-    <form:hidden path="blogPost"/>
-    <form:hidden path="blogTitle"/>
     <input type="submit" value="Delete">
 </form:form>
 </body>

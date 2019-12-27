@@ -1,10 +1,6 @@
-<%@ page import="jpa.model.BlogModel" %><%--
-  Created by IntelliJ IDEA.
-  User: root
-  Date: 22/12/19
-  Time: 11:12 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.silverfang.boot.model.Post" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.silverfang.boot.model.Category" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,11 +8,25 @@
 </head>
 <body>
 <%
-    BlogModel blogModel =(BlogModel) request.getAttribute("ViewBlog");
+    Post post= (Post)request.getAttribute("myPost");
 %>
-<h1><%=blogModel.getBlogTitle()%></h1>
-<h2><%=blogModel.getAuthorName()%></h2>
-<h2><%=blogModel.getCountry()%></h2>
-<p><%=blogModel.getBlogPost()%></p>
+<h1><%=post.getTitle()%></h1>
+<h2>User</h2>
+<%
+    List<Category> list= post.getListCategory();
+    for (Category category:list)
+    {
+%>
+<h3><%=category.getName()%>
+</h3>
+<%
+    }
+%>
+<p><%=post.getContent()%></p>
+<br>
+<p>Last updated at : <%=post.getUpdatedAt()%></p>
+<br>
+<p>Last created at : <%=post.getCreatedAt()%></p>
+<br>
 </body>
 </html>
