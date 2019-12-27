@@ -14,13 +14,13 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" postId="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+                    SortBy
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="/sort-by-title">SortByTitle</a>
+                    <a class="dropdown-item" href="/sort-by-content">SortByContent</a>
+                    <a class="dropdown-item" href="/sort-by-creation">SortByCreation</a>
+                    <a class="dropdown-item" href="/sort-by-updated">SortByLastUpdated</a>
                 </div>
             </li>
             <li class="nav-item">

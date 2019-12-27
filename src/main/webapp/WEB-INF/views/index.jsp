@@ -13,6 +13,7 @@
 <div>
     <%@include file="/WEB-INF/Layout/navbar.jsp"%>
 </div>
+
 <table class="table table-dark">
     <thead>
     <tr>
