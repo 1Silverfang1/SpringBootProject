@@ -3,14 +3,14 @@ package com.silverfang.boot.implement.dao;
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
 import com.silverfang.boot.repository.PostRepository;
-import com.silverfang.boot.dao.PostServiceDao;
+import com.silverfang.boot.interfaces.PostServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class PostService implements PostServiceDao {
+public class PostService implements PostServiceInterface {
     @Autowired
     private PostRepository postRepository;
     public List<Post> getPost()
@@ -27,6 +27,26 @@ public class PostService implements PostServiceDao {
     @Override
     public List<Post> filterPost(Category filter , Pageable pageable) {
         return postRepository.findPostByListCategoryIsContaining(filter,pageable);
+    }
+
+    @Override
+    public List<Post> filterPostByTitle(Category filter, Pageable pageable) {
+        return postRepository.findPostByListCategoryIsContainingOrderByTitle(filter,pageable);
+    }
+
+    @Override
+    public List<Post> filterPostByContent(Category filter, Pageable pageable) {
+        return postRepository.findPostByListCategoryIsContainingOrderByContent(filter, pageable);
+    }
+
+    @Override
+    public List<Post> filterPostCreatedAt(Category filter, Pageable pageable) {
+        return postRepository.findPostByListCategoryIsContainingOrderByCreatedAt(filter,pageable);
+    }
+
+    @Override
+    public List<Post> filterPostUpdatedAt(Category filter, Pageable pageable) {
+        return postRepository.findPostByListCategoryIsContainingOrderByUpdatedAt(filter,pageable);
     }
 
     @Override
@@ -54,8 +74,4 @@ public class PostService implements PostServiceDao {
     {
     postRepository.delete(post);
     }
-//    public void search(String key)
-//    {
-//        postRepository.
-//    }
 }

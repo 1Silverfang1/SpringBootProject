@@ -35,8 +35,8 @@ public class Post {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "postCategory",
-            joinColumns = { @JoinColumn(name = "post_id", unique = false) },
-            inverseJoinColumns = { @JoinColumn(name = "category_id", unique = false) })
+            joinColumns = { @JoinColumn(name = "post_id") },
+            inverseJoinColumns = { @JoinColumn(name = "category_id") })
 
     private List<Category> listCategory = new ArrayList<>();
     public void removeAllCategory()
