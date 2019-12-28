@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("/search")
+//@RequestMapping("/search")
 public class SearchController {
     @Autowired
 private BlogService blogService;

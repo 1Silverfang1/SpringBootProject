@@ -76,9 +76,32 @@ public class HomeController {
 @GetMapping("/post")
     public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",required = false, name = "sortBy") String title,
                                             @RequestParam(defaultValue = "0" ,required = false,name = "page") int page ,
-                                            @RequestParam(defaultValue = "" ,required = false, name = "filterBy") String filter )
-{
+                                            @RequestParam(defaultValue = "" ,required = false, name = "filterBy") String filter,
+                                            @RequestParam(defaultValue = "", required = false ,name = "key")String key) {
     ModelAndView modelAndView = new ModelAndView("index");
+    if (!key.equals(""))
+    {
+        List<Post> postList=blogService.searchMyBlog(key);
+        List<Post> postList2= new ArrayList<>();
+        if(!filter.equals(""))
+        {
+            Category category= blogService.getSingleCategory(filter);
+            System.out.println(category.getName());
+            List<Post> postList1= blogService.filterPost(category,Pageable.unpaged());
+            System.out.println(postList1.size());
+        for(Post post:postList)
+        {
+            System.out.println(post.getListCategory().get(0).getName());
+            if(postList1.contains(post))
+            {
+                postList2.add(post);
+            }
+        }
+        }
+        ModelAndView modelAndView1 = new ModelAndView("searchedresult");
+        modelAndView1.addObject("allPost", postList2);
+        return modelAndView1;
+    }
     if(!filter.equals(""))
     {
         System.out.println("sadasd");
