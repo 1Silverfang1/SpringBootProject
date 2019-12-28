@@ -1,3 +1,4 @@
+<%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,10 +18,22 @@
                     SortBy
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="./sortby/title/0">SortByTitle</a>
-                    <a class="dropdown-item" href="./sortby/content/0">SortByContent</a>
-                    <a class="dropdown-item" href="./sortby/createdAt/0">SortByCreation</a>
-                    <a class="dropdown-item" href="./sortby/updatedAt/0">SortByLastUpdated</a>
+                    <form action="/post">
+                        <input type="hidden" name="sortBy" value="title">
+                        <input type="submit" style="border: none;background: none" value="SortByTitle">
+                    </form>
+                    <form action="/post">
+                        <input type="hidden" name="sortBy" value="content">
+                        <input type="submit" style="border: none;background: none" value="SortByContent">
+                    </form>
+                    <form action="/post">
+                        <input type="hidden" name="sortBy" value="createdAt">
+                        <input type="submit" style="border: none;background: none" value="SortByCreation">
+                    </form>
+                    <form action="/post">
+                        <input type="hidden" name="sortBy" value="LastUpdated">
+                        <input type="submit" style="border: none;background: none" value="SortByUpdate">
+                    </form>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -28,10 +41,22 @@
                     Filter By
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="./filterby/horror/0">Filter by horror</a>
-                    <a class="dropdown-item" href="./filterby/SCI-FI/0">Filer by SCI-FI</a>
-                    <a class="dropdown-item" href="./filterby/Comic/0">Filter by Comic</a>
-                    <a class="dropdown-item" href="./filterby/Romance/0">Filer by Romance</a>
+                    <form action="/post">
+                        <input type="hidden" name="filterBy" value="horror">
+                        <input type="submit" style="border: none;background: none" value="Filter by horror">
+                    </form>
+                    <form action="/post">
+                        <input type="hidden" name="filterBy" value="SCI-FI">
+                        <input type="submit" style="border: none;background: none" value="Filter by Sci-fi">
+                    </form>
+                    <form action="/post">
+                        <input type="hidden" name="filterBy" value="Comic">
+                        <input type="submit" style="border: none;background: none" value="Filter by Comic">
+                    </form>
+                    <form action="/post">
+                        <input type="hidden" name="filterBy" value="Romance">
+                        <input type="submit" style="border: none;background: none" value="Filter by Romance">
+                    </form>
                 </div>
             </li>
         </ul>

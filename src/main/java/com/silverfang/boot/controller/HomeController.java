@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -54,14 +56,49 @@ public class HomeController {
         modelAndView.addObject("totalPage",i/4);
         return  modelAndView;
     }
-
-@GetMapping("/sortby/{title}/{page}")
-    public ModelAndView sortHomePageBytitle(@PathVariable("title") String title,@PathVariable("page") int page)
+//@GetMapping("/sort/{page}")
+//public ModelAndView sort(@RequestParam("by") String sort,@PathVariable("page") int page)
+//{
+//
+//    ModelAndView modelAndView = new ModelAndView("index");
+//    Pageable paging = PageRequest.of(page, 4,Sort.by(title));
+//    if(title.equals("updatedAt"))
+//        paging=PageRequest.of(page,4,Sort.by(title).descending());
+//    List<Post> pagenationPost= blogService.getMyPost(paging);
+//    List<Post>  allPost= blogService.getMyPost(Pageable.unpaged());
+//    int total=allPost.size()/4;
+//    modelAndView.addObject("CurPage",page);
+//    modelAndView.addObject("totalPage",total);
+//    modelAndView.addObject("allPost",pagenationPost);
+//    return  modelAndView;
+//
+//}
+@GetMapping("/post")
+    public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",required = false, name = "sortBy") String title,
+                                            @RequestParam(defaultValue = "0" ,required = false,name = "page") int page ,
+                                            @RequestParam(defaultValue = "" ,required = false, name = "filterBy") String filter )
 {
     ModelAndView modelAndView = new ModelAndView("index");
+    if(!filter.equals(""))
+    {
+        System.out.println("sadasd");
+        Category category= blogService.getSingleCategory(filter);
+        Pageable pageable= PageRequest.of(page,4,Sort.by(title));
+        List<Post> postList= blogService.filterPost(category,pageable);
+        List<Post> list=blogService.filterPost(category,Pageable.unpaged());
+        modelAndView.addObject("allPost",postList);
+        int total=list.size()/4;
+        modelAndView.addObject("CurPage",page);
+        modelAndView.addObject("totalPage",total);
+        return  modelAndView;
+    }
+
     Pageable paging = PageRequest.of(page, 4,Sort.by(title));
-    if(title.equals("updatedAt"))
-    paging=PageRequest.of(page,4,Sort.by(title).descending());
+    if(title.equals("LastUpdated")) {
+        paging = PageRequest.of(page, 4, Sort.by("updatedAt").descending());
+        System.out.println("worked");
+    }
+    System.out.println(title);
     List<Post> pagenationPost= blogService.getMyPost(paging);
    List<Post>  allPost= blogService.getMyPost(Pageable.unpaged());
     int total=allPost.size()/4;
