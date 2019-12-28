@@ -83,5 +83,8 @@
     </tbody>
     <%}%>
 </table>
+<%
+System.out.println(request.getAttribute("javax.servlet.forward.query_string"));
+%>
 </body>
 </html>
