@@ -31,7 +31,7 @@
                         <input type="submit" style="border: none;background: none" value="SortByCreation">
                     </form>
                     <form action="/post">
-                        <input type="hidden" name="sortBy" value="LastUpdated">
+                        <input type="hidden" name="sortBy" value="updatedAt">
                         <input type="submit" style="border: none;background: none" value="SortByUpdate">
                     </form>
                 </div>
