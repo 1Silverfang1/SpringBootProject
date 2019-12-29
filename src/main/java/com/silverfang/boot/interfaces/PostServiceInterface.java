@@ -19,5 +19,5 @@ public interface PostServiceInterface {
     List<Post> filterPostCreatedAt(Category filter,Pageable pageable);
     List<Post> filterPostUpdatedAt(Category filter,Pageable pageable);
 
-    public List<Post> searchInPost(String key);
+    public List<Post> searchInPost(String key,Pageable pageable);
 }

@@ -5,7 +5,6 @@
 <%@ page import="com.silverfang.boot.model.UserTable" %>
 <%@ page import="com.silverfang.boot.model.Category" %>
 <%@ page import="java.util.List" %>
-<%@ page import="org.springframework.web.util.UrlPathHelper" %>
 <%@page isELIgnored="false" %>
 <html>
 <body>
@@ -102,7 +101,6 @@ Page ${CurPage+1} of total ${totalPage+1}
 <%
 } else {
     String newurl1 = "";
-//    System.out.println("inside else");
     curPage++;
     newurl1 = "post?&";
     if (queryUrl != null) {

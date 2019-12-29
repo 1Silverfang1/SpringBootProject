@@ -1,4 +1,4 @@
-package com.silverfang.boot.implement.dao;
+package com.silverfang.boot.service.helper;
 
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.repository.CategoryRepository;

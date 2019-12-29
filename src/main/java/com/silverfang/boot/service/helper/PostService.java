@@ -1,4 +1,4 @@
-package com.silverfang.boot.implement.dao;
+package com.silverfang.boot.service.helper;
 
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
@@ -50,8 +50,8 @@ public class PostService implements PostServiceInterface {
     }
 
     @Override
-    public List<Post> searchInPost(String key) {
-       return postRepository.findPostByTitleContainsOrContentContains(key,key);
+    public List<Post> searchInPost(String key,Pageable pageable) {
+       return postRepository.findPostByTitleContainsOrContentContains(key,key,pageable);
     }
 
     public void savePost(Post post)

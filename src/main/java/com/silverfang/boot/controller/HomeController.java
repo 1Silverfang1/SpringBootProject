@@ -42,21 +42,7 @@ public class HomeController {
     modelAndView.addObject("totalPage",i/4);
     return  modelAndView;
 }
-//    @GetMapping("/{PageNumber}")
-//    public ModelAndView getHomePage(@PathVariable("PageNumber") int page)
-//    {
-//        ModelAndView modelAndView= new ModelAndView("index");
-//        Pageable paging = PageRequest.of(page, 4);
-//        List<Post> postList=blogService.getMyPost();
-//        int i=postList.size();
 
-//        System.out.println(i+" "+i/4);
-//        List<Post> allPost= blogService.getMyPost(paging);
-//        modelAndView.addObject("allPost",allPost);
-//        modelAndView.addObject("CurPage",page);
-//        modelAndView.addObject("totalPage",i/4);
-//        return  modelAndView;
-//    }
 @GetMapping("/post")
     public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",required = false, name = "sortBy") String title,
                                             @RequestParam(defaultValue = "0" ,required = false,name = "page") int page ,
@@ -65,12 +51,15 @@ public class HomeController {
     ModelAndView modelAndView = new ModelAndView("index");
     if (!key.equals(""))
     {
-        List<Post> postList=blogService.searchMyBlog(key);
+        Pageable pageable= PageRequest.of(page,4,Sort.by(title));
+        List<Post> postList=blogService.searchMyBlog(key,pageable);
         List<Post> postList2= new ArrayList<>();
         if(!filter.equals(""))
         {
+
             Category category= blogService.getSingleCategory(filter);
             System.out.println(category.getName());
+//            Pageable pageable1= PageRequest.of(page,4,Sort.by(title));
             List<Post> postList1= blogService.filterPost(category,Pageable.unpaged());
             System.out.println(postList1.size());
         for(Post post:postList)
@@ -81,12 +70,12 @@ public class HomeController {
                 postList2.add(post);
             }
         }
+            ModelAndView modelAndView1 = new ModelAndView("searchedresult");
+            modelAndView1.addObject("allPost", postList2);
+            return modelAndView1;
         }
-        if(postList2.size()==0)
-            postList2=postList;
-
         ModelAndView modelAndView1 = new ModelAndView("searchedresult");
-        modelAndView1.addObject("allPost", postList2);
+        modelAndView1.addObject("allPost", postList);
         return modelAndView1;
     }
     if(!filter.equals(""))
@@ -105,11 +94,10 @@ public class HomeController {
         return  modelAndView;
     }
     Pageable paging;
+    paging = PageRequest.of(page, 4,Sort.by(title));
     if(title.equals("updatedAt")) {
         paging = PageRequest.of(page, 4, Sort.by(title).descending());
     }
-    paging = PageRequest.of(page, 4,Sort.by(title));
-    System.out.println(title);
     List<Post> pagenationPost= blogService.getMyPost(paging);
    List<Post>  allPost= blogService.getMyPost(Pageable.unpaged());
     int total=allPost.size()/4;

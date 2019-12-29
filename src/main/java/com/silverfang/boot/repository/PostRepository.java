@@ -18,6 +18,6 @@ public interface PostRepository extends JpaRepository<Post,Integer> {
     public List<Post> findPostByListCategoryIsContainingOrderByTitle(Category tag,Pageable pageable);
     public List<Post> findPostByListCategoryIsContainingOrderByCreatedAt(Category tag,Pageable pageable);
     public List<Post> findPostByListCategoryIsContainingOrderByUpdatedAt(Category tag,Pageable pageable);
-    public List<Post> findPostByTitleContainsOrContentContains(String key,String key2);
+    public List<Post> findPostByTitleContainsOrContentContains(String key,String key2,Pageable pageable);
 }
 

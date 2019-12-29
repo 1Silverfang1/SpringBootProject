@@ -74,16 +74,16 @@ public List<Post> filterPost(Category filter,Pageable pageable)
     return postServiceInterface.filterPost(filter,pageable);
 }
 
-public List<Post> search(String key)
+public List<Post> search(String key,Pageable pageable)
 {
-    return postServiceInterface.searchInPost(key);
+    return postServiceInterface.searchInPost(key,pageable);
 }
     public Category getCategory(String key) {
    return  categoryServiceInterface.getCategory(key);
     }
-public List<Post> searchMyBlog(String key)
+public List<Post> searchMyBlog(String key,Pageable pageable)
 {
-    List<Post> postList = search(key);
+    List<Post> postList = search(key,pageable);
     try{
 
         Category category = getCategory(key);
