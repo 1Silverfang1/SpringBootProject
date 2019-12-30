@@ -72,7 +72,9 @@ public class BlogService {
     }
 public void deleteBlog(Post post)
 {
+    System.out.println("abced");
     postServiceInterface.deleteBlog(post);
+    System.out.println("abced");
 }
 public List<Post> filterPost(Category filter,Pageable pageable)
 {

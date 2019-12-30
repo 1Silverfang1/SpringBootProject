@@ -5,6 +5,7 @@ import com.silverfang.boot.model.Post;
 import com.silverfang.boot.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
@@ -48,7 +49,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @PutMapping("/edit/{postId}")
+    @PostMapping("/edit/{postId}")
     public ModelAndView confirmEditThiPost(@ModelAttribute("myPost") Post post, @ModelAttribute("yourCategory") Category category) {
         System.out.println(post.getPostId());
         blogService.saveMyBlog(post, category);
@@ -64,7 +65,7 @@ public class UserController {
         modelAndView.addObject("deletePost",post);
         return  modelAndView;
     }
-    @DeleteMapping("/delete")
+    @PostMapping("/delete")
     public ModelAndView deleteConfirm(@ModelAttribute("deletePost") Post deletePost)
     {
         ModelAndView modelAndView= new ModelAndView("dataDeleted");

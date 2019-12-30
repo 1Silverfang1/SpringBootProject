@@ -64,12 +64,13 @@ public class HomeController {
     public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",required = false, name = "sortBy") String title,
                                             @RequestParam(defaultValue = "0" ,required = false,name = "page") int page ,
                                             @RequestParam(defaultValue = "" ,required = false, name = "filterBy") String filter,
-                                            @RequestParam(defaultValue = "", required = false ,name = "key")String key) {
+                                            @RequestParam(defaultValue = "", required = false ,name = "key")String key,
+                                            @RequestParam(defaultValue = "4",required = false,name = "pageSize")int pageSize ) {
     ModelAndView modelAndView = new ModelAndView("index");
     if (!key.equals(""))
     {
-        Pageable pageable= PageRequest.of(page,4,Sort.by(title));
-        List<Post> postList=blogService.searchMyBlog(key,pageable);
+        Pageable pageable= PageRequest.of(page,pageSize,Sort.by(title));
+        List<Post> postList=blogService.searchMyBlog(key,pageable);//    modelAndView.addObject("allPost",allPost);
         List<Post> postList2= new ArrayList<>();
         if(!filter.equals(""))
         {
@@ -99,9 +100,9 @@ public class HomeController {
     {
         System.out.println("sadasd");
         Category category= blogService.getSingleCategory(filter);
-        Pageable pageable= PageRequest.of(page,4,Sort.by(title));
+        Pageable pageable= PageRequest.of(page,pageSize,Sort.by(title));
         if(title.equals("updatedAt"))
-            pageable= PageRequest.of(page,4,Sort.by(title).descending());
+            pageable= PageRequest.of(page,pageSize,Sort.by(title).descending());
         List<Post> postList= blogService.filterPost(category,pageable);
         List<Post> list=blogService.filterPost(category,Pageable.unpaged());
         modelAndView.addObject("allPost",postList);
@@ -111,9 +112,9 @@ public class HomeController {
         return  modelAndView;
     }
     Pageable paging;
-    paging = PageRequest.of(page, 4,Sort.by(title));
+    paging = PageRequest.of(page, pageSize,Sort.by(title));
     if(title.equals("updatedAt")) {
-        paging = PageRequest.of(page, 4, Sort.by(title).descending());
+        paging = PageRequest.of(page, pageSize, Sort.by(title).descending());
     }
     List<Post> pagenationPost= blogService.getMyPost(paging);
    List<Post>  allPost= blogService.getMyPost(Pageable.unpaged());

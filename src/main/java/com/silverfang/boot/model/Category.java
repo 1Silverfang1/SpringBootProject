@@ -1,5 +1,6 @@
 package com.silverfang.boot.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
@@ -17,7 +18,8 @@ public class Category {
     private Date createdAt;
     @UpdateTimestamp
     private Date updatedAt;
-    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "listCategory")
+    @ManyToMany(mappedBy = "listCategory")
+    @JsonIgnore
     private List<Post> categoryPost = new ArrayList<>();
 
     public List<Post> getCategoryPost() {
