@@ -48,7 +48,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @PostMapping("/edit/{postId}")
+    @PutMapping("/edit/{postId}")
     public ModelAndView confirmEditThiPost(@ModelAttribute("myPost") Post post, @ModelAttribute("yourCategory") Category category) {
         System.out.println(post.getPostId());
         blogService.saveMyBlog(post, category);
@@ -64,7 +64,7 @@ public class UserController {
         modelAndView.addObject("deletePost",post);
         return  modelAndView;
     }
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public ModelAndView deleteConfirm(@ModelAttribute("deletePost") Post deletePost)
     {
         ModelAndView modelAndView= new ModelAndView("dataDeleted");

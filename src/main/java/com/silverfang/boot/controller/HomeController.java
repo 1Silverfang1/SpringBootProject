@@ -42,6 +42,23 @@ public class HomeController {
     modelAndView.addObject("totalPage",i/4);
     return  modelAndView;
 }
+//@GetMapping("/")
+//public List<Post> getHomePage()
+//{
+//    logger.debug("hey");
+//    logger.info("afesfwascx" +
+//            "");
+//    ModelAndView modelAndView= new ModelAndView("index");
+//    Pageable paging = PageRequest.of(0, 4);
+//    List<Post> postList=blogService.getMyPost();
+//    int i=postList.size();
+//    System.out.println(i+" "+i/4);
+//    List<Post> allPost= blogService.getMyPost(paging);
+//    modelAndView.addObject("allPost",allPost);
+//    modelAndView.addObject("CurPage",0);
+//    modelAndView.addObject("totalPage",i/4);
+//    return  postList;
+//}
 
 @GetMapping("/post")
     public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",required = false, name = "sortBy") String title,

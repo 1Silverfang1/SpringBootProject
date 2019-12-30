@@ -5,6 +5,7 @@ import com.silverfang.boot.interfaces.PostServiceInterface;
 import com.silverfang.boot.interfaces.UserServiceInterface;
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
+import com.silverfang.boot.model.UserTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,10 @@ public class BlogService {
                 myPost.getListCategory().add(category1);
             }
         }
+        UserTable userTable= new UserTable("Vaibhav","vaibhav.rawat@mountblue.tech","nopass");
+        userTable.getPostList().add(myPost);
+        userServiceInterface.saveUser(userTable);
+        myPost.setUserTable(userTable);
         postServiceInterface.savePost(myPost);
         return "Blog saved";
     }

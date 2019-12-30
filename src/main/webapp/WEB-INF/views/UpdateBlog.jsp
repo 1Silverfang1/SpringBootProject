@@ -16,7 +16,7 @@
 <body>
  <h2>Update your Blog Here</h2>
  <%--@elvariable postId="BlogObject" type="jpa.model.BlogModel"--%>
-<form:form action="/post/edit/${myPost.postId}" modelAttribute="myPost" method="post" >
+<form:form action="/post/edit/${myPost.postId}" modelAttribute="myPost" method="put" >
 <form:input path="title"/>
     <form:textarea path="content"/>
     <form:hidden path="postId"/>
