@@ -37,10 +37,14 @@ public class AuthenticationController {
             throw  new Exception("pass or user incorrect",e);
         }
         final UserDetails userDetails=userDetailsService.loadUserByUsername(userTable.getUserName());
- final  String jwtToken=jwtUtil.generateToken(userDetails);
+        final  String jwtToken=jwtUtil.generateToken(userDetails);
 
 //    return new ResponseEntity<>(jwtToken, HttpStatus.OK);
         return ResponseEntity.ok(new AuthResponse(jwtToken));
 
+    }
+    @PostMapping("/register")
+    public ResponseEntity<?> saveUser(@RequestBody AuthRequest user) throws Exception {
+        return ResponseEntity.ok(userDetailsService.save(user));
     }
 }

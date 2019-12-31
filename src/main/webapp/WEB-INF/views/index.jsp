@@ -2,10 +2,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page import="com.silverfang.boot.model.Post" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.silverfang.boot.model.UserTable" %>
 <%@ page import="com.silverfang.boot.model.Category" %>
 <%@ page import="java.util.List" %>
 <%@page isELIgnored="false" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 <body>
 <head>
@@ -15,7 +15,16 @@
 <div>
     <%@include file="/WEB-INF/Layout/navbar.jsp" %>
 </div>
-
+<security:authorize access="!isAuthenticated()">
+    Login
+</security:authorize>
+<security:authorize access="isAuthenticated()">
+    <a href="/logout">Logout</a>
+</security:authorize>
+<security:authorize access="isAuthenticated()">
+   <h2 class="text-success"> Welcome Back,<security:authentication property="name"/></h2>
+    <h3 class="text-success">You are given <security:authorize access="hasRole('USER')"> AUTHOR LEVEL PREVILAGE</security:authorize> </h3>
+</security:authorize>
 <table class="table table-dark">
     <thead>
     <tr>
