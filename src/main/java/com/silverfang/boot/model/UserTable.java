@@ -27,6 +27,16 @@ public class UserTable {
     }
 
     String name;
+    String roles;
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
     public int getUserId() {
         return userId;
     }

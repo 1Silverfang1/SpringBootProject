@@ -28,7 +28,7 @@ public class MyUserDetailService implements UserDetailsService {
 
         }
 
-        return new MyUserDetails(userTable.getName(),userTable.getPassword());
+        return new MyUserDetails(userTable.getName(),userTable.getPassword(),userTable.getRoles());
     }
     public void save(UserTable user)
      {

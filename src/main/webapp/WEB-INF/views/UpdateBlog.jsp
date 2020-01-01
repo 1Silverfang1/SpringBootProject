@@ -26,15 +26,18 @@
      String user = post.getUserTable().getName();
      Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
      String username="";
+     String authorities="";
      if (principal instanceof UserDetails) {
 
          username = ((UserDetails)principal).getUsername();
+         authorities= String.valueOf(((UserDetails) principal).getAuthorities());
 
      } else {
 
          username= principal.toString();
 
      }
+     if(!authorities.equals("[ROLE_ADMIN]"))
      if(!user.equals(username))
      response.sendRedirect("/");
  %>
@@ -42,7 +45,7 @@
 <form:input path="title"/>
     <form:textarea path="content"/>
     <form:hidden path="postId"/>
-    <input type="hidden" value="<security:authentication property="name"/>" name="author">
+    <input type="hidden" value="${myPost.userTable.name}" name="author">
 <%--    <form:hidden path="listCategory"/>--%>
     <form:form  cssclass="form-control" modelAttribute="yourCategory" ><br>
         <form:checkbox path="name"  value="horror" cssStyle="width: available"/> Horror <br>

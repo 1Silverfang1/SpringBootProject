@@ -44,6 +44,7 @@ public class HomeController {
     @PostMapping("/register")
     public ModelAndView saveAuthor(@ModelAttribute("user") UserTable userTable)
     {
+        userTable.setRoles("AUTHOR");
         myUserDetailService.save(userTable);
         ModelAndView modelAndView= new ModelAndView("DataSucess");
         return modelAndView;

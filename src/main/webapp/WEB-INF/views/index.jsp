@@ -20,7 +20,9 @@
 </div>
 <security:authorize access="isAuthenticated()">
     <h2 class="text-success"> Welcome Back,<security:authentication property="name"/></h2>
-    <h3 class="text-success">You are given <security:authorize access="hasRole('USER')"> AUTHOR LEVEL PRIVILEGE</security:authorize> </h3>
+    <h3 class="text-success">You are given <security:authorize access="hasRole('USER')"> AUTHOR LEVEL PRIVILEGE</security:authorize></h3>
+        <security:authorize access="hasRole('ADMIN')"> ADMIN LEVEL PRIVILEGE  </h3>
+            <p>With Great Power Comes great Responsibility</p> </security:authorize>
 </security:authorize>
 <table class="table table-dark">
     <thead>
@@ -80,17 +82,18 @@
                    String user=post.getUserTable().getName();
                    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                    String username="";
+                   String authorities="";
                    if (principal instanceof UserDetails) {
 
                         username = ((UserDetails)principal).getUsername();
+                       authorities= String.valueOf(((UserDetails) principal).getAuthorities());
 
                    } else {
 
                        username= principal.toString();
 
                    }
-                   if(user.equals(username))
-                   {
+                   if(user.equals(username)||authorities.equals("[ROLE_ADMIN]"))                   {
                %>
                 <a href="/post/edit/<%=post.getPostId()%>">Edit</a>
                 <%
@@ -104,16 +107,18 @@
                     String user=post.getUserTable().getName();
                     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                     String username="";
+                    String authorities="";
                     if (principal instanceof UserDetails) {
 
                         username = ((UserDetails)principal).getUsername();
+                        authorities= String.valueOf(((UserDetails) principal).getAuthorities());
 
                     } else {
 
                         username= principal.toString();
 
                     }
-                    if(user.equals(username))
+                    if(user.equals(username)||authorities.equals("[ROLE_ADMIN]"))
                     {
                 %>
             <a href="/post/delete/<%=post.getPostId()%>">Delete</a>
@@ -129,7 +134,8 @@
 <br>
 <br>
 <br>
-Page ${CurPage+1} of total ${totalPage+1}
+<p>
+Page ${CurPage+1} of total ${totalPage+1} </p>
 <%
 
     String queryUrl = (String) request.getAttribute("javax.servlet.forward.query_string");

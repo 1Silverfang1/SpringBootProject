@@ -20,15 +20,19 @@
     String user = post.getUserTable().getName();
     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     String username="";
+    String authorities="";
     if (principal instanceof UserDetails) {
 
         username = ((UserDetails)principal).getUsername();
+        authorities= String.valueOf(((UserDetails) principal).getAuthorities());
 
     } else {
 
         username= principal.toString();
 
+
     }
+    if(!authorities.equals("[ROLE_ADMIN]"))
     if(!user.equals(username))
         response.sendRedirect("/");
 %>
