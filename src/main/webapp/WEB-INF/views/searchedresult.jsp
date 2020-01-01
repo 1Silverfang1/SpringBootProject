@@ -1,7 +1,10 @@
 <%@ page import="com.silverfang.boot.model.Category" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.silverfang.boot.model.Post" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
+<%@ page import="org.springframework.security.core.userdetails.UserDetails" %><%--
   Created by IntelliJ IDEA.
   User: root
   Date: 27/12/19
@@ -74,17 +77,58 @@
             %>
         </td>
         <td>
-            <a href="/post/edit/<%=post.getPostId()%>">Edit</a>
+            <security:authorize access="isAuthenticated()">
+                <%
+                    String user=post.getUserTable().getName();
+                    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                    String username="";
+                    if (principal instanceof UserDetails) {
+
+                        username = ((UserDetails)principal).getUsername();
+
+                    } else {
+
+                        username= principal.toString();
+
+                    }
+                    if(user.equals(username))
+                    {
+                %>
+                <a href="/post/edit/<%=post.getPostId()%>">Edit</a>
+                <%
+                    }
+                %>
+            </security:authorize>
         </td>
         <td>
-            <a href="/post/delete/<%=post.getPostId()%>">Delete</a>
+            <security:authorize access="isAuthenticated()">
+                <%
+                    String user=post.getUserTable().getName();
+                    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                    String username="";
+                    if (principal instanceof UserDetails) {
+
+                        username = ((UserDetails)principal).getUsername();
+
+                    } else {
+
+                        username= principal.toString();
+
+                    }
+                    if(user.equals(username))
+                    {
+                %>
+                <a href="/post/delete/<%=post.getPostId()%>">Delete</a>
+                <%
+                    }
+                %>
+            </security:authorize>
         </td>
     </tr>
     </tbody>
     <%}%>
 </table>
 <%
-System.out.println(request.getAttribute("javax.servlet.forward.query_string"));
 %>
 </body>
 </html>

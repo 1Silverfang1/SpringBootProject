@@ -1,6 +1,10 @@
+<%@ page import="org.springframework.security.core.userdetails.UserDetails" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
+<%@ page import="com.silverfang.boot.model.Post" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="textarea" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: root
@@ -16,10 +20,29 @@
 <body>
  <h2>Update your Blog Here</h2>
  <%--@elvariable postId="BlogObject" type="jpa.model.BlogModel"--%>
+
+ <%
+     Post post = (Post) request.getAttribute("myPost");
+     String user = post.getUserTable().getName();
+     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+     String username="";
+     if (principal instanceof UserDetails) {
+
+         username = ((UserDetails)principal).getUsername();
+
+     } else {
+
+         username= principal.toString();
+
+     }
+     if(!user.equals(username))
+     response.sendRedirect("/");
+ %>
 <form:form action="/post/edit/${myPost.postId}" modelAttribute="myPost" method="post" >
 <form:input path="title"/>
     <form:textarea path="content"/>
     <form:hidden path="postId"/>
+    <input type="hidden" value="<security:authentication property="name"/>" name="author">
 <%--    <form:hidden path="listCategory"/>--%>
     <form:form  cssclass="form-control" modelAttribute="yourCategory" ><br>
         <form:checkbox path="name"  value="horror" cssStyle="width: available"/> Horror <br>

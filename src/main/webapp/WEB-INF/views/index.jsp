@@ -3,8 +3,11 @@
 <%@ page import="com.silverfang.boot.model.Post" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.silverfang.boot.model.UserTable" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page import="com.silverfang.boot.model.Category" %>
 <%@ page import="java.util.List" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
+<%@ page import="org.springframework.security.core.userdetails.UserDetails" %>
 <%@page isELIgnored="false" %>
 <html>
 <body>
@@ -15,7 +18,10 @@
 <div>
     <%@include file="/WEB-INF/Layout/navbar.jsp" %>
 </div>
-
+<security:authorize access="isAuthenticated()">
+    <h2 class="text-success"> Welcome Back,<security:authentication property="name"/></h2>
+    <h3 class="text-success">You are given <security:authorize access="hasRole('USER')"> AUTHOR LEVEL PRIVILEGE</security:authorize> </h3>
+</security:authorize>
 <table class="table table-dark">
     <thead>
     <tr>
@@ -40,7 +46,7 @@
         <td scope="row"><%=i%>
         </td>
         <td>
-            User
+            <p><%=post.getUserTable().getName()%></p>
         </td>
         <td>
             <a href="/post/view/<%=post.getPostId()%>"><%=post.getTitle()%>
@@ -69,10 +75,52 @@
             %>
         </td>
         <td>
-            <a href="/post/edit/<%=post.getPostId()%>">Edit</a>
+            <security:authorize access="isAuthenticated()">
+               <%
+                   String user=post.getUserTable().getName();
+                   Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                   String username="";
+                   if (principal instanceof UserDetails) {
+
+                        username = ((UserDetails)principal).getUsername();
+
+                   } else {
+
+                       username= principal.toString();
+
+                   }
+                   if(user.equals(username))
+                   {
+               %>
+                <a href="/post/edit/<%=post.getPostId()%>">Edit</a>
+                <%
+               }
+                %>
+            </security:authorize>
         </td>
         <td>
+            <security:authorize access="isAuthenticated()">
+                <%
+                    String user=post.getUserTable().getName();
+                    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                    String username="";
+                    if (principal instanceof UserDetails) {
+
+                        username = ((UserDetails)principal).getUsername();
+
+                    } else {
+
+                        username= principal.toString();
+
+                    }
+                    if(user.equals(username))
+                    {
+                %>
             <a href="/post/delete/<%=post.getPostId()%>">Delete</a>
+                <%
+                    }
+                %>
+            </security:authorize>
         </td>
     </tr>
     </tbody>

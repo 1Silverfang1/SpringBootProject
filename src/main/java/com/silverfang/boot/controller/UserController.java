@@ -24,9 +24,10 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public ModelAndView savePost(@ModelAttribute("yourPost") Post post, @ModelAttribute("yourCategory") Category category) {
+    public ModelAndView savePost(@ModelAttribute("yourPost") Post post, @ModelAttribute("yourCategory") Category category,@RequestParam("author") String name) {
         ModelAndView modelAndView = new ModelAndView("blogAdded");
-        blogService.saveMyBlog(post, category);
+        System.out.println(name);
+        blogService.saveMyBlog(post, category,name);
         return modelAndView;
     }
 
@@ -49,9 +50,9 @@ public class UserController {
     }
 
     @PostMapping("/edit/{postId}")
-    public ModelAndView confirmEditThiPost(@ModelAttribute("myPost") Post post, @ModelAttribute("yourCategory") Category category) {
+    public ModelAndView confirmEditThiPost(@ModelAttribute("myPost") Post post, @ModelAttribute("yourCategory") Category category,@RequestParam("author") String name) {
         System.out.println(post.getPostId());
-        blogService.saveMyBlog(post, category);
+        blogService.saveMyBlog(post, category,name);
         ModelAndView modelAndView = new ModelAndView("DataSucess");
         return modelAndView;
     }

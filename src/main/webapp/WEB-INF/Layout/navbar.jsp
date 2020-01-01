@@ -59,6 +59,14 @@
                     </form>
                 </div>
             </li>
+            <li>
+                <security:authorize access="!isAuthenticated()">
+                    <a class="nav-link" href="/login">Login</a>
+                </security:authorize>
+                <security:authorize access="isAuthenticated()">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </security:authorize>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="/post" >
             <input class="form-control mr-sm-2"  name="key" type="search" placeholder="Search" aria-label="Search">

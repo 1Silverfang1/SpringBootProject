@@ -11,6 +11,8 @@ import java.util.List;
 public class UserService implements UserServiceInterface {
     @Autowired
 private UserRepository userRepository;
+
+
     @Override
     public List<UserTable> getUser() {
         return userRepository.findAll();
@@ -19,5 +21,10 @@ private UserRepository userRepository;
     @Override
     public void saveUser(UserTable userTable) {
         userRepository.save(userTable);
+    }
+
+    @Override
+    public UserTable getUser(String user) {
+        return userRepository.findUserTableByNameContaining(user);
     }
 }

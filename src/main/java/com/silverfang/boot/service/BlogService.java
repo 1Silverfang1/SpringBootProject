@@ -5,6 +5,7 @@ import com.silverfang.boot.interfaces.PostServiceInterface;
 import com.silverfang.boot.interfaces.UserServiceInterface;
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
+import com.silverfang.boot.model.UserTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class BlogService {
     {
         return categoryServiceInterface.getsingleCategory(cateGoryName);
     }
-    public String saveMyBlog(Post myPost, Category myCategory) {
+    public String saveMyBlog(Post myPost, Category myCategory,String authorName) {
         if(myCategory.getName()!=null) {
             String[] cat = myCategory.getName().split(",");
             for (String category : cat) {
@@ -31,6 +32,8 @@ public class BlogService {
                 myPost.getListCategory().add(category1);
             }
         }
+        UserTable userTable= userServiceInterface.getUser(authorName);
+       myPost.setUserTable(userTable);
         postServiceInterface.savePost(myPost);
         return "Blog saved";
     }
