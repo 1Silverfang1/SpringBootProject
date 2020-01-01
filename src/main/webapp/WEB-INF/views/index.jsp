@@ -23,7 +23,7 @@
 </security:authorize>
 <security:authorize access="isAuthenticated()">
    <h2 class="text-success"> Welcome Back,<security:authentication property="name"/></h2>
-    <h3 class="text-success">You are given <security:authorize access="hasRole('USER')"> AUTHOR LEVEL PREVILAGE</security:authorize> </h3>
+    <h3 class="text-success">You are given <security:authorize access="hasRole('USER')"> AUTHOR LEVEL PRIVILEGE</security:authorize> </h3>
 </security:authorize>
 <table class="table table-dark">
     <thead>

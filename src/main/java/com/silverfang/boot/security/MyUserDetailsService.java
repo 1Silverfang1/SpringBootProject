@@ -30,11 +30,11 @@ public class MyUserDetailsService implements UserDetailsService {
 
         return  new User(userTable.getName(),userTable.getPassword(),new ArrayList<>());
     }
-    public UserTable save(AuthRequest user) {
+    public void save(AuthRequest user) {
         UserTable newUser = new UserTable();
         newUser.setName(user.getUserName());
         newUser.setEmail(user.getEmail());
         newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-        return userRepository.save(newUser);
+        userRepository.save(newUser);
     }
 }

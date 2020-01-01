@@ -13,7 +13,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -45,6 +44,7 @@ public class AuthenticationController {
     }
     @PostMapping("/register")
     public ResponseEntity<?> saveUser(@RequestBody AuthRequest user) throws Exception {
-        return ResponseEntity.ok(userDetailsService.save(user));
+        userDetailsService.save(user);
+        return ResponseEntity.ok("Author Registered");
     }
 }
