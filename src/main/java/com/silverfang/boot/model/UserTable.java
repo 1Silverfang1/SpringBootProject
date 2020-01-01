@@ -28,6 +28,7 @@ public class UserTable {
 
     String name;
     String roles;
+//    boolean enable;
 
     public String getRoles() {
         return roles;
@@ -42,12 +43,14 @@ public class UserTable {
     }
 
     public UserTable() {
+//        this.enable=false;
     }
 
     public UserTable(String name, String email, String password ) {
         this.name = name;
         this.email = email;
         this.password = password;
+//        this.enable=false;
     }
 
     public void setUserId(int userId) {
