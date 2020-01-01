@@ -1,7 +1,12 @@
 package com.silverfang.boot.controller;
 
+import com.silverfang.boot.interfaces.PostServiceInterface;
+import com.silverfang.boot.interfaces.UserServiceInterface;
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
+import com.silverfang.boot.model.UserTable;
+import com.silverfang.boot.repository.PostRepository;
+import com.silverfang.boot.security.MyUserDetailService;
 import com.silverfang.boot.service.BlogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,11 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -23,25 +26,56 @@ import java.util.List;
 public class HomeController {
     @Autowired
     private BlogService blogService;
-    Logger logger = LoggerFactory.getLogger(HomeController.class);
+    @Autowired
+    private UserServiceInterface userServiceInterface;
+    @Autowired
+    private PostRepository postServiceInterface;
+    @Autowired
+    private MyUserDetailService myUserDetailService;
 
-//@GetMapping("/")
-//    public ModelAndView getHomePage()
-//{
-//    logger.debug("hey");
-//    logger.info("afesfwascx" +
-//            "");
-//    ModelAndView modelAndView= new ModelAndView("index");
-//    Pageable paging = PageRequest.of(0, 4);
-//    List<Post> postList=blogService.getMyPost();
-//    int i=postList.size();
-//    System.out.println(i+" "+i/4);
-//    List<Post> allPost= blogService.getMyPost(paging);
-//    modelAndView.addObject("allPost",allPost);
-//    modelAndView.addObject("CurPage",0);
-//    modelAndView.addObject("totalPage",i/4);
-//    return  modelAndView;
-//}
+    @GetMapping("/register")
+    public ModelAndView getRegistered()
+    {
+        UserTable userTable = new UserTable();
+        ModelAndView modelAndView = new ModelAndView("register");
+        modelAndView.addObject("user",userTable);
+        return modelAndView;
+    }
+    @PostMapping("/register")
+    public ModelAndView saveAuthor(@ModelAttribute("user") UserTable userTable)
+    {
+        myUserDetailService.save(userTable);
+        ModelAndView modelAndView= new ModelAndView("DataSucess");
+        return modelAndView;
+    }
+    @GetMapping("/myPost")
+    public ModelAndView getMyPost( @RequestParam(defaultValue = "0" ,required = false,name = "page") int page ,
+                                   @RequestParam(defaultValue = "4" ,required = false, name = "pageSize") int pageSize,
+                                   @RequestParam(defaultValue = "title",required = false, name = "sortBy") String title)
+    {
+        ModelAndView modelAndView= new ModelAndView("index");
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username="";
+        if (principal instanceof UserDetails) {
+
+            username = ((UserDetails)principal).getUsername();
+
+        } else {
+
+            username= principal.toString();
+
+        }
+
+        UserTable userTable = userServiceInterface.getUser(username);
+        Pageable pageable= PageRequest.of(page,pageSize,Sort.by(title));
+        ArrayList<Post> postList= (ArrayList<Post>) postServiceInterface.findPostByUserTable(userTable,pageable);
+        int total=postList.size()/pageSize;
+        modelAndView.addObject("allPost",postList);
+        modelAndView.addObject("CurPage",page);
+        modelAndView.addObject("totalPage",total);
+        return modelAndView;
+
+    }
 
 @GetMapping({"/post","/"})
     public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",required = false, name = "sortBy") String title,
@@ -60,12 +94,10 @@ public class HomeController {
 
             Category category= blogService.getSingleCategory(filter);
             System.out.println(category.getName());
-//            Pageable pageable1= PageRequest.of(page,4,Sort.by(title));
             List<Post> postList1= blogService.filterPost(category,Pageable.unpaged());
             System.out.println(postList1.size());
         for(Post post:postList)
         {
-            System.out.println(post.getListCategory().get(0).getName());
             if(postList1.contains(post))
             {
                 postList2.add(post);
@@ -89,7 +121,7 @@ public class HomeController {
         List<Post> postList= blogService.filterPost(category,pageable);
         List<Post> list=blogService.filterPost(category,Pageable.unpaged());
         modelAndView.addObject("allPost",postList);
-        int total=list.size()/4;
+        int total=list.size()/pageSize;
         modelAndView.addObject("CurPage",page);
         modelAndView.addObject("totalPage",total);
         return  modelAndView;
@@ -101,7 +133,7 @@ public class HomeController {
     }
     List<Post> pagenationPost= blogService.getMyPost(paging);
    List<Post>  allPost= blogService.getMyPost(Pageable.unpaged());
-    int total=allPost.size()/4;
+    int total=allPost.size()/pageSize;
     modelAndView.addObject("CurPage",page);
     modelAndView.addObject("totalPage",total);
     modelAndView.addObject("allPost",pagenationPost);

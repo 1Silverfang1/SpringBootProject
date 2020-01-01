@@ -1,6 +1,6 @@
 <%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/">Silverfang</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -66,6 +66,14 @@
                 <security:authorize access="isAuthenticated()">
                     <a class="nav-link" href="/logout">Logout</a>
                 </security:authorize>
+            </li>
+            <li>
+                <security:authorize access="isAuthenticated()">
+                    <a class="nav-link" href="/myPost">MyPost</a>
+                </security:authorize>
+            </li>
+            <li>
+                <a  class="nav-link" href="/register">Register as Author</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="/post" >
