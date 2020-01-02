@@ -15,30 +15,9 @@ import javax.mail.MessagingException;
 import java.io.IOException;
 
 @SpringBootApplication
-public class BootblogApplication implements CommandLineRunner {
-    @Autowired
-    private JavaMailSender javaMailSender;
+public class BootblogApplication {
     public static void main(String[] args) {
         SpringApplication.run(BootblogApplication.class, args);
-
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("Sending Email...");
-        sendEmail();
-        System.out.println("Done");
-
-    }
-    void sendEmail() {
-
-        SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo("imrawatsvaibhav@gmail.com");
-
-        msg.setSubject("Testing from Spring Boot");
-        msg.setText("Hello World \n Spring Boot Email");
-
-        javaMailSender.send(msg);
-
-    }
 }

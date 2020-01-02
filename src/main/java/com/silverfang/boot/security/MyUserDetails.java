@@ -12,10 +12,12 @@ public class MyUserDetails implements UserDetails {
     private  String username;
     private  String password;
     private List<GrantedAuthority> authorities;
+    private Boolean enable;
 
-    public MyUserDetails(String username, String password,String role) {
+    public MyUserDetails(String username, String password,String role,Boolean enable) {
         this.username = username;
         this.password = password;
+        this.enable=enable;
         if(role.equals("AUTHOR"))
         {
             authorities= Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
@@ -61,6 +63,6 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enable;
     }
 }

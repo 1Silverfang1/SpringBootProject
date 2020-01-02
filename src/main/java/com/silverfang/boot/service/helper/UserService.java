@@ -27,4 +27,9 @@ private UserRepository userRepository;
     public UserTable getUser(String user) {
         return userRepository.findUserTableByNameContaining(user);
     }
+
+    @Override
+    public UserTable findUserTableByEmail(String email) {
+        return userRepository.findUserTableByNameContaining(email);
+    }
 }

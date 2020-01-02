@@ -5,28 +5,65 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 public class TokenOTP {
-    private static final int EXPIRATION = 60 * 24;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name="token_id")
+    private long tokenid;
 
-    private String token;
+    @Column(name="confirmation_token")
+    private String confirmationToken;
 
-//    @OneToOne(targetEntity = UserTable.class, fetch = FetchType.EAGER)
-//    @JoinColumn(nullable = false, name = "user_id")
-//    private UserTable user;
-
-    private Date expiryDate;
-
-    private Date calculateExpiryDate(int expiryTimeInMinutes) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(new Timestamp(cal.getTime().getTime()));
-        cal.add(Calendar.MINUTE, expiryTimeInMinutes);
-        return new Date(cal.getTime().getTime());
+    public long getTokenid() {
+        return tokenid;
     }
+
+    public void setTokenid(long tokenid) {
+        this.tokenid = tokenid;
+    }
+
+    public TokenOTP() {
+    }
+
+    public String getConfirmationToken() {
+        return confirmationToken;
+    }
+
+    public void setConfirmationToken(String confirmationToken) {
+        this.confirmationToken = confirmationToken;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public UserTable getUser() {
+        return user;
+    }
+
+    public void setUser(UserTable user) {
+        this.user = user;
+    }
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
+
+    @OneToOne(targetEntity = UserTable.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "user_id")
+    private UserTable user;
+
+    public TokenOTP(UserTable user) {
+        this.user = user;
+        createdDate = new Date();
+        confirmationToken = UUID.randomUUID().toString();
+    }
+
 }
 
