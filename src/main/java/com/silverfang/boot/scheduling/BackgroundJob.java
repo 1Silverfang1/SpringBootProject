@@ -14,14 +14,14 @@ import java.util.List;
 public class BackgroundJob {
     @Autowired
     private TokenRepository tokenRepository;
-        @Scheduled(fixedRate = 50000)
+        @Scheduled(fixedRate = 500000)
     public void deleteOTP()
         {
             Date date = new Date();
            List<TokenOTP> tokenOTPS = tokenRepository.findAll();
            for(TokenOTP tokenOTP:tokenOTPS)
            {
-               if(date.getTime()-tokenOTP.getCreatedDate().getTime()>40000)
+               if(date.getTime()-tokenOTP.getCreatedDate().getTime()>400000)
                {
                    tokenRepository.delete(tokenOTP);
                    System.out.println("deleting token for :"+ tokenOTP.getUser().getName());
