@@ -1,5 +1,6 @@
 package com.silverfang.boot.controller;
 
+import com.silverfang.boot.BootblogApplication;
 import com.silverfang.boot.interfaces.PostServiceInterface;
 import com.silverfang.boot.interfaces.UserServiceInterface;
 import com.silverfang.boot.model.Category;
@@ -32,6 +33,7 @@ import java.util.List;
 
 @RestController
 public class HomeController {
+     Logger LOGGER= LoggerFactory.getLogger(HomeController.class);
     @Autowired
     private BlogService blogService;
     @Autowired
@@ -47,6 +49,7 @@ public class HomeController {
     @GetMapping("/forgotPassword")
     public ModelAndView restMyPass()
     {
+        LOGGER.info("forgot passwword method invoked");
         ModelAndView modelAndView=new ModelAndView("fogotpassword");
         UserTable userTable= new UserTable();
         modelAndView.addObject("user",userTable);
@@ -55,22 +58,41 @@ public class HomeController {
     @PostMapping("/forgotPassword")
     public ModelAndView resetMyPass(@ModelAttribute("user") UserTable userTable)
     {
+        LOGGER.info("forgot passwword method invoked and Details have been sent by the user");
 
         ModelAndView modelAndView= new ModelAndView("accountVerified");
         UserTable userTable1= userServiceInterface.getUser(userTable.getName());
         if(userTable1==null)
         {
+            LOGGER.warn("User dont exist : inside resetMyPass function");
             modelAndView.setViewName("error");
             modelAndView.addObject("msg","user don't exist");
+            LOGGER.info("Redirecting to Error page");
             return  modelAndView;
         }
+
         TokenOTP newToken=tokenRepository.findByUser(userTable1);
+        LOGGER.info("Token is being searched for the user");
         TokenOTP tokenOTP= new TokenOTP(userTable1);
-        newToken.setConfirmationToken(tokenOTP.getConfirmationToken());
-        newToken.setCreatedDate(tokenOTP.getCreatedDate());
-        SimpleMailMessage mailMessage= blogService.sendMailNow(userTable1,newToken,"http://localhost:8080/reset-password?token=");
-        tokenRepository.save(newToken);
+        if(newToken!=null)
+        {
+            newToken.setConfirmationToken(tokenOTP.getConfirmationToken());
+            newToken.setCreatedDate(tokenOTP.getCreatedDate());
+            LOGGER.info("Token is being overwritten");
+            LOGGER.info("Token is being now being loaded in the message link");
+            SimpleMailMessage mailMessage= blogService.sendMailNow(userTable1,newToken,"http://localhost:8080/reset-password?token=");
+            tokenRepository.save(newToken);
+            LOGGER.info("Token is saved in the database");
+            mailService.sendEmail(mailMessage);
+            LOGGER.info("Mail is sent to the email");
+            return  modelAndView;
+        }
+        LOGGER.warn("Token for user not exist so generating token");
+        SimpleMailMessage mailMessage= blogService.sendMailNow(userTable1,tokenOTP,"http://localhost:8080/reset-password?token=");
+        tokenRepository.save(tokenOTP);
+        LOGGER.info("Token is saved in the database :outside if");
         mailService.sendEmail(mailMessage);
+        LOGGER.info("Mail is sent to the email");
         return  modelAndView;
     }
     @RequestMapping(value="/reset-password", method= RequestMethod.GET)
@@ -81,24 +103,24 @@ public class HomeController {
         System.out.println(confirmationToken);
         TokenOTP token = tokenRepository.findByConfirmationToken(confirmationToken);
         Date date = new Date();
-        if(token != null)
-            if(date.getTime() - token.getCreatedDate().getTime() <360000)
-            {
-                System.out.println("tokenreset");
-                modelAndView.addObject("user",token.getUser().getName());
+        if(token != null) {
+            LOGGER.info("Token exist in the database");
+            if (date.getTime() - token.getCreatedDate().getTime() < 360000) {
+                LOGGER.info("Token exist in the database and is valid");
+                modelAndView.addObject("user", token.getUser().getName());
                 return modelAndView;
 
-            }
-            else
-            {
-                System.out.println("tokenwrong");
-                modelAndView.addObject("msg","The link is invalid or broken!");
+            } else {
+                LOGGER.warn("Token is expired");
+                modelAndView.addObject("msg", "The link is invalid or broken! or is expired");
                 modelAndView.setViewName("error");
-                return  modelAndView;
+                return modelAndView;
             }
-        System.out.println("tokennnnnnnn");
-        modelAndView.addObject("msg","The link is invalid or broken!");
+        }
+        LOGGER.warn("Token dont exist in the database");
+        modelAndView.addObject("msg","The link is expired generate again by registering");
         modelAndView.setViewName("error");
+        LOGGER.info("going back to the register page");
         return  modelAndView;
 
     }
@@ -106,7 +128,8 @@ public class HomeController {
     public  ModelAndView savePassword(@RequestParam("username") String username,@RequestParam("pass") String password)
     {
 
-        System.out.println(username+"  "+password);
+        LOGGER.info("in reset password function ");
+        LOGGER.info("searching for the user name in the database");
         UserTable userTable= userServiceInterface.getUser(username);
         userTable.setPassword(password);
         myUserDetailService.save(userTable);
@@ -175,6 +198,7 @@ public class HomeController {
                                    @RequestParam(defaultValue = "4" ,required = false, name = "pageSize") int pageSize,
                                    @RequestParam(defaultValue = "title",required = false, name = "sortBy") String title)
     {
+        LOGGER.error("error occured just kididng");
         ModelAndView modelAndView= new ModelAndView("index");
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username="";
@@ -222,65 +246,67 @@ public class HomeController {
     }
 
 @GetMapping({"/post","/"})
-    public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",required = false, name = "sortBy") String title,
+public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",required = false, name = "sortBy") String title,
                                             @RequestParam(defaultValue = "0" ,required = false,name = "page") int page ,
-                                            @RequestParam(defaultValue = "4" ,required = false, name = "pageSize") int pageSize,
                                             @RequestParam(defaultValue = "" ,required = false, name = "filterBy") String filter,
-                                            @RequestParam(defaultValue = "", required = false ,name = "key")String key) {
-    ModelAndView modelAndView = new ModelAndView("index");
-    if (!key.equals(""))
-    {
-        Pageable pageable= PageRequest.of(page,pageSize,Sort.by(title));
-        List<Post> postList=blogService.searchMyBlog(key,pageable);
-        List<Post> postList2= new ArrayList<>();
-        if(!filter.equals(""))
+                                            @RequestParam(defaultValue = "", required = false ,name = "key")String key,
+                                            @RequestParam(defaultValue = "4",required = false,name = "pageSize")int pageSize ) {
+        ModelAndView modelAndView = new ModelAndView("index");
+        if (!key.equals(""))
         {
-
-            Category category= blogService.getSingleCategory(filter);
-            System.out.println(category.getName());
-            List<Post> postList1= blogService.filterPost(category,Pageable.unpaged());
-            System.out.println(postList1.size());
-        for(Post post:postList)
-        {
-            if(postList1.contains(post))
+            Pageable pageable= PageRequest.of(page,pageSize,Sort.by(title));
+            List<Post> postList=blogService.searchMyBlog(key,pageable);//    modelAndView.addObject("allPost",allPost);
+            List<Post> postList2= new ArrayList<>();
+            if(!filter.equals(""))
             {
-                postList2.add(post);
+
+                Category category= blogService.getSingleCategory(filter);
+                System.out.println(category.getName());
+//            Pageable pageable1= PageRequest.of(page,4,Sort.by(title));
+                List<Post> postList1= blogService.filterPost(category,Pageable.unpaged());
+                System.out.println(postList1.size());
+                for(Post post:postList)
+                {
+                    System.out.println(post.getListCategory().get(0).getName());
+                    if(postList1.contains(post))
+                    {
+                        postList2.add(post);
+                    }
+                }
+                ModelAndView modelAndView1 = new ModelAndView("searchedresult");
+                modelAndView1.addObject("allPost", postList2);
+                return modelAndView1;
             }
-        }
             ModelAndView modelAndView1 = new ModelAndView("searchedresult");
-            modelAndView1.addObject("allPost", postList2);
+            modelAndView1.addObject("allPost", postList);
             return modelAndView1;
         }
-        ModelAndView modelAndView1 = new ModelAndView("searchedresult");
-        modelAndView1.addObject("allPost", postList);
-        return modelAndView1;
-    }
-    if(!filter.equals(""))
-    {
-        System.out.println("sadasd");
-        Category category= blogService.getSingleCategory(filter);
-        Pageable pageable= PageRequest.of(page,pageSize,Sort.by(title));
-        if(title.equals("updatedAt"))
-            pageable= PageRequest.of(page,pageSize,Sort.by(title).descending());
-        List<Post> postList= blogService.filterPost(category,pageable);
-        List<Post> list=blogService.filterPost(category,Pageable.unpaged());
-        modelAndView.addObject("allPost",postList);
-        int total=list.size()/pageSize;
+        if(!filter.equals(""))
+        {
+            System.out.println("sadasd");
+            Category category= blogService.getSingleCategory(filter);
+            Pageable pageable= PageRequest.of(page,pageSize,Sort.by(title));
+            if(title.equals("updatedAt"))
+                pageable= PageRequest.of(page,pageSize,Sort.by(title).descending());
+            List<Post> postList= blogService.filterPost(category,pageable);
+            List<Post> list=blogService.filterPost(category,Pageable.unpaged());
+            modelAndView.addObject("allPost",postList);
+            int total=list.size()/4;
+            modelAndView.addObject("CurPage",page);
+            modelAndView.addObject("totalPage",total);
+            return  modelAndView;
+        }
+        Pageable paging;
+        paging = PageRequest.of(page, pageSize,Sort.by(title));
+        if(title.equals("updatedAt")) {
+            paging = PageRequest.of(page, pageSize, Sort.by(title).descending());
+        }
+        List<Post> pagenationPost= blogService.getMyPost(paging);
+        List<Post>  allPost= blogService.getMyPost(Pageable.unpaged());
+        int total=allPost.size()/4;
         modelAndView.addObject("CurPage",page);
         modelAndView.addObject("totalPage",total);
+        modelAndView.addObject("allPost",pagenationPost);
         return  modelAndView;
     }
-    Pageable paging;
-    paging = PageRequest.of(page, pageSize,Sort.by(title));
-    if(title.equals("updatedAt")) {
-        paging = PageRequest.of(page, pageSize, Sort.by(title).descending());
-    }
-    List<Post> paginationPost= blogService.getMyPost(paging);
-   List<Post>  allPost= blogService.getMyPost(Pageable.unpaged());
-    int total=allPost.size()/pageSize;
-    modelAndView.addObject("CurPage",page);
-    modelAndView.addObject("totalPage",total);
-    modelAndView.addObject("allPost",paginationPost);
-    return  modelAndView;
-}
 }
