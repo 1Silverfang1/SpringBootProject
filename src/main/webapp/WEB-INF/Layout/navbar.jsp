@@ -75,6 +75,10 @@
             <li>
                 <a  class="nav-link" href="/register">Register as Author</a>
             </li>
+            <li>
+                <a  class="nav-link" href="/forgotPassword">Forgot Your pass</a>
+            </li>
+
         </ul>
         <form class="form-inline my-2 my-lg-0" action="/post" >
             <input class="form-control mr-sm-2"  name="key" type="search" placeholder="Search" aria-label="Search">

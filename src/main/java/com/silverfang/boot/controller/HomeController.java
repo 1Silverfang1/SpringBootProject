@@ -23,6 +23,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -41,6 +44,74 @@ public class HomeController {
     private TokenRepository tokenRepository;
     @Autowired
     private MailService mailService;
+    @GetMapping("/forgotPassword")
+    public ModelAndView restMyPass()
+    {
+        ModelAndView modelAndView=new ModelAndView("fogotpassword");
+        UserTable userTable= new UserTable();
+        modelAndView.addObject("user",userTable);
+        return  modelAndView;
+    }
+    @PostMapping("/forgotPassword")
+    public ModelAndView resetMyPass(@ModelAttribute("user") UserTable userTable)
+    {
+
+        ModelAndView modelAndView= new ModelAndView("accountVerified");
+        UserTable userTable1= userServiceInterface.getUser(userTable.getName());
+        if(userTable1==null)
+        {
+            modelAndView.setViewName("error");
+            modelAndView.addObject("msg","user don't exist");
+            return  modelAndView;
+        }
+        TokenOTP newToken=tokenRepository.findByUser(userTable1);
+        TokenOTP tokenOTP= new TokenOTP(userTable1);
+        newToken.setConfirmationToken(tokenOTP.getConfirmationToken());
+        newToken.setCreatedDate(tokenOTP.getCreatedDate());
+        SimpleMailMessage mailMessage= blogService.sendMailNow(userTable1,newToken,"http://localhost:8080/reset-password?token=");
+        tokenRepository.save(newToken);
+        mailService.sendEmail(mailMessage);
+        return  modelAndView;
+    }
+    @RequestMapping(value="/reset-password", method= RequestMethod.GET)
+    public  ModelAndView resetMyPass(@RequestParam("token")String confirmationToken)
+    {
+     ModelAndView modelAndView= new ModelAndView("reset");
+     modelAndView.addObject("resetPass",true);
+        System.out.println(confirmationToken);
+        TokenOTP token = tokenRepository.findByConfirmationToken(confirmationToken);
+        Date date = new Date();
+        if(token != null)
+            if(date.getTime() - token.getCreatedDate().getTime() <360000)
+            {
+                System.out.println("tokenreset");
+                modelAndView.addObject("user",token.getUser().getName());
+                return modelAndView;
+
+            }
+            else
+            {
+                System.out.println("tokenwrong");
+                modelAndView.addObject("msg","The link is invalid or broken!");
+                modelAndView.setViewName("error");
+                return  modelAndView;
+            }
+        System.out.println("tokennnnnnnn");
+        modelAndView.addObject("msg","The link is invalid or broken!");
+        modelAndView.setViewName("error");
+        return  modelAndView;
+
+    }
+    @PostMapping("/reset-password")
+    public  ModelAndView savePassword(@RequestParam("username") String username,@RequestParam("pass") String password)
+    {
+
+        System.out.println(username+"  "+password);
+        UserTable userTable= userServiceInterface.getUser(username);
+        userTable.setPassword(password);
+        myUserDetailService.save(userTable);
+        return  new ModelAndView("DataSucess");
+    }
     @GetMapping("/register")
     public ModelAndView getRegistered()
     {
@@ -50,19 +121,49 @@ public class HomeController {
         return modelAndView;
     }
     @PostMapping("/register")
-    public ModelAndView saveAuthor(@ModelAttribute("user") UserTable userTable)
-    {
+    public ModelAndView saveAuthor(@ModelAttribute("user") UserTable userTable) throws IOException {
         userTable.setRoles("AUTHOR");
         userTable.setEnable(false);
-        myUserDetailService.save(userTable);
+        UserTable userTable1= userServiceInterface.getUser(userTable.getName());
+        if(userTable1==null) {
+            System.out.println("user not exist" +
+                    "");
+            myUserDetailService.save(userTable);
+
+        }
+        else
+        {
+
+            if(userTable1.isEnable()) {
+
+            ModelAndView modelAndView= new ModelAndView("error");
+            modelAndView.addObject("msg","user Already exist and is verified");
+            return  modelAndView;
+            }
+            TokenOTP confirmationToken = new TokenOTP(userTable1);
+            TokenOTP newToken=tokenRepository.findByUser(userTable1);
+            if(newToken==null)
+            {
+                tokenRepository.save(confirmationToken);
+                ModelAndView modelAndView= new ModelAndView();
+                SimpleMailMessage mailMessage = blogService.sendMailNow(userTable1,confirmationToken,"http://localhost:8080/confirm-account?token=");
+                mailService.sendEmail(mailMessage);
+                modelAndView.addObject("emailId", userTable.getEmail());
+                modelAndView.setViewName("Registered");
+                return modelAndView;
+            }
+            else
+            {
+                SimpleMailMessage mailMessage = blogService.sendMailNow(userTable,newToken,"http://localhost:8080/confirm-account?token=");
+                mailService.sendEmail(mailMessage);
+                ModelAndView modelAndView= new ModelAndView("Registered");
+                return  modelAndView;
+            }
+
+        }
         TokenOTP confirmationToken = new TokenOTP(userTable);
         tokenRepository.save(confirmationToken);
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo(userTable.getEmail());
-        mailMessage.setSubject("Complete Registration!");
-        mailMessage.setFrom("vaibhavrawat00000@gmail.com");
-        mailMessage.setText("To confirm your account, please click here : "
-                +"http://localhost:8080/confirm-account?token="+confirmationToken.getConfirmationToken());
+        SimpleMailMessage mailMessage = blogService.sendMailNow(userTable,confirmationToken,"http://localhost:8080/confirm-account?token=");
         ModelAndView modelAndView= new ModelAndView("DataSucess");
         mailService.sendEmail(mailMessage);
         modelAndView.addObject("emailId", userTable.getEmail());
@@ -102,8 +203,8 @@ public class HomeController {
     {
         TokenOTP token = tokenRepository.findByConfirmationToken(confirmationToken);
         Date date = new Date();
-        if(date.getTime() - token.getCreatedDate().getTime() >10*60*60)
         if(token != null)
+        if(date.getTime() - token.getCreatedDate().getTime() <360000)
         {
 
             UserTable user = userServiceInterface.getUser(token.getUser().getName());
@@ -174,12 +275,12 @@ public class HomeController {
     if(title.equals("updatedAt")) {
         paging = PageRequest.of(page, pageSize, Sort.by(title).descending());
     }
-    List<Post> pagenationPost= blogService.getMyPost(paging);
+    List<Post> paginationPost= blogService.getMyPost(paging);
    List<Post>  allPost= blogService.getMyPost(Pageable.unpaged());
     int total=allPost.size()/pageSize;
     modelAndView.addObject("CurPage",page);
     modelAndView.addObject("totalPage",total);
-    modelAndView.addObject("allPost",pagenationPost);
+    modelAndView.addObject("allPost",paginationPost);
     return  modelAndView;
 }
 }

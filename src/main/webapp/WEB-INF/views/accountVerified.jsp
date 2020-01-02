@@ -11,6 +11,6 @@
     <title>Account verified</title>
 </head>
 <body>
-You have succes fully registered
+You have succesfully registered
 </body>
 </html>

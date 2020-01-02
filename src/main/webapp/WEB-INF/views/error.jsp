@@ -11,6 +11,7 @@
     <title>error</title>
 </head>
 <body>
-The pafe you ar elooking for doesnot exits
+The pafe you are looking for doesnot exits
+${msg}
 </body>
 </html>
