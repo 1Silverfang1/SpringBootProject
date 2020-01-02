@@ -5,9 +5,11 @@ import com.silverfang.boot.interfaces.PostServiceInterface;
 import com.silverfang.boot.interfaces.UserServiceInterface;
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
+import com.silverfang.boot.model.TokenOTP;
 import com.silverfang.boot.model.UserTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +22,19 @@ public class BlogService {
     private UserServiceInterface userServiceInterface;
     @Autowired
     private CategoryServiceInterface categoryServiceInterface;
+    public SimpleMailMessage sendMailNow(UserTable userTable, TokenOTP confirmationToken, String url)
+    {
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(userTable.getEmail());
+        mailMessage.setSubject("Complete Registration!");
+        mailMessage.setFrom("vaibhavrawat00000@gmail.com");
+        mailMessage.setText("To confirm your account, please note here : "
+                +url+confirmationToken.getConfirmationToken());
+        return  mailMessage;
+    }
+
+
+
     public Category getSingleCategory(String cateGoryName)
     {
         return categoryServiceInterface.getsingleCategory(cateGoryName);

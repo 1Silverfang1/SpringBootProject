@@ -29,17 +29,40 @@ public class UserTable {
     }
 
     String name;
+    String roles;
+    boolean isEnable;
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    public boolean isEnable() {
+        return isEnable;
+    }
+
+    public void setEnable(boolean enable) {
+        isEnable = enable;
+    }
+
     public int getUserId() {
         return userId;
     }
 
     public UserTable() {
+        this.setEnable(false);
+        this.setRoles("author");
     }
 
     public UserTable(String name, String email, String password ) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.setEnable(false);
+        this.setRoles("author");
     }
 
     public void setUserId(int userId) {

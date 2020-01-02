@@ -19,5 +19,17 @@ private UserRepository userRepository;
     @Override
     public void saveUser(UserTable userTable) {
         userRepository.save(userTable);
+
     }
+
+    @Override
+    public UserTable getMyUser(String user) {
+        return userRepository.findUserTableByNameContaining(user);
+    }
+
+    @Override
+    public UserTable getMyUserFromMail(String email) {
+        return userRepository.findUserTableByEmailContaining(email);
+    }
+
 }

@@ -28,12 +28,14 @@ public class MyUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("user not in the database" + User);
         }
 
-        return  new User(userTable.getName(),userTable.getPassword(),new ArrayList<>());
+        return new MyUserDetail(userTable.getName(),userTable.getPassword(),userTable.getRoles(),userTable.isEnable());
     }
     public void save(AuthRequest user) {
         UserTable newUser = new UserTable();
         newUser.setName(user.getUserName());
         newUser.setEmail(user.getEmail());
+        newUser.setRoles("Author");
+        newUser.setEnable(false);
         newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
         userRepository.save(newUser);
     }

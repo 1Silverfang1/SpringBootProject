@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<UserTable,Integer> {
     UserTable findUserTableByNameContaining(String user);
+    UserTable findUserTableByEmailContaining(String email);
 }

@@ -105,7 +105,7 @@ public class ControllerRest {
     }
     @DeleteMapping(headers = "Accept=application/json",value = "/posts/{postId}",produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
     public ResponseEntity<Post> deleteMyPost(@PathVariable("postId") int postId)
-    {
+    {   
         Post post = blogService.viewMyPost(postId);
 
         blogService.deleteBlog(post);
