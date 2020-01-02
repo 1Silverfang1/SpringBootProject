@@ -49,6 +49,7 @@ public class PostService implements PostServiceInterface {
         return postRepository.findPostByListCategoryIsContainingOrderByUpdatedAt(filter,pageable);
     }
 
+
     @Override
     public List<Post> searchInPost(String key,Pageable pageable) {
        return postRepository.findPostByTitleContainsOrContentContains(key,key,pageable);

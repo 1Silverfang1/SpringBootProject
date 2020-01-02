@@ -148,11 +148,16 @@ public class HomeController {
         userTable.setRoles("AUTHOR");
         userTable.setEnable(false);
         UserTable userTable1= userServiceInterface.getUser(userTable.getName());
+        UserTable userTable2=userServiceInterface.findUserTableByEmail(userTable.getEmail());
         if(userTable1==null) {
-            System.out.println("user not exist" +
-                    "");
+            if(userTable2==null)
             myUserDetailService.save(userTable);
-
+            else
+            {
+                ModelAndView modelAndView= new ModelAndView("error");
+                modelAndView.addObject("msg","Email already exist");
+                return  modelAndView;
+            }
         }
         else
         {
@@ -160,7 +165,7 @@ public class HomeController {
             if(userTable1.isEnable()) {
 
             ModelAndView modelAndView= new ModelAndView("error");
-            modelAndView.addObject("msg","user Already exist and is verified");
+            modelAndView.addObject("msg","username Already exist and is verified");
             return  modelAndView;
             }
             TokenOTP confirmationToken = new TokenOTP(userTable1);
