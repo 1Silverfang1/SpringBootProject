@@ -2,7 +2,7 @@ package com.silverfang.boot;
 
 import com.silverfang.boot.controller.HomeController;
 import com.silverfang.boot.model.Post;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -17,6 +17,7 @@ import java.io.IOException;
 @EnableScheduling
 @SpringBootApplication
 public class BootblogApplication {
+    private final static Logger LOGGER= LoggerFactory.getLogger(BootblogApplication.class);
     public static void main(String[] args) {
         SpringApplication.run(BootblogApplication.class, args);
     }
