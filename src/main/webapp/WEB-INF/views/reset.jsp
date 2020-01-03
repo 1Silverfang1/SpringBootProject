@@ -23,7 +23,7 @@
 
     <input type="hidden" name="username" value="<%=user%>">
     <span id='message'></span>
-    <input type="submit" value="Update">
+    <input type="submit" id="button"  value="Update">
 </form:form>
 </body>
 <script>

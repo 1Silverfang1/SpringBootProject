@@ -13,9 +13,12 @@
 </head>
 <body>
         <form:form action="/register" method="post" modelAttribute="user">
-            <form:input path="name"/>
-            <form:input path="email"/>
-            <form:input path="password"/>
+            <label for="name">Name</label>
+            <form:input id ="name" path="name"/>
+            <label for="email" >Password</label>
+            <form:input id="email" path="email"/>
+            <label for="password">Password</label>
+            <form:input id="password" path="password"/>
             <input type="submit" value="Register">
         </form:form>
 </body>
