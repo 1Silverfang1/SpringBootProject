@@ -21,12 +21,16 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
 @RestController
 public class AuthenticationController {
+    @Autowired
+    private PasswordEncoder bcryptEncoder;
     @Autowired
     private MyUserDetailsService userDetailsService;
     @Autowired
@@ -57,7 +61,26 @@ public class AuthenticationController {
         } else
             return ResponseEntity.ok("Plz activate your account");
     }
+    @PostMapping("/reset-pass")
+    public  ResponseEntity<?> confirmReset(@RequestBody AuthRequest authRequest)
+    {
+        String token= authRequest.getToken();
+        String newPass= authRequest.getPassword();
+        TokenOTP tokenOTP= tokenService.findByConfirmationToken(token);
+        Date date = new Date();
+        if (token != null) {
+            if (date.getTime() - tokenOTP.getCreatedDate().getTime() < 360000) {
 
+                UserTable user = userServiceInterface.getMyUser(tokenOTP.getUser().getName());
+                user.setPassword(bcryptEncoder.encode(newPass));
+                userServiceInterface.saveUser(user);
+                return new ResponseEntity<>("Password Updated",HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Token Expired",HttpStatus.NOT_ACCEPTABLE);
+            }
+        } else
+            return new ResponseEntity<>("No token present in url",HttpStatus.BAD_REQUEST);
+    }
     @PostMapping("/confirm-account")
     public ResponseEntity<?> confirm(@RequestBody AuthRequest userTable) throws Exception {
         TokenOTP token = tokenService.findByConfirmationToken(userTable.getToken());
@@ -120,5 +143,37 @@ public class AuthenticationController {
             } else
                 return ResponseEntity.ok("user already exist and is verified");
         }
+    }
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetMyPass(@RequestBody AuthRequest authRequest)
+    {
+        String mail=authRequest.getEmail();
+        UserTable userTable= userServiceInterface.getMyUserFromMail(mail);
+                if(userTable==null)
+                {
+                    return new ResponseEntity<>("User Doesn't Exist",HttpStatus.BAD_REQUEST);
+                }
+                else {
+                    TokenOTP tokenOTP = tokenService.findByUser(userTable);
+                    if (tokenOTP == null) {
+                        TokenOTP tokenOTP1 = new TokenOTP(userTable);
+                        tokenService.saveToken(tokenOTP1);
+                        SimpleMailMessage mailMessage = blogService.sendMailNow(userTable, tokenOTP1, "http://localhost:8080/reset-pass?token=");
+                        mailService.sendEmail(mailMessage);
+                        return ResponseEntity.ok("Verification Link is sent to your mail id");
+                    }
+                    else
+                    {
+                        TokenOTP tokenOTP1= new TokenOTP(userTable);
+                        tokenOTP.setConfirmationToken(tokenOTP1.getConfirmationToken());
+                        tokenOTP.setCreatedDate(tokenOTP1.getCreatedDate());
+                        tokenService.saveToken(tokenOTP);
+                        SimpleMailMessage mailMessage = blogService.sendMailNow(userTable, tokenOTP, "http://localhost:8080/reset-pass?token=");
+                        mailService.sendEmail(mailMessage);
+                        return ResponseEntity.ok("Verification Link is sent to your mail id");
+
+                    }
+                    }
+
     }
 }
