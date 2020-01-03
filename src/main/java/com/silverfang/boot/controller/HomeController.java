@@ -80,7 +80,7 @@ public class HomeController {
             newToken.setCreatedDate(tokenOTP.getCreatedDate());
             LOGGER.info("Token is being overwritten");
             LOGGER.info("Token is being now being loaded in the message link");
-            SimpleMailMessage mailMessage= blogService.sendMailNow(userTable1,newToken,"http://localhost:8080/reset-password?token=");
+            SimpleMailMessage mailMessage= blogService.sendMailNow(userTable1,newToken,"https://spring-boot-project.herokuapp.com//reset-password?token=");
             tokenRepository.save(newToken);
             LOGGER.info("Token is saved in the database");
             mailService.sendEmail(mailMessage);
@@ -88,7 +88,7 @@ public class HomeController {
             return  modelAndView;
         }
         LOGGER.warn("Token for user not exist so generating token");
-        SimpleMailMessage mailMessage= blogService.sendMailNow(userTable1,tokenOTP,"http://localhost:8080/reset-password?token=");
+        SimpleMailMessage mailMessage= blogService.sendMailNow(userTable1,tokenOTP,"https://spring-boot-project.herokuapp.com//reset-password?token=");
         tokenRepository.save(tokenOTP);
         LOGGER.info("Token is saved in the database :outside if");
         mailService.sendEmail(mailMessage);
@@ -174,7 +174,7 @@ public class HomeController {
             {
                 tokenRepository.save(confirmationToken);
                 ModelAndView modelAndView= new ModelAndView();
-                SimpleMailMessage mailMessage = blogService.sendMailNow(userTable1,confirmationToken,"http://localhost:8080/confirm-account?token=");
+                SimpleMailMessage mailMessage = blogService.sendMailNow(userTable1,confirmationToken,"https://spring-boot-project.herokuapp.com/confirm-account?token=");
                 mailService.sendEmail(mailMessage);
                 modelAndView.addObject("emailId", userTable.getEmail());
                 modelAndView.setViewName("Registered");
@@ -182,7 +182,7 @@ public class HomeController {
             }
             else
             {
-                SimpleMailMessage mailMessage = blogService.sendMailNow(userTable,newToken,"http://localhost:8080/confirm-account?token=");
+                SimpleMailMessage mailMessage = blogService.sendMailNow(userTable,newToken,"https://spring-boot-project.herokuapp.com/confirm-account?token=");
                 mailService.sendEmail(mailMessage);
                 ModelAndView modelAndView= new ModelAndView("Registered");
                 return  modelAndView;
@@ -191,7 +191,7 @@ public class HomeController {
         }
         TokenOTP confirmationToken = new TokenOTP(userTable);
         tokenRepository.save(confirmationToken);
-        SimpleMailMessage mailMessage = blogService.sendMailNow(userTable,confirmationToken,"http://localhost:8080/confirm-account?token=");
+        SimpleMailMessage mailMessage = blogService.sendMailNow(userTable,confirmationToken,"https://spring-boot-project.herokuapp.com/confirm-account?token=");
         ModelAndView modelAndView= new ModelAndView("DataSucess");
         mailService.sendEmail(mailMessage);
         modelAndView.addObject("emailId", userTable.getEmail());

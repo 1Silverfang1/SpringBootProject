@@ -55,7 +55,22 @@
             </a>
         </td>
         <td>
-            <%=post.getContent()%>
+            <%
+                String content=post.getContent();
+                if(content.length()<150)
+                {
+            %>
+            <%=content%>
+            <%
+                }
+                else
+                {
+                    String lescontent= content.substring(0,145);
+            %>
+            <%=lescontent%>
+            <%
+                }
+            %>
         </td>
 
         <td>
