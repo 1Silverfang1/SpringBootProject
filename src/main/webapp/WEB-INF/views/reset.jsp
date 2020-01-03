@@ -6,6 +6,8 @@
     <title>Reset Password</title>
 </head>
 <body>
+<%@include file="/WEB-INF/Layout/header.jsp"%>
+<%@include file="/WEB-INF/Layout/navbar.jsp" %>
 <%
 
     String user= (String) request.getAttribute("user");
@@ -25,6 +27,9 @@
     <span id='message'></span>
     <input type="submit" id="button"  value="Update">
 </form:form>
+<br><br><br><br>
+<hr>
+<%@include file="/WEB-INF/Layout/Footer.jsp" %>
 </body>
 <script>
     var check = function() {

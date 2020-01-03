@@ -1,4 +1,5 @@
 <%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">Silverfang</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,8 +76,9 @@
             <li>
                 <a  class="nav-link" href="/register">Register as Author</a>
             </li>
-            <li>
+            <li><security:authorize access="!isAuthenticated()">
                 <a  class="nav-link" href="/forgotPassword">Forgot Your pass</a>
+            </security:authorize>
             </li>
 
         </ul>

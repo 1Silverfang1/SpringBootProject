@@ -15,6 +15,8 @@
 <head>
     <title>Blog Deletion</title>
 </head>
+<%@include file="/WEB-INF/Layout/header.jsp"%>
+<%@include file="/WEB-INF/Layout/navbar.jsp" %>
 <%
     Post post = (Post) request.getAttribute("deletePost");
     String user = post.getUserTable().getName();
@@ -40,10 +42,11 @@
 <%
 Post post1= (Post)request.getAttribute("deletePost");
 %>
-<h2>Are you Sure You want to delete the Following Post</h2>
+<h2>Are you sure you want to delete this post</h2>
 <br>
 <br>
 <br>
+
 <h2><%=post1.getTitle()%></h2>
 <hr>
 <p><%=post1.getContent()%></p>
@@ -51,7 +54,10 @@ Post post1= (Post)request.getAttribute("deletePost");
 <%--@elvariable postId="BlogObject" type="jpa.model.BlogModel"--%>
 <form:form action="/post/delete/" modelAttribute="deletePost" method="post">
     <form:hidden path="postId"/>
-    <input type="submit" value="Delete">
+    <input type="submit" class="btn btn-danger" value="Delete">
 </form:form>
+<br><br><br><br>
+<hr>
+<%@include file="/WEB-INF/Layout/Footer.jsp" %>
 </body>
 </html>

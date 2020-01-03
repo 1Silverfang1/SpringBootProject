@@ -18,6 +18,8 @@
     <title>Update BLog</title>
 </head>
 <body>
+<%@include file="/WEB-INF/Layout/header.jsp"%>
+<%@include file="/WEB-INF/Layout/navbar.jsp" %>
  <h2>Update your Blog Here</h2>
  <%--@elvariable postId="BlogObject" type="jpa.model.BlogModel"--%>
 
@@ -52,9 +54,12 @@
         <form:checkbox path="name"  value="Comic" cssStyle="width: available"/> Comic <br>
         <form:checkbox path="name" value="SCI-FI" cssclass="form-control"/> SCI-FI <br>
         <form:checkbox path="name" value="Romance" cssclass="form-control"/> Romance <br>
-        <input type="submit" value="update">
+        <input type="submit" class="btn btn-success" value="update">
      </form:form>
 
  </form:form>
+<br><br><br>
+<hr>
+<%@include file="/WEB-INF/Layout/Footer.jsp" %>
 </body>
 </html>

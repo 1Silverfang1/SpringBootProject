@@ -22,6 +22,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@RestController
+@Controller
 public class HomeController {
 
      Logger LOGGER= LoggerFactory.getLogger(HomeController.class);
@@ -316,6 +317,7 @@ public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",req
         Pageable paging;
         paging = PageRequest.of(page, pageSize,Sort.by(title));
         if(title.equals("updatedAt")) {
+            System.out.println("yoooooooooooooooooooo");
             paging = PageRequest.of(page, pageSize, Sort.by(title).descending());
         }
         List<Post> pagenationPost= blogService.getMyPost(paging);

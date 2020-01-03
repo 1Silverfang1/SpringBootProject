@@ -10,8 +10,14 @@
 <head>
     <title>Registered</title>
 </head>
+<%@include file="/WEB-INF/Layout/header.jsp"%>
+<%@include file="/WEB-INF/Layout/navbar.jsp" %>
 <body>
-A confirmation mail has been sent to your mail
-click on link to activate it
+<p class="text-success text-center">
+A confirmation mail has been sent to your mail</p><br>
+<p class="text-success text-center">click on link to activate your account</p>
+<br><br><br><br>
+<hr>
+<%@include file="/WEB-INF/Layout/Footer.jsp" %>
 </body>
 </html>

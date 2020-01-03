@@ -11,7 +11,9 @@
     <title>Data Deleted</title>
 </head>
 <body>
-<p>Data deleted</p>
+<%@include file="/WEB-INF/Layout/header.jsp"%>
+<%@include file="/WEB-INF/Layout/navbar.jsp" %>
+<p class="text-danger">Post is deleted</p>
 ${result}
 <a href="/post/create">Click here to add Form</a>
 <a href="/">Click here for Homepage</a>

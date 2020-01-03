@@ -17,11 +17,12 @@
     <title>Search</title>
 
 
-<%@include file="/WEB-INF/Layout/header.jsp"%>
+    <%@include file="/WEB-INF/Layout/header.jsp"%>
 </head>
 <body>
 <div>
-    <%@include file="/WEB-INF/Layout/navbar.jsp"%>
+
+    <%@include file="/WEB-INF/Layout/navbar.jsp" %>
 </div>
 
 <table class="table table-dark">
@@ -130,5 +131,8 @@
 </table>
 <%
 %>
+<br><br><br><br>
+<hr>
+<%@include file="/WEB-INF/Layout/Footer.jsp" %>
 </body>
 </html>
