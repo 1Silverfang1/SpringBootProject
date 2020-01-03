@@ -260,14 +260,14 @@ public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",req
                                             @RequestParam(defaultValue = "" ,required = false, name = "filterBy") String filter,
                                             @RequestParam(defaultValue = "", required = false ,name = "key")String key,
                                             @RequestParam(defaultValue = "4",required = false,name = "pageSize")int pageSize ) {
-        Category category1= new Category("horror");
-        c.save(category1);
-    Category category2= new Category("Romance");
-    Category category3= new Category("SCI-FI");
-    Category category4= new Category("Comic");
-        c.save(category2);
-        c.save(category3);
-        c.save(category4);
+//        Category category1= new Category("horror");
+//        c.save(category1);
+//    Category category2= new Category("Romance");
+//    Category category3= new Category("SCI-FI");
+//    Category category4= new Category("Comic");
+//        c.save(category2);
+//        c.save(category3);
+//        c.save(category4);
         ModelAndView modelAndView = new ModelAndView("index");
         if (!key.equals(""))
         {
