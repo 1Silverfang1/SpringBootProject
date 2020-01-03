@@ -34,7 +34,7 @@ public class MyUserDetailsService implements UserDetailsService {
         UserTable newUser = new UserTable();
         newUser.setName(user.getUserName());
         newUser.setEmail(user.getEmail());
-        newUser.setRoles("Author");
+        newUser.setRoles("AUTHOR");
         newUser.setEnable(false);
         newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
         userRepository.save(newUser);

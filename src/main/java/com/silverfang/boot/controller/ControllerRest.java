@@ -97,27 +97,56 @@ public class ControllerRest {
         Post post = new Post(title, content);
         Category category1 = new Category(category);
         if(username.equals("anonymousUser"))
-            return  ResponseEntity.ok("Plz log in ");
+            return  new ResponseEntity<>("Plz log in first ",HttpStatus.FORBIDDEN);
         UserTable userTable=userServiceInterface.getMyUser(username);
         String result = blogService.saveMyBlog(post, category1,userTable);
         return new ResponseEntity<>(post, HttpStatus.OK);
     }
 
     @PutMapping(headers = "Accept=application/json", value = "/posts/{postId}", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Post> editMyPost(@PathVariable("postId") int postId, @RequestParam(name = "title") String title,
+    public ResponseEntity<?> editMyPost(@PathVariable("postId") int postId, @RequestParam(name = "title") String title,
                                            @RequestParam(name = "content") String content, @RequestParam(name = "category", required = false, defaultValue = "") String category) {
 
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = "";
+        String authorities = "";
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails) principal).getUsername();
+            authorities = String.valueOf(((UserDetails) principal).getAuthorities());
+        } else {
+            username = principal.toString();
+        }
 
         Post post = blogService.viewMyPost(postId);
-        post.setTitle(title);
-        post.setContent(content);
-        post.getListCategory().clear();
-        Category category1 = new Category();
-        if (!category.equals("")) {
-            category1.setName(category);
+        UserTable userTable= post.getUserTable();
+        String user=userTable.getName();
+        if(authorities.equals("[ROLE_ADMIN]"))
+        {
+            post.setTitle(title);
+            post.setContent(content);
+            post.getListCategory().clear();
+            Category category1 = new Category();
+            if (!category.equals("")) {
+                category1.setName(category);
+            }
+            blogService.saveMyBlog(post, category1,userTable);
+            return new ResponseEntity<>(post, HttpStatus.OK);
         }
-        blogService.saveMyBlog(post, category1,new UserTable());
-        return new ResponseEntity<>(post, HttpStatus.OK);
+        if(user.equals(username))
+        {
+            post.setTitle(title);
+            post.setContent(content);
+            post.getListCategory().clear();
+            Category category1 = new Category();
+            if (!category.equals("")) {
+                category1.setName(category);
+            }
+            blogService.saveMyBlog(post, category1,userTable);
+            return new ResponseEntity<>(post, HttpStatus.OK);
+        }
+
+     else
+        return new ResponseEntity<>("You are not authorised to edit this post", HttpStatus.FORBIDDEN);
     }
 
     @DeleteMapping(headers = "Accept=application/json", value = "/posts/{postId}", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
@@ -134,11 +163,22 @@ public class ControllerRest {
         } else {
             username = principal.toString();
         }
-        if (user.equals(username) || authorities.equals("[ROLE_ADMIN]")) {
+        System.out.println(user);
+        System.out.println(username);
+        System.out.println(authorities);
+        if(authorities.equals("[ROLE_ADMIN]"))
+        {
+            System.out.println(authorities);
             blogService.deleteBlog(post);
             return new ResponseEntity<>("post deleted Successfully", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("You are not authorized to delete this post", HttpStatus.OK);
+        }
+        else if (user.equals(username))
+        {
+            blogService.deleteBlog(post);
+            return new ResponseEntity<>("post deleted Successfully", HttpStatus.OK);
+        } else
+            {
+            return new ResponseEntity<>("You are not authorized to delete this post", HttpStatus.FORBIDDEN);
         }
 
     }

@@ -41,33 +41,28 @@ public class AuthenticationController {
     private TokenService tokenService;
     @Autowired
     private MailService mailService;
+
     @PostMapping(value = "/authenticate")
-    public ResponseEntity<?> createJwtToken(@RequestBody  AuthRequest userTable) throws Exception
-    {
-        try
-        {
-    authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userTable.getUserName(),userTable.getPassword()));
+    public ResponseEntity<?> createJwtToken(@RequestBody AuthRequest userTable) throws Exception {
+        System.out.println("Adsccadc");
+        try {
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userTable.getUserName(), userTable.getPassword()));
+        } catch (BadCredentialsException e) {
+            throw new Exception("pass or user incorrect", e);
         }
-        catch (BadCredentialsException e)
-        {
-            throw  new Exception("pass or user incorrect",e);
-        }
-        final UserDetails userDetails=userDetailsService.loadUserByUsername(userTable.getUserName());
-        if(userDetails.isEnabled())
-        {
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(userTable.getUserName());
+        if (userDetails.isEnabled()) {
             final String jwtToken = jwtUtil.generateToken(userDetails);
             return ResponseEntity.ok(new AuthResponse(jwtToken));
-        }
-        else
+        } else
             return ResponseEntity.ok("Plz activate your account");
     }
 
     @PostMapping("/confirm-account")
-    public ResponseEntity<?> confirm(@RequestBody  AuthRequest userTable) throws Exception
-    {
+    public ResponseEntity<?> confirm(@RequestBody AuthRequest userTable) throws Exception {
         TokenOTP token = tokenService.findByConfirmationToken(userTable.getToken());
         Date date = new Date();
-        if(token != null) {
+        if (token != null) {
             if (date.getTime() - token.getCreatedDate().getTime() < 360000) {
 
                 UserTable user = userServiceInterface.getMyUser(token.getUser().getName());
@@ -75,34 +70,34 @@ public class AuthenticationController {
                 userServiceInterface.saveUser(user);
                 return ResponseEntity.ok("User verified");
             } else {
-            return  ResponseEntity.ok("Invalid or broken link");
+                return ResponseEntity.ok("Invalid or broken link");
             }
-        }
-        else
-            return  ResponseEntity.ok("No Token Present or token expired");
+        } else
+            return ResponseEntity.ok("No Token Present or token expired");
     }
+
     @PostMapping("/register")
     public ResponseEntity<?> saveUser(@RequestBody AuthRequest user) throws Exception {
 
-        UserTable userTable= userServiceInterface.getMyUser(user.getUserName());
-        if(userTable==null)
-        {
+        System.out.println("ascasc");
+        UserTable userTable = userServiceInterface.getMyUser(user.getUserName());
+        System.out.println("yoyoyo");
+        if (userTable == null) {
+            System.out.println("insideskascascascascascascjdbckjsdc");
             UserTable userTable1 = userServiceInterface.getMyUserFromMail(user.getEmail());
             if (userTable1 == null) {
+                System.out.println("insideskjdbckjsdc");
                 userDetailsService.save(user);
-                UserTable userTable2= userServiceInterface.getMyUser(user.getUserName());
+                UserTable userTable2 = userServiceInterface.getMyUser(user.getUserName());
                 TokenOTP confirmationToken = new TokenOTP(userTable2);
                 tokenService.saveToken(confirmationToken);
-                SimpleMailMessage mailMessage = blogService.sendMailNow(userTable2,confirmationToken,"http://localhost:8080/confirm-account?token=");
+                SimpleMailMessage mailMessage = blogService.sendMailNow(userTable2, confirmationToken, "http://localhost:8080/confirm-account?token=");
                 mailService.sendEmail(mailMessage);
                 return ResponseEntity.ok("Author Registered! Check your mail for confirmation");
-            }
-            else
+            } else
                 return ResponseEntity.ok("Email already exist in the Database");
-        }
-        else
-        {
-            if(!userTable.isEnable()) {
+        } else {
+            if (!userTable.isEnable()) {
                 if (userTable.getEmail().equals(user.getEmail())) {
                     TokenOTP tokenOTP = tokenService.findByUser(userTable);
                     if (tokenOTP != null) {
@@ -113,20 +108,16 @@ public class AuthenticationController {
                         SimpleMailMessage mailMessage = blogService.sendMailNow(userTable, tokenOTP, "http://localhost:8080/confirm-account?token=");
                         mailService.sendEmail(mailMessage);
                         return ResponseEntity.ok("Verification Link is sent to your mail id");
-                    }
-                    else
-                    {
+                    } else {
                         TokenOTP tokenOTP1 = new TokenOTP(userTable);
                         tokenService.saveToken(tokenOTP1);
                         SimpleMailMessage mailMessage = blogService.sendMailNow(userTable, tokenOTP1, "http://localhost:8080/confirm-account?token=");
                         mailService.sendEmail(mailMessage);
                         return ResponseEntity.ok("Verification Link is sent to your mail id");
                     }
-                }
-                else
+                } else
                     return ResponseEntity.ok("user already exist");
-            }
-            else
+            } else
                 return ResponseEntity.ok("user already exist and is verified");
         }
     }
