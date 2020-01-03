@@ -7,6 +7,7 @@ import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
 import com.silverfang.boot.model.TokenOTP;
 import com.silverfang.boot.model.UserTable;
+import com.silverfang.boot.repository.CategoryRepository;
 import com.silverfang.boot.repository.PostRepository;
 import com.silverfang.boot.repository.TokenRepository;
 import com.silverfang.boot.security.MyUserDetailService;
@@ -33,6 +34,7 @@ import java.util.List;
 
 @RestController
 public class HomeController {
+
      Logger LOGGER= LoggerFactory.getLogger(HomeController.class);
     @Autowired
     private BlogService blogService;
@@ -46,6 +48,8 @@ public class HomeController {
     private TokenRepository tokenRepository;
     @Autowired
     private MailService mailService;
+    @Autowired
+    private CategoryRepository c;
     @GetMapping("/forgotPassword")
     public ModelAndView restMyPass()
     {
@@ -256,6 +260,14 @@ public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",req
                                             @RequestParam(defaultValue = "" ,required = false, name = "filterBy") String filter,
                                             @RequestParam(defaultValue = "", required = false ,name = "key")String key,
                                             @RequestParam(defaultValue = "4",required = false,name = "pageSize")int pageSize ) {
+        Category category1= new Category("horror");
+        c.save(category1);
+    Category category2= new Category("Romance");
+    Category category3= new Category("SCI-FI");
+    Category category4= new Category("Comic");
+        c.save(category2);
+        c.save(category3);
+        c.save(category4);
         ModelAndView modelAndView = new ModelAndView("index");
         if (!key.equals(""))
         {
