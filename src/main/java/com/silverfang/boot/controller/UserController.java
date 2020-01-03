@@ -2,6 +2,7 @@ package com.silverfang.boot.controller;
 
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
+import com.silverfang.boot.model.UserTable;
 import com.silverfang.boot.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class UserController {
     @PostMapping("/create")
     public ModelAndView savePost(@ModelAttribute("yourPost") Post post, @ModelAttribute("yourCategory") Category category) {
         ModelAndView modelAndView = new ModelAndView("blogAdded");
-        blogService.saveMyBlog(post, category);
+        blogService.saveMyBlog(post, category,new UserTable());
         return modelAndView;
     }
 
@@ -52,7 +53,7 @@ public class UserController {
     @PostMapping("/edit/{postId}")
     public ModelAndView confirmEditThiPost(@ModelAttribute("myPost") Post post, @ModelAttribute("yourCategory") Category category) {
         System.out.println(post.getPostId());
-        blogService.saveMyBlog(post, category);
+        blogService.saveMyBlog(post, category,new UserTable());
         ModelAndView modelAndView = new ModelAndView("DataSucess");
         return modelAndView;
     }

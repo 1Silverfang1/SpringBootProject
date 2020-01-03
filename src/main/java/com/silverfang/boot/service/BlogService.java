@@ -39,7 +39,7 @@ public class BlogService {
     {
         return categoryServiceInterface.getsingleCategory(cateGoryName);
     }
-    public String saveMyBlog(Post myPost, Category myCategory) {
+    public String saveMyBlog(Post myPost, Category myCategory,UserTable userTable) {
         if(myCategory.getName()!=null) {
             String[] cat = myCategory.getName().split(",");
             for (String category : cat) {
@@ -47,7 +47,7 @@ public class BlogService {
                 myPost.getListCategory().add(category1);
             }
         }
-        UserTable userTable= new UserTable("Vaibhav","vaibhav.rawat@mountblue.tech","nopass");
+//        UserTable userTable= new UserTable("Vaibhav","vaibhav.rawat@mountblue.tech","nopass");
         userTable.getPostList().add(myPost);
         userServiceInterface.saveUser(userTable);
         myPost.setUserTable(userTable);
