@@ -9,13 +9,13 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
-    <title>error</title>
+    <title>Error</title>
 </head>
 <body>
 <%@include file="/WEB-INF/Layout/header.jsp" %>
 <%@include file="/WEB-INF/Layout/navbar.jsp" %>
 <p class="text-warning text-center">
-Something Went Wromg Our developer are on it </p>
+Something Went Wrong Our developer are on it </p>
  ${msg}
 <br><br><br>
 <hr>

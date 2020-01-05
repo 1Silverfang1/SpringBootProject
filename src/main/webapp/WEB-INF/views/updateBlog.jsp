@@ -41,7 +41,7 @@
      }
      if(!authorities.equals("[ROLE_ADMIN]"))
      if(!user.equals(username))
-     response.sendRedirect("/");
+     response.sendRedirect("error");
  %>
 <form:form action="/post/edit/${myPost.postId}" modelAttribute="myPost" method="post" >
 <form:input path="title"/>

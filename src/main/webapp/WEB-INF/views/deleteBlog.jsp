@@ -36,7 +36,7 @@
     }
     if(!authorities.equals("[ROLE_ADMIN]"))
     if(!user.equals(username))
-        response.sendRedirect("/");
+        response.sendRedirect("error");
 %>
 <body>
 <%
