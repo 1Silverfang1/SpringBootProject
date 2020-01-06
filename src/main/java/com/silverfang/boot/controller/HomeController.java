@@ -149,7 +149,7 @@ public class HomeController {
             } catch (Exception e)
             {
                 LOGGER.error("Error saving the data in the database with error message "+e.getMessage());
-                LOGGER.error("stacktrace is "+e);
+                LOGGER.error("stacktrace is ",e);
                 ModelAndView modelAndView= new ModelAndView("error");
                 modelAndView.addObject("msg","Error in saving the new data in the database");
                 return  modelAndView;
@@ -229,11 +229,14 @@ public class HomeController {
             }
 
         }
-        LOGGER.warn("Outside if and else should not be possible  ");
-        LOGGER.error("Some eror ocuured in Home controller and save author function");
-       ModelAndView modelAndView= new ModelAndView("error");
-        modelAndView.addObject("msg","Some unexpected Error Occuured");
-        return modelAndView;
+        TokenOTP tokenOTP= new TokenOTP(userTable);
+        tokenRepository.save(tokenOTP);
+        LOGGER.info("new user is saved and in being registered ");
+        SimpleMailMessage mailMessage = blogService.sendMailNow(userTable,tokenOTP,"http://13.235.190.211:8080/confirm-account?token=");
+        LOGGER.info("Mail generated and now sending");
+        mailService.sendEmail(mailMessage);
+        LOGGER.info("mail sent");
+        return new ModelAndView("registered");
     }
     @GetMapping("/myPost")
     public ModelAndView getMyPost( @RequestParam(defaultValue = "0" ,required = false,name = "page") int page ,
@@ -305,14 +308,6 @@ public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",req
                                             @RequestParam(defaultValue = "" ,required = false, name = "filterBy") String filter,
                                             @RequestParam(defaultValue = "", required = false ,name = "key")String key,
                                             @RequestParam(defaultValue = "4",required = false,name = "pageSize")int pageSize ) {
-//        Category category1= new Category("horror");
-//        c.save(category1);
-//    Category category2= new Category("Romance");
-//    Category category3= new Category("SCI-FI");
-//    Category category4= new Category("Comic");
-//        c.save(category2);
-//        c.save(category3);
-//        c.save(category4);
     LOGGER.info("Inside homepage function");
         ModelAndView modelAndView = new ModelAndView("index");
         if (!key.equals(""))
@@ -384,12 +379,12 @@ public ModelAndView sortHomePageByTitle(@RequestParam(defaultValue = "title",req
         if(title.equals("updatedAt")) {
             paging = PageRequest.of(page, pageSize, Sort.by(title).descending());
         }
-        List<Post> pagenationPost= blogService.getMyPost(paging);
+        List<Post> paginationPost= blogService.getMyPost(paging);
         List<Post>  allPost= blogService.getMyPost(Pageable.unpaged());
         int total=allPost.size()/4;
         modelAndView.addObject("CurPage",page);
         modelAndView.addObject("totalPage",total);
-        modelAndView.addObject("allPost",pagenationPost);
+        modelAndView.addObject("allPost",paginationPost);
         return  modelAndView;
     }
 }
