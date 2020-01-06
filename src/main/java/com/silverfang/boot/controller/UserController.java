@@ -6,6 +6,8 @@ import com.silverfang.boot.service.BlogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -69,6 +71,26 @@ public class UserController {
     @PostMapping("/edit/{postId}")
     public ModelAndView confirmEditThiPost(@ModelAttribute("myPost") Post post, @ModelAttribute("yourCategory") Category category, @RequestParam("author") String name, @PathVariable String postId) {
         System.out.println(post.getPostId());
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username="";
+        String authorities="";
+        if (principal instanceof UserDetails) {
+
+            username = ((UserDetails)principal).getUsername();
+            authorities= String.valueOf(((UserDetails) principal).getAuthorities());
+
+        } else {
+
+            username= principal.toString();
+
+        }
+        if(!authorities.equals("[ROLE_ADMIN]"))
+            if(!name.equals(username))
+            {
+                ModelAndView modelAndView= new ModelAndView("error");
+                modelAndView.addObject("msg","You are not authorised to edit this post");
+                return  modelAndView;
+            }
         LOGGER.info("inside confirm edit post");
         try {
             LOGGER.info("Now saving the edited post");
