@@ -18833,3 +18833,12 @@ javax.persistence.NonUniqueResultException: query did not return a unique result
 
 2020-01-08 15:25:33.986  INFO 13741 --- [scheduling-1] c.s.b.s.BackgroundJob                    : Starting background task for deleting expired token form database
 2020-01-08 15:25:33.998  INFO 13741 --- [scheduling-1] c.s.b.s.BackgroundJob                    : Stopping background task till next scheduled run
+2020-01-08 15:33:53.986  INFO 13741 --- [scheduling-1] c.s.b.s.BackgroundJob                    : Starting background task for deleting expired token form database
+2020-01-08 15:33:53.998  WARN 13741 --- [scheduling-1] c.s.b.s.BackgroundJob                    : Deleting token from database
+2020-01-08 15:33:54.036  WARN 13741 --- [scheduling-1] c.s.b.s.BackgroundJob                    : token deleted for : sd
+2020-01-08 15:33:54.037  INFO 13741 --- [scheduling-1] c.s.b.s.BackgroundJob                    : Stopping background task till next scheduled run
+2020-01-08 15:41:59.955  INFO 13741 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-01-08 15:41:59.956  INFO 13741 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-01-08 15:41:59.958  INFO 13741 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-08 15:41:59.962  INFO 13741 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-01-08 15:41:59.981  INFO 13741 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.

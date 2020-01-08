@@ -74,7 +74,9 @@
                 </security:authorize>
             </li>
             <li>
+                <security:authorize access="!isAuthenticated()">
                 <a  class="nav-link" href="/register">Register as Author</a>
+                </security:authorize>
             </li>
             <li><security:authorize access="!isAuthenticated()">
                 <a  class="nav-link" href="/forgotPassword">Forgot Your pass</a>

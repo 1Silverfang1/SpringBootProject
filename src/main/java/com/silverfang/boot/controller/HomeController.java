@@ -184,6 +184,11 @@ public class HomeController {
     @GetMapping("/register")
     public ModelAndView getRegistered()
     {
+        String username=blogService.getLoggedInUserDetails("username");
+        if (!username.equals("anonymousUser"))
+        {
+            return new ModelAndView("/");
+        }
         UserTable userTable=new UserTable();
         ModelAndView modelAndView = new ModelAndView("register");
         modelAndView.addObject("user",userTable);
@@ -277,16 +282,7 @@ public class HomeController {
         LOGGER.info("Inside my post");
         ModelAndView modelAndView= new ModelAndView("index");
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username="";
-        if (principal instanceof UserDetails) {
-
-            username = ((UserDetails)principal).getUsername();
-
-        } else {
-
-            username= principal.toString();
-
-        }
+        String username=blogService.getLoggedInUserDetails("username");
         UserTable userTable;
         try {
             userTable = userServiceInterface.getUser(username);
