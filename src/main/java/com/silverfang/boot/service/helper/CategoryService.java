@@ -17,7 +17,7 @@ public class CategoryService implements CategoryServiceInterface {
         return categoryRepository.findAll();
     }
 
-    public Category getsingleCategory(String name)
+    public Category getSingleCategory(String name)
     {
         return categoryRepository.findById(name).get();
     }

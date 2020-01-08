@@ -24,14 +24,18 @@ public class BackgroundJob {
             LOGGER.info("Starting background task for deleting expired token form database");
             Date date = new Date();
            List<TokenOTP> tokenOTPS = tokenRepository.findAll();
-           for(TokenOTP tokenOTP:tokenOTPS)
-           {
-               if(date.getTime()-tokenOTP.getCreatedDate().getTime()>400000)
-               {
-                   LOGGER.warn("Deleting token from database");
-                   tokenRepository.delete(tokenOTP);
-                   LOGGER.warn("token deleted for : " + tokenOTP.getUser().getName());
+           try {
+               for (TokenOTP tokenOTP : tokenOTPS) {
+                   if (date.getTime() - tokenOTP.getCreatedDate().getTime() > 600000) {
+                       LOGGER.warn("Deleting token from database");
+                       tokenRepository.delete(tokenOTP);
+                       LOGGER.warn("token deleted for : " + tokenOTP.getUser().getName());
+                   }
                }
+           }
+           catch (Exception e)
+           {
+               LOGGER.error("error while deleting the expired token",e);
            }
            LOGGER.info("Stopping background task till next scheduled run");
     }

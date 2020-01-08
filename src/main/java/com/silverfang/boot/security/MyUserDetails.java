@@ -3,10 +3,12 @@ package com.silverfang.boot.security;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
-
 public class MyUserDetails implements UserDetails {
 
     private  String username;
@@ -14,17 +16,17 @@ public class MyUserDetails implements UserDetails {
     private List<GrantedAuthority> authorities;
     private Boolean enable;
 
-    public MyUserDetails(String username, String password,String role,Boolean enable) {
+    MyUserDetails(String username, String password, String role, Boolean enable) {
         this.username = username;
         this.password = password;
         this.enable=enable;
         if(role.equals("AUTHOR"))
         {
-            authorities= Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+            authorities= Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
         }
         else
         {
-            authorities=Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            authorities= Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN"));
         }
     }
 

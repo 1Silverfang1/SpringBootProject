@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+@Component
 @Entity
 public class Category {
     @Id
@@ -17,7 +18,7 @@ public class Category {
     private Date createdAt;
     @UpdateTimestamp
     private Date updatedAt;
-    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "listCategory")
+    @ManyToMany(mappedBy = "listCategory")
     private List<Post> categoryPost = new ArrayList<>();
 
     public List<Post> getCategoryPost() {

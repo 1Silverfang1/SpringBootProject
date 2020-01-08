@@ -30,6 +30,11 @@ private UserRepository userRepository;
 
     @Override
     public UserTable findUserTableByEmail(String email) {
-        return userRepository.findUserTableByNameContaining(email);
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public UserTable findUser(String user) {
+        return userRepository.findUserTableByName(user);
     }
 }

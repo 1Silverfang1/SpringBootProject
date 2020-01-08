@@ -19,7 +19,7 @@
         <h5 class="card-title"><%=post.getTitle()%></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%=post.getUserTable().getName()%></h6>
         <p class="card-text">
-                String content = post.getContent()
+              <%=post.getContent()%>
         </p>
         <label for="created">Created At</label><p id="created"><%=post.getCreatedAt()%></p>
         <label for="updated">LastUpdated At</label><p id="updated"><%=post.getUpdatedAt()%></p>

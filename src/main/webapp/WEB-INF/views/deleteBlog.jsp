@@ -52,8 +52,8 @@ Post post1= (Post)request.getAttribute("deletePost");
 <p><%=post1.getContent()%></p>
 <hr>
 <%--@elvariable postId="BlogObject" type="jpa.model.BlogModel"--%>
-<form:form action="/post/delete/" modelAttribute="deletePost" method="post">
-    <form:hidden path="postId"/>
+<form:form action="/post/delete" method="post">
+    <input type="hidden" name="postId" value="<%=post1.getPostId()%>">
     <input type="submit" class="btn btn-danger" value="Delete">
 </form:form>
 <br><br><br><br>

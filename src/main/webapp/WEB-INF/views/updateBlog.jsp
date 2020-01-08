@@ -43,6 +43,7 @@
      if(!user.equals(username))
      response.sendRedirect("error");
  %>
+<p class="text-warning tesxt-center">${msg}</p>
 <form:form action="/post/edit/${myPost.postId}" modelAttribute="myPost" method="post" >
 <form:input path="title"/>
     <form:textarea path="content"/>

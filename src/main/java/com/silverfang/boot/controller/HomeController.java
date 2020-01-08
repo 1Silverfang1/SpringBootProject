@@ -5,7 +5,6 @@ import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
 import com.silverfang.boot.model.TokenOTP;
 import com.silverfang.boot.model.UserTable;
-import com.silverfang.boot.repository.CategoryRepository;
 import com.silverfang.boot.repository.PostRepository;
 import com.silverfang.boot.repository.TokenRepository;
 import com.silverfang.boot.security.MyUserDetailService;
@@ -45,25 +44,31 @@ public class HomeController {
     private TokenRepository tokenRepository;
     @Autowired
     private MailService mailService;
-    @Autowired
-    private CategoryRepository c;
     @GetMapping("/forgotPassword")
     public ModelAndView restMyPass()
     {
-        LOGGER.info("forgot password method invoked");
-        ModelAndView modelAndView=new ModelAndView("forgotPassword");
         UserTable userTable= new UserTable();
+        LOGGER.info("forgot password method invoked");
+        String username=blogService.getLoggedInUserDetails("username");
+        if(!username.equals("anonymousUser"))
+        {
+            ModelAndView modelAndView= new ModelAndView("error");
+            modelAndView.addObject("msg","You are already logged in");
+            return  modelAndView;
+        }
+        ModelAndView modelAndView=new ModelAndView("forgotPassword");
         modelAndView.addObject("user",userTable);
         return  modelAndView;
     }
     @PostMapping("/forgotPassword")
-    public ModelAndView resetMyPass(@ModelAttribute("user") UserTable userTable)
+    public ModelAndView resetMyPass(@ModelAttribute("user") UserTable user)
     {
         LOGGER.info("forgot password method invoked and Details have been sent by the user");
 
         ModelAndView modelAndView= new ModelAndView("accountVerified");
-        UserTable userTable1= userServiceInterface.getUser(userTable.getName());
-        if(userTable1==null)
+        System.out.println(user.getEmail());
+          UserTable  userTable= userServiceInterface.findUserTableByEmail(user.getEmail());
+            if(userTable==null)
         {
             LOGGER.warn("User dont exist : inside resetMyPass function");
             modelAndView.setViewName("error");
@@ -72,16 +77,16 @@ public class HomeController {
             return  modelAndView;
         }
 
-        TokenOTP newToken=tokenRepository.findByUser(userTable1);
+        TokenOTP newToken=tokenRepository.findByUser(userTable);
         LOGGER.info("Token is being searched for the user");
-        TokenOTP tokenOTP= new TokenOTP(userTable1);
+        TokenOTP tokenOTP= new TokenOTP(userTable);
         if(newToken!=null)
         {
             newToken.setConfirmationToken(tokenOTP.getConfirmationToken());
             newToken.setCreatedDate(tokenOTP.getCreatedDate());
             LOGGER.info("Token is being overwritten");
             LOGGER.info("Token is being now being loaded in the message link");
-            SimpleMailMessage mailMessage= blogService.sendMailNow(userTable1,newToken,"http://13.235.190.211:8080/reset-password?token=");
+            SimpleMailMessage mailMessage= blogService.sendMailNow(userTable,newToken,"http://13.235.190.211:8080/reset-password?token=");
             tokenRepository.save(newToken);
             LOGGER.info("Token is saved in the database");
             mailService.sendEmail(mailMessage);
@@ -89,7 +94,7 @@ public class HomeController {
             return  modelAndView;
         }
         LOGGER.warn("Token for user not exist so generating token");
-        SimpleMailMessage mailMessage= blogService.sendMailNow(userTable1,tokenOTP,"http://13.235.190.211:8080/reset-password?token=");
+        SimpleMailMessage mailMessage= blogService.sendMailNow(userTable,tokenOTP,"http://13.235.190.211:8080/reset-password?token=");
         tokenRepository.save(tokenOTP);
         LOGGER.info("Token is saved in the database :outside if");
         mailService.sendEmail(mailMessage);
@@ -109,6 +114,7 @@ public class HomeController {
             if (date.getTime() - token.getCreatedDate().getTime() < 360000) {
                 LOGGER.info("Token exist in the database and is valid");
                 modelAndView.addObject("user", token.getUser().getName());
+                modelAndView.addObject("token",confirmationToken);
                 return modelAndView;
 
             } else {
@@ -126,34 +132,51 @@ public class HomeController {
 
     }
     @PostMapping("/reset-password")
-    public  ModelAndView savePassword(@RequestParam("username") String username,@RequestParam("pass") String password) {
+    public  ModelAndView savePassword(@RequestParam("username") String username,@RequestParam("pass") String password,
+    @RequestParam("token") String token) {
 
         LOGGER.info("in reset password function ");
         LOGGER.info("searching for the user name in the database");
-
+        TokenOTP tokenOTP = tokenRepository.findByConfirmationToken(token);
+        UserTable userTable1;
+        if (tokenOTP != null) {
+            userTable1 = tokenOTP.getUser();
+        } else {
+            ModelAndView modelAndView = new ModelAndView("error");
+            modelAndView.addObject("msg", "Cannot validate your token");
+            return modelAndView;
+        }
         UserTable userTable = userServiceInterface.getUser(username);
-        try {
-            LOGGER.info("Setting new password");
-            userTable.setPassword(password);
+        if (userTable.getName().equals(userTable1.getName())) {
+            try {
+                LOGGER.info("Setting new password");
+                userTable.setPassword(password);
 
-        }catch (Exception e)
-        {
-        LOGGER.error("Error in setting the password for the user ");
-            LOGGER.error("Are you sure user exist in the database error is :"+ e.getMessage());
-            LOGGER.error("Error Stacktrace ",e);
-            ModelAndView modelAndView= new ModelAndView("error");
-            modelAndView.addObject("msg","Error in setting the new password");
-            return  modelAndView;
-        }try {
-                myUserDetailService.save(userTable);
-            } catch (Exception e)
-            {
-                LOGGER.error("Error saving the data in the database with error message "+e.getMessage());
-                LOGGER.error("stacktrace is ",e);
-                ModelAndView modelAndView= new ModelAndView("error");
-                modelAndView.addObject("msg","Error in saving the new data in the database");
-                return  modelAndView;
+            } catch (Exception e) {
+                LOGGER.error("Error in setting the password for the user ");
+                LOGGER.error("Are you sure user exist in the database error is :" + e.getMessage());
+                LOGGER.error("Error Stacktrace ", e);
+                ModelAndView modelAndView = new ModelAndView("error");
+                modelAndView.addObject("msg", "Error in setting the new password");
+                return modelAndView;
             }
+
+        try {
+            myUserDetailService.save(userTable);
+        } catch (Exception e) {
+            LOGGER.error("Error saving the data in the database with error message " + e.getMessage());
+            LOGGER.error("stacktrace is ", e);
+            ModelAndView modelAndView = new ModelAndView("error");
+            modelAndView.addObject("msg", "Error in saving the new data in the database");
+            return modelAndView;
+        }
+    }
+        else
+        {
+            ModelAndView modelAndView= new ModelAndView("error");
+            modelAndView.addObject("msg","Cannot verify it is you who have generated the token");
+            return  modelAndView;
+        }
 
         LOGGER.info("Saving Modified User in the database");
         return  new ModelAndView("dataSuccess");
@@ -161,8 +184,7 @@ public class HomeController {
     @GetMapping("/register")
     public ModelAndView getRegistered()
     {
-
-        UserTable userTable = new UserTable();
+        UserTable userTable=new UserTable();
         ModelAndView modelAndView = new ModelAndView("register");
         modelAndView.addObject("user",userTable);
         return modelAndView;
@@ -234,7 +256,16 @@ public class HomeController {
         LOGGER.info("new user is saved and in being registered ");
         SimpleMailMessage mailMessage = blogService.sendMailNow(userTable,tokenOTP,"http://13.235.190.211:8080/confirm-account?token=");
         LOGGER.info("Mail generated and now sending");
-        mailService.sendEmail(mailMessage);
+        try {
+            mailService.sendEmail(mailMessage);
+        }
+        catch (Exception e)
+        {
+            LOGGER.error("Error while sending the mail",e);
+            ModelAndView modelAndView= new ModelAndView("error");
+            modelAndView.addObject("msg","Error while sending the mail");
+            return  modelAndView;
+        }
         LOGGER.info("mail sent");
         return new ModelAndView("registered");
     }
@@ -256,9 +287,18 @@ public class HomeController {
             username= principal.toString();
 
         }
-
-        UserTable userTable = userServiceInterface.getUser(username);
-        Pageable pageable= PageRequest.of(page,pageSize,Sort.by(title));
+        UserTable userTable;
+        try {
+            userTable = userServiceInterface.getUser(username);
+        }
+        catch (Exception e)
+        {
+            LOGGER.error("error while searching the username in the database",e);
+            modelAndView.setViewName("error");
+            modelAndView.addObject("msg","Error in getting your Post Try again later");
+            return modelAndView;
+        }
+         Pageable pageable= PageRequest.of(page,pageSize,Sort.by(title));
         ArrayList<Post> postList=new ArrayList<>();
         try {
             postList = (ArrayList<Post>) postServiceInterface.findPostByUserTable(userTable, pageable);
@@ -285,11 +325,21 @@ public class HomeController {
         if(date.getTime() - token.getCreatedDate().getTime() <360000)
         {
             LOGGER.info("Token exist in the database and is valid");
-            UserTable user = userServiceInterface.getUser(token.getUser().getName());
-            user.setEnable(true);
-            userServiceInterface.saveUser(user);
+            try {
+                UserTable user = userServiceInterface.getUser(token.getUser().getName());
+                user.setEnable(true);
+                userServiceInterface.saveUser(user);
+            }
+            catch (Exception e)
+            {
+                LOGGER.error("error in saving data to the database" ,e);
+                ModelAndView modelAndView1= new ModelAndView("error");
+                modelAndView1.addObject("msg","Error while confirming the account");
+                return modelAndView1;
+            }
             LOGGER.info("User is verified and saved");
             modelAndView.setViewName("accountVerified");
+            return  modelAndView;
         }
         else
         {

@@ -19,6 +19,7 @@
     <label>
         <input type="password" name="pass" id="password" placeholder="Enter your new pass here" onkeyup='check();'  required>
     </label>
+    <input type="hidden" name="token" value="${token}">
     <label>
         <input type="password" name="confirmPass" id="confirmPassword"  onkeyup='check();' placeholder="Enter your pass again to confirm" required>
     </label>

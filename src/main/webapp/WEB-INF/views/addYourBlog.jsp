@@ -17,6 +17,7 @@
 </security:authorize>
 <div>
     <%@include file="/WEB-INF/Layout/navbar.jsp" %>
+    <p class="text-warning text-center">${msg}</p>
 <form:form modelAttribute="yourPost" method="post" cssclass="form-control" action="/post/create">
         <div class="form-group">
             <label for="tile">Enter Blog title</label>

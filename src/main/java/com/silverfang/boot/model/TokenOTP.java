@@ -12,17 +12,17 @@ public class TokenOTP {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="token_id")
-    private long tokenid;
+    private long tokenId;
 
     @Column(name="confirmation_token")
     private String confirmationToken;
 
-    public long getTokenid() {
-        return tokenid;
+    public long getTokenId() {
+        return tokenId;
     }
 
-    public void setTokenid(long tokenid) {
-        this.tokenid = tokenid;
+    public void setTokenId(long tokenid) {
+        this.tokenId = tokenid;
     }
 
     public TokenOTP() {

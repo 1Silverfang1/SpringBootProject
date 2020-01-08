@@ -5,8 +5,13 @@ import com.silverfang.boot.model.UserTable;
 import java.util.List;
 
 public interface UserServiceInterface {
-    public List<UserTable> getUser();
-    public void saveUser(UserTable userTable);
+
+    List<UserTable> getUser();
+
+    void saveUser(UserTable userTable);
+
     UserTable getUser(String user);
+
     UserTable findUserTableByEmail(String email);
+    UserTable findUser(String user);
 }

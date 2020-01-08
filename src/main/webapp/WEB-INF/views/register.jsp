@@ -16,7 +16,7 @@
 <%@include file="/WEB-INF/Layout/header.jsp"%>
 <%@include file="/WEB-INF/Layout/navbar.jsp" %>
 <div class="text-center mx-auto">
-        <form:form action="/register" method="post" modelAttribute="user">
+        <form:form action="/register" method="post" name="form1" modelAttribute="user">
             <label for="name">Name</label>
             <form:input id ="name" path="name"/>
             <br>
@@ -24,13 +24,34 @@
             <form:input id="email" path="email"/>
             <br>
             <label for="password">Password</label>
-            <form:input id="password" path="password"/>
+            <form:input id="password" path="password" />
             <br>
-            <input type="submit" class="btn btn-success" value="Register">
+            <input type="submit" class="btn btn-success" onclick="ValidateEmail(document.getElementById('email'))" value="Register">
         </form:form>
 </div>
 <br><br><br><br>
 <hr>
 <%@include file="/WEB-INF/Layout/Footer.jsp" %>
 </body>
+<script>
+    /**
+     * @return {boolean}
+     */
+    function ValidateEmail(inputText)
+    {
+        console.log(inputText)
+        var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(inputText.value.match(mailFormat))
+        {
+            document.form1.text1.focus();
+            return true;
+        }
+        else
+        {
+            alert("You have entered an invalid email address!");
+            document.form1.text1.focus();
+            return false;
+        }
+    }
+</script>
 </html>

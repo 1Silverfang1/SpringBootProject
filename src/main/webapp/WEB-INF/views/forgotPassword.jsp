@@ -19,8 +19,6 @@
 <form:form modelAttribute="user" method="post" action="forgotPassword">
     <label for="emailid">Enter your mail Here</label>
     <form:input id="emailid" path="email"/>
-    <label for="username">Enter your Username</label>
-    <form:input id ="username" path="name"/>
     <input type="submit" class="btn btn-success" value="Send me Verification Link">
 </form:form>
 <br><br><br><br>

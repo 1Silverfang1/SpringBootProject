@@ -2,12 +2,13 @@ package com.silverfang.boot.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+@Component
 @Entity
 
 public class UserTable {
@@ -26,9 +27,9 @@ public class UserTable {
         this.postList = postList;
     }
 
-    String name;
-    String roles;
-    boolean enable;
+    private String name;
+    private String roles;
+    private boolean enable;
 
     public String getRoles() {
         return roles;
@@ -106,8 +107,8 @@ public class UserTable {
     }
 
 
-    String email;
-    String password;
+    private String email;
+    private String password;
     @CreationTimestamp
     private Date createdAt;
     @UpdateTimestamp

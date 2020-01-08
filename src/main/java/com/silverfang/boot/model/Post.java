@@ -2,6 +2,7 @@ package com.silverfang.boot.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
@@ -9,15 +10,15 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 @Entity
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
     int postId;
-    String title;
+    private String title;
     @Column(columnDefinition = "TEXT")
+    private
     String content;
     @Column(updatable = false)
     @CreationTimestamp
@@ -33,7 +34,7 @@ public class Post {
         this.listCategory = listCategory;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "postCategory",
             joinColumns = { @JoinColumn(name = "post_id") },
             inverseJoinColumns = { @JoinColumn(name = "category_id") })
