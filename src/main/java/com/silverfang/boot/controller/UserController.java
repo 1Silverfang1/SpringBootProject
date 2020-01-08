@@ -49,6 +49,12 @@ public class UserController {
             modelAndView.addObject("msg","Title or content cannot be empty");
             return modelAndView;
         }
+        if(post.getTitle().trim().length()>85)
+        {
+            modelAndView.setViewName("addYourBlog");
+            modelAndView.addObject("msg","Title is too long");
+            return modelAndView;
+        }
         try {
             LOGGER.info("Saving blog now");
             blogService.saveMyBlog(post, category, name);

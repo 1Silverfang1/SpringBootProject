@@ -22,7 +22,6 @@ public class MyUserDetailService implements UserDetailsService {
             throw  new UsernameNotFoundException("User not found");
 
         }
-
         return new MyUserDetails(userTable.getName(),userTable.getPassword(),userTable.getRoles(),userTable.isEnable());
     }
     public void save(UserTable user)

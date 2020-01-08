@@ -178,7 +178,7 @@ public class HomeController {
             modelAndView.addObject("msg","Cannot verify it is you who have generated the token");
             return  modelAndView;
         }
-
+        tokenRepository.delete(tokenOTP);
         LOGGER.info("Saving Modified User in the database");
         return  new ModelAndView("dataSuccess");
     }
