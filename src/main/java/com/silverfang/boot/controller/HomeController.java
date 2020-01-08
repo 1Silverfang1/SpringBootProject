@@ -1,5 +1,6 @@
 package com.silverfang.boot.controller;
 
+import com.silverfang.boot.interfaces.PostServiceInterface;
 import com.silverfang.boot.interfaces.UserServiceInterface;
 import com.silverfang.boot.model.Category;
 import com.silverfang.boot.model.Post;
@@ -37,7 +38,7 @@ public class HomeController {
     @Autowired
     private UserServiceInterface userServiceInterface;
     @Autowired
-    private PostRepository postServiceInterface;
+    private PostServiceInterface postServiceInterface;
     @Autowired
     private MyUserDetailService myUserDetailService;
     @Autowired
@@ -297,7 +298,7 @@ public class HomeController {
          Pageable pageable= PageRequest.of(page,pageSize,Sort.by(title));
         ArrayList<Post> postList=new ArrayList<>();
         try {
-            postList = (ArrayList<Post>) postServiceInterface.findPostByUserTable(userTable, pageable);
+            postList = (ArrayList<Post>) postServiceInterface.findPostByUser(userTable, pageable);
         }
         catch (Exception e)
         {
