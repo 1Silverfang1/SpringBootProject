@@ -45,6 +45,11 @@ public class HomeController {
     private TokenRepository tokenRepository;
     @Autowired
     private MailService mailService;
+    @GetMapping("/chat")
+    public ModelAndView getm()
+    {
+        return new ModelAndView("ChatBot");
+    }
     @GetMapping("/forgotPassword")
     public ModelAndView restMyPass()
     {
