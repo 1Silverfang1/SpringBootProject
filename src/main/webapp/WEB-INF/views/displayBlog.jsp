@@ -1,6 +1,7 @@
 <%@ page import="com.silverfang.boot.model.Post" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.silverfang.boot.model.Category" %>
+<%@ page import="com.silverfang.boot.model.Comment" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -38,9 +39,29 @@
         </h6>
     </div>
 </div>
+<div class="card" style="width:80%;margin: auto">
+    <div class="card-body">
+        <h5 class="card-title">Comments</h5>
+        <%
+        List<Comment> commentList=post.getCommentList();
+        for(Comment comment:commentList)
+        {
+        %>
+        <h6 class="card-subtitle mb-2 text-muted"><%=comment.getUsers().getName()%></h6>
+        <p class="card-text">
+            <%=comment.getComment()%>
+        </p>
+        <label for="created">Commented At</label><p><%=comment.getCreatedAt()%></p>
+        <%
+            }
+        %>
+    </div>
+</div>
 <br>
 <br>
+<span id="msg"></span>
 <br>
+<%@include file="ChatBot.jsp" %>
 <br>
 <%@include file="/WEB-INF/Layout/Footer.jsp" %>
 </body>

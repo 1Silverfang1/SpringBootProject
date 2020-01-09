@@ -1,6 +1,7 @@
 package com.silverfang.boot.websocket;
 
 public class ChatMessage {
+    private int id;
         private String content;
         private String sender;
         private MessageType type;
@@ -13,7 +14,15 @@ public class ChatMessage {
             return content;
         }
 
-        public void setContent(String content) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setContent(String content) {
             this.content = content;
         }
 

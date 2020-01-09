@@ -46,7 +46,7 @@ public class HomeController {
     @Autowired
     private MailService mailService;
     @GetMapping("/chat")
-    public ModelAndView getm()
+    public ModelAndView getMessage()
     {
         return new ModelAndView("ChatBot");
     }

@@ -38,7 +38,6 @@ public class Post {
     @JoinTable(name = "postCategory",
             joinColumns = { @JoinColumn(name = "post_id") },
             inverseJoinColumns = { @JoinColumn(name = "category_id") })
-
     private List<Category> listCategory = new ArrayList<>();
     public void removeAllCategory()
     {
@@ -101,6 +100,17 @@ public class Post {
         this.content = content;
     }
 
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
+
     public Post() {
     }
+    @OneToMany(mappedBy = "postComment",fetch = FetchType.EAGER)
+    private List<Comment> commentList=new ArrayList<>();
+
 }

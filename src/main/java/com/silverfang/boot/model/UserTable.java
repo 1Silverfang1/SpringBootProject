@@ -1,6 +1,7 @@
 package com.silverfang.boot.model;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +22,15 @@ public class UserTable {
 
     public List<Post> getPostList() {
         return postList;
+    }
+    @OneToMany(mappedBy = "users",fetch = FetchType.EAGER)
+    private List<Comment> commentList = new ArrayList<>();
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
     }
 
     public void setPostList(List<Post> postList) {
