@@ -17,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ChatController {
-    @Autowired
-    private CommentRepository commentRepository;
-    @Autowired
-    private UserServiceInterface userServiceInterface;
-    @Autowired
-    private PostServiceInterface postServiceInterface;
+    private final CommentRepository commentRepository;
+    private final UserServiceInterface userServiceInterface;
+    private final PostServiceInterface postServiceInterface;
+
+    public ChatController(CommentRepository commentRepository, UserServiceInterface userServiceInterface, PostServiceInterface postServiceInterface) {
+        this.commentRepository = commentRepository;
+        this.userServiceInterface = userServiceInterface;
+        this.postServiceInterface = postServiceInterface;
+    }
+
     @MessageMapping("/chat.register")
     @SendTo("/topic/public")
     public ChatMessage register(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
@@ -40,7 +44,6 @@ public class ChatController {
         comment.setComment(chatMessage.getContent());
         if(userTable==null)
         {
-            System.out.println("asccccccccc");
             return chatMessage;
         }
         comment.setUsers(userTable);

@@ -17,8 +17,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/post")
 public class UserController {
     Logger LOGGER= LoggerFactory.getLogger(UserController.class);
-    @Autowired
-    private BlogService blogService;
+    private final BlogService blogService;
+
+    public UserController(BlogService blogService) {
+        this.blogService = blogService;
+    }
+
     @GetMapping("/create")
     public ModelAndView createPost() {
         LOGGER.info("inside Create Controller get mapping");

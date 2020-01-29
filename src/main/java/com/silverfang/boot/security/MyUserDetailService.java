@@ -10,10 +10,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 @Service
 public class MyUserDetailService implements UserDetailsService {
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-    @Autowired
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    final
     UserServiceInterface userServiceInterface;
+
+    public MyUserDetailService(BCryptPasswordEncoder bCryptPasswordEncoder, UserServiceInterface userServiceInterface) {
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.userServiceInterface = userServiceInterface;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String user) throws UsernameNotFoundException {
         UserTable userTable = userServiceInterface.findUser(user);

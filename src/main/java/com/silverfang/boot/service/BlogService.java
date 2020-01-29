@@ -20,13 +20,17 @@ import java.util.List;
 
 @Service
 public class BlogService {
-    @Autowired
-    private PostServiceInterface postServiceInterface;
-    @Autowired
-    private UserServiceInterface userServiceInterface;
-    @Autowired
-    private CategoryServiceInterface categoryServiceInterface;
+    private final PostServiceInterface postServiceInterface;
+    private final UserServiceInterface userServiceInterface;
+    private final CategoryServiceInterface categoryServiceInterface;
     private Logger LOGGER= LoggerFactory.getLogger(BlogService.class);
+
+    public BlogService(PostServiceInterface postServiceInterface, UserServiceInterface userServiceInterface, CategoryServiceInterface categoryServiceInterface) {
+        this.postServiceInterface = postServiceInterface;
+        this.userServiceInterface = userServiceInterface;
+        this.categoryServiceInterface = categoryServiceInterface;
+    }
+
     public SimpleMailMessage sendMailNow(UserTable userTable, TokenOTP confirmationToken, String url) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(userTable.getEmail());

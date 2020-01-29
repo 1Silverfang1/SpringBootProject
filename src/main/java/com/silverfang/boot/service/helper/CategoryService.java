@@ -9,8 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class CategoryService implements CategoryServiceInterface {
-    @Autowired
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
+
+    public CategoryService(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
+    }
 
     @Override
     public List<Category> getCategory() {

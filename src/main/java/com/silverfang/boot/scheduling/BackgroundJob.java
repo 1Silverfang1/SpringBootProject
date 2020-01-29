@@ -16,9 +16,13 @@ import java.util.List;
 @Component
 public class BackgroundJob {
     Logger LOGGER= LoggerFactory.getLogger(BackgroundJob.class);
-    @Autowired
-    private TokenRepository tokenRepository;
-        @Scheduled(fixedRate = 500000)
+    private final TokenRepository tokenRepository;
+
+    public BackgroundJob(TokenRepository tokenRepository) {
+        this.tokenRepository = tokenRepository;
+    }
+
+    @Scheduled(fixedRate = 500000)
     public void deleteOTP()
         {
             LOGGER.info("Starting background task for deleting expired token form database");

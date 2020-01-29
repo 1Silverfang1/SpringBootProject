@@ -17,11 +17,16 @@ import javax.sql.DataSource;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-    @Qualifier("myUserDetailService")
-    @Autowired
+    final
     UserDetailsService userDetailsService;
-    @Autowired
+    final
     DataSource dataSource;
+
+    public SecurityConfiguration(@Qualifier("myUserDetailService") UserDetailsService userDetailsService, DataSource dataSource) {
+        this.userDetailsService = userDetailsService;
+        this.dataSource = dataSource;
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);

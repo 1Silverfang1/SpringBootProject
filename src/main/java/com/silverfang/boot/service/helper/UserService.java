@@ -9,10 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class UserService implements UserServiceInterface {
-    @Autowired
-private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
     @Override
     public List<UserTable> getUser() {
         return userRepository.findAll();

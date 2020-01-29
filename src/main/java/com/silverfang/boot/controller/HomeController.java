@@ -32,19 +32,23 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-     Logger LOGGER= LoggerFactory.getLogger(HomeController.class);
-    @Autowired
-    private BlogService blogService;
-    @Autowired
-    private UserServiceInterface userServiceInterface;
-    @Autowired
-    private PostServiceInterface postServiceInterface;
-    @Autowired
-    private MyUserDetailService myUserDetailService;
-    @Autowired
-    private TokenRepository tokenRepository;
-    @Autowired
-    private MailService mailService;
+    Logger LOGGER= LoggerFactory.getLogger(HomeController.class);
+    private final BlogService blogService;
+    private final UserServiceInterface userServiceInterface;
+    private final PostServiceInterface postServiceInterface;
+    private final MyUserDetailService myUserDetailService;
+    private final TokenRepository tokenRepository;
+    private final MailService mailService;
+
+    public HomeController(BlogService blogService, UserServiceInterface userServiceInterface, PostServiceInterface postServiceInterface, MyUserDetailService myUserDetailService, TokenRepository tokenRepository, MailService mailService) {
+        this.blogService = blogService;
+        this.userServiceInterface = userServiceInterface;
+        this.postServiceInterface = postServiceInterface;
+        this.myUserDetailService = myUserDetailService;
+        this.tokenRepository = tokenRepository;
+        this.mailService = mailService;
+    }
+
     @GetMapping("/chat")
     public ModelAndView getMessage()
     {
