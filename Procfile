@@ -1,0 +1,1 @@
+heroku war:deploy target/bootblog-0.0.1-SNAPSHOT.war

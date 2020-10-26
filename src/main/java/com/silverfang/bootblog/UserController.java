@@ -16,6 +16,7 @@ public class UserController {
     @GetMapping("/")
     public ModelAndView getView()
     {
+        System.out.println("sdffffffffffff");
         ModelAndView modelAndView= new ModelAndView("index");
         return  modelAndView;
 
