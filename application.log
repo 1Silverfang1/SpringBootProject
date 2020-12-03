@@ -23710,3 +23710,973 @@ Stacktrace:
 2020-01-10 00:01:56.888  INFO 6648 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2020-01-10 00:01:56.891  INFO 6648 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
 2020-01-10 00:01:56.921  INFO 6648 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-12-03 14:11:20.873  INFO 16065 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 16065 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:11:20.879 DEBUG 16065 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:11:20.880  INFO 16065 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:11:21.303  INFO 16065 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-03 14:11:21.314  INFO 16065 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 JPA repository interfaces.
+2020-12-03 14:11:21.493  INFO 16065 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-03 14:11:21.631  INFO 16065 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-12-03 14:11:21.636  INFO 16065 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:11:21.637  INFO 16065 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:11:21.781  INFO 16065 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:11:21.786  INFO 16065 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:11:21.787  INFO 16065 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 879 ms
+2020-12-03 14:11:21.820  WARN 16065 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2020-12-03 14:11:21.822  INFO 16065 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2020-12-03 14:11:21.832  INFO 16065 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-03 14:11:21.836 ERROR 16065 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2020-12-03 14:11:44.663  INFO 16160 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 16160 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:11:44.670 DEBUG 16160 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:11:44.671  INFO 16160 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:11:45.086  INFO 16160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-03 14:11:45.097  INFO 16160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 JPA repository interfaces.
+2020-12-03 14:11:45.275  INFO 16160 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-12-03 14:11:45.417  INFO 16160 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-12-03 14:11:45.423  INFO 16160 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:11:45.424  INFO 16160 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:11:45.575  INFO 16160 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:11:45.580  INFO 16160 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:11:45.581  INFO 16160 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 878 ms
+2020-12-03 14:11:45.612  WARN 16160 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2020-12-03 14:11:45.614  INFO 16160 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2020-12-03 14:11:45.625  INFO 16160 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-03 14:11:45.630 ERROR 16160 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2020-12-03 14:12:00.281  INFO 16281 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 16281 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:12:00.290 DEBUG 16281 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:12:00.292  INFO 16281 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:12:01.168  INFO 16281 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-12-03 14:12:01.174  INFO 16281 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:12:01.174  INFO 16281 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:12:01.322  INFO 16281 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:12:01.329  INFO 16281 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:12:01.329  INFO 16281 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 988 ms
+2020-12-03 14:12:01.403  INFO 16281 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:12:01.406  INFO 16281 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:12:01.410  INFO 16281 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:12:01.429  INFO 16281 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:12:01.550  INFO 16281 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:12:01.637  INFO 16281 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 62d29fd8-24b6-48cb-bf7f-3a958b1216f4
+
+2020-12-03 14:12:01.692  INFO 16281 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@578a5ce8, org.springframework.security.web.context.SecurityContextPersistenceFilter@76216830, org.springframework.security.web.header.HeaderWriterFilter@492be039, org.springframework.security.web.csrf.CsrfFilter@36224f93, org.springframework.security.web.authentication.logout.LogoutFilter@372f0a99, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6de7778f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3b088163, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7c453c34, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2589d787, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2db86a7c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@67acfde9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16cb9989, org.springframework.security.web.session.SessionManagementFilter@1118d539, org.springframework.security.web.access.ExceptionTranslationFilter@52abed9d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5c8d58ed]
+2020-12-03 14:12:01.713  INFO 16281 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:12:01.713  INFO 16281 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:12:01.714  INFO 16281 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:12:01.727  INFO 16281 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2020-12-03 14:12:01.732  INFO 16281 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-03 14:12:01.735 ERROR 16281 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-12-03 14:12:01.737  INFO 16281 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:12:01.737  INFO 16281 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:12:01.738  INFO 16281 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:12:01.739  INFO 16281 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:12:01.739  INFO 16281 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:12:01.739  INFO 16281 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:12:01.740  INFO 16281 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:12:21.287  INFO 16374 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 16374 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:12:21.293 DEBUG 16374 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:12:21.294  INFO 16374 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:12:22.077  INFO 16374 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:12:22.082  INFO 16374 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:12:22.083  INFO 16374 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:12:22.202  INFO 16374 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:12:22.207  INFO 16374 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:12:22.207  INFO 16374 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 870 ms
+2020-12-03 14:12:22.266  INFO 16374 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:12:22.268  INFO 16374 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:12:22.271  INFO 16374 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:12:22.288  INFO 16374 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:12:22.406  INFO 16374 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:12:22.483  INFO 16374 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 49a2c3f6-ee9a-4f0c-933e-57120bda04d4
+
+2020-12-03 14:12:22.529  INFO 16374 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37c7766e, org.springframework.security.web.context.SecurityContextPersistenceFilter@15605d83, org.springframework.security.web.header.HeaderWriterFilter@492521c4, org.springframework.security.web.csrf.CsrfFilter@2322e56f, org.springframework.security.web.authentication.logout.LogoutFilter@5438fa43, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@33d28f0a, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2ca3d826, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3fb450d7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@252ec02e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c18516, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b2fdffc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b7ed03e, org.springframework.security.web.session.SessionManagementFilter@6ddd1c51, org.springframework.security.web.access.ExceptionTranslationFilter@526f6427, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1595d2b2]
+2020-12-03 14:12:22.552  INFO 16374 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:12:22.552  INFO 16374 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:12:22.553  INFO 16374 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:12:22.579  INFO 16374 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:12:22.581  INFO 16374 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.63 seconds (JVM running for 2.219)
+2020-12-03 14:12:22.582  INFO 16374 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:12:31.157  INFO 16374 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:12:31.157  INFO 16374 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:12:31.163  INFO 16374 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-12-03 14:13:14.982  INFO 16374 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:13:14.982  INFO 16374 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:13:14.983  INFO 16374 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:13:14.985  INFO 16374 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:13:14.985  INFO 16374 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:13:14.986  INFO 16374 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:13:14.986  INFO 16374 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:13:17.349  INFO 16558 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 16558 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:13:17.355 DEBUG 16558 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:13:17.356  INFO 16558 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:13:18.061  INFO 16558 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:13:18.066  INFO 16558 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:13:18.066  INFO 16558 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:13:18.188  INFO 16558 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:13:18.193  INFO 16558 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:13:18.193  INFO 16558 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 801 ms
+2020-12-03 14:13:18.262  INFO 16558 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:13:18.264  INFO 16558 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:13:18.268  INFO 16558 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:13:18.285  INFO 16558 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:13:18.391  INFO 16558 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:13:18.464  INFO 16558 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 15be2f2e-84b2-477e-9ddc-b865285e97a9
+
+2020-12-03 14:13:18.510  INFO 16558 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@681061d6, org.springframework.security.web.context.SecurityContextPersistenceFilter@543fe698, org.springframework.security.web.header.HeaderWriterFilter@22f02996, org.springframework.security.web.csrf.CsrfFilter@b1b471, org.springframework.security.web.authentication.logout.LogoutFilter@382d71c7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@34279b8a, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@512abf25, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@53d6e959, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6094de13, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2ca3d826, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5438fa43, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3caee3a8, org.springframework.security.web.session.SessionManagementFilter@42c0a16e, org.springframework.security.web.access.ExceptionTranslationFilter@24134cbc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5a592c70]
+2020-12-03 14:13:18.530  INFO 16558 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:13:18.530  INFO 16558 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:13:18.531  INFO 16558 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:13:18.551  INFO 16558 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:13:18.553  INFO 16558 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.599 seconds (JVM running for 2.268)
+2020-12-03 14:13:18.554  INFO 16558 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:13:26.828  INFO 16558 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:13:26.828  INFO 16558 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:13:26.833  INFO 16558 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-12-03 14:13:40.521  INFO 16558 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:13:40.522  INFO 16558 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:13:40.522  INFO 16558 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:13:40.524  INFO 16558 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:13:40.524  INFO 16558 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:13:40.524  INFO 16558 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:13:40.525  INFO 16558 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:13:57.310  INFO 16719 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 16719 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:13:57.316 DEBUG 16719 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:13:57.316  INFO 16719 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:13:57.975  INFO 16719 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:13:57.980  INFO 16719 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:13:57.981  INFO 16719 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:13:58.089  INFO 16719 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:13:58.094  INFO 16719 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:13:58.095  INFO 16719 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 747 ms
+2020-12-03 14:13:58.147  INFO 16719 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:13:58.149  INFO 16719 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:13:58.152  INFO 16719 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:13:58.166  INFO 16719 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:13:58.282  INFO 16719 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:13:58.338  INFO 16719 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:13:58.338  INFO 16719 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:13:58.339  INFO 16719 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:13:58.360  INFO 16719 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:13:58.361  INFO 16719 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.414 seconds (JVM running for 2.068)
+2020-12-03 14:13:58.362  INFO 16719 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:14:05.106  INFO 16719 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:14:05.106  INFO 16719 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:14:05.111  INFO 16719 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-12-03 14:14:05.369 ERROR 16719 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[.[jsp]                    : Servlet.service() for servlet [jsp] threw exception
+
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [50] in the jsp file: [/WEB-INF/views/ChatBot.jsp]
+post cannot be resolved
+47:         <form id="messageForm" name="messageForm" nameForm="messageForm">
+48:             <div class="form-group">
+49:                 <div class="input-group clearfix">
+50:                     <input type="hidden" id="curPost" value="<%=post.getPostId()%>">
+51:                     <input type="text" id="message" placeholder="Type a message..."
+52:                            autocomplete="off" class="form-control" />
+53:                     <button type="submit" class="primary">Comment</button>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:212) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:549) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:378) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:350) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:334) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:595) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171) [spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:316) [spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) [spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) [spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) [spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1591) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+
+2020-12-03 14:14:05.375 ERROR 16719 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [50] in the jsp file: [/WEB-INF/views/ChatBot.jsp]
+post cannot be resolved
+47:         <form id="messageForm" name="messageForm" nameForm="messageForm">
+48:             <div class="form-group">
+49:                 <div class="input-group clearfix">
+50:                     <input type="hidden" id="curPost" value="<%=post.getPostId()%>">
+51:                     <input type="text" id="message" placeholder="Type a message..."
+52:                            autocomplete="off" class="form-control" />
+53:                     <button type="submit" class="primary">Comment</button>
+
+
+Stacktrace:] with root cause
+
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [50] in the jsp file: [/WEB-INF/views/ChatBot.jsp]
+post cannot be resolved
+47:         <form id="messageForm" name="messageForm" nameForm="messageForm">
+48:             <div class="form-group">
+49:                 <div class="input-group clearfix">
+50:                     <input type="hidden" id="curPost" value="<%=post.getPostId()%>">
+51:                     <input type="text" id="message" placeholder="Type a message..."
+52:                            autocomplete="off" class="form-control" />
+53:                     <button type="submit" class="primary">Comment</button>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:212) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:549) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:378) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:350) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:334) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:595) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330) ~[tomcat-embed-jasper-8.5.45.jar:8.5.45]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:316) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1591) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+
+2020-12-03 14:14:58.166  INFO 16719 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2020-12-03 14:15:25.827  INFO 16719 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:15:25.828  INFO 16719 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:15:25.828  INFO 16719 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:15:25.829  INFO 16719 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:15:25.830  INFO 16719 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:15:25.831  INFO 16719 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:15:25.831  INFO 16719 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:15:29.264  INFO 16925 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 16925 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:15:29.268 DEBUG 16925 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:15:29.269  INFO 16925 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:15:29.841  INFO 16925 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:15:29.847  INFO 16925 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:15:29.847  INFO 16925 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:15:29.962  INFO 16925 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:15:29.968  INFO 16925 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:15:29.968  INFO 16925 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 672 ms
+2020-12-03 14:15:30.020  INFO 16925 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:15:30.022  INFO 16925 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:15:30.025  INFO 16925 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:15:30.040  INFO 16925 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:15:30.148  INFO 16925 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:15:30.201  INFO 16925 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:15:30.201  INFO 16925 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:15:30.202  INFO 16925 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:15:30.218  INFO 16925 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:15:30.219  INFO 16925 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.231 seconds (JVM running for 1.81)
+2020-12-03 14:15:30.220  INFO 16925 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:15:41.289  INFO 16925 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:15:41.289  INFO 16925 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:15:41.295  INFO 16925 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-12-03 14:16:30.039  INFO 16925 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2020-12-03 14:16:50.361  INFO 16925 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:16:50.362  INFO 16925 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:16:50.362  INFO 16925 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:16:50.364  INFO 16925 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:16:50.364  INFO 16925 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:16:50.365  INFO 16925 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:16:50.365  INFO 16925 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:16:53.059  INFO 17151 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 17151 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:16:53.064 DEBUG 17151 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:16:53.065  INFO 17151 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:16:53.646  INFO 17151 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:16:53.651  INFO 17151 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:16:53.652  INFO 17151 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:16:53.778  INFO 17151 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:16:53.784  INFO 17151 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:16:53.784  INFO 17151 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 692 ms
+2020-12-03 14:16:53.848  INFO 17151 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:16:53.851  INFO 17151 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:16:53.855  INFO 17151 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:16:53.876  INFO 17151 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:16:53.993  INFO 17151 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:16:54.056  INFO 17151 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:16:54.056  INFO 17151 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:16:54.057  INFO 17151 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:16:54.086  INFO 17151 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:16:54.088  INFO 17151 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.343 seconds (JVM running for 2.232)
+2020-12-03 14:16:54.089  INFO 17151 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:16:59.741  INFO 17151 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:16:59.741  INFO 17151 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:16:59.745  INFO 17151 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2020-12-03 14:17:53.875  INFO 17151 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2020-12-03 14:18:42.174  INFO 17151 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:18:42.174  INFO 17151 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:18:42.175  INFO 17151 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:18:42.176  INFO 17151 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:18:42.177  INFO 17151 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:18:42.177  INFO 17151 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:18:42.178  INFO 17151 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:18:44.326  INFO 17347 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 17347 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:18:44.330 DEBUG 17347 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:18:44.330  INFO 17347 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:18:44.904  INFO 17347 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:18:44.909  INFO 17347 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:18:44.910  INFO 17347 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:18:45.020  INFO 17347 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:18:45.025  INFO 17347 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:18:45.025  INFO 17347 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 669 ms
+2020-12-03 14:18:45.077  INFO 17347 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:18:45.079  INFO 17347 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:18:45.081  INFO 17347 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:18:45.095  INFO 17347 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:18:45.218  INFO 17347 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:18:45.274  INFO 17347 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:18:45.274  INFO 17347 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:18:45.274  INFO 17347 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:18:45.292  INFO 17347 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:18:45.294  INFO 17347 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.259 seconds (JVM running for 1.934)
+2020-12-03 14:18:45.295  INFO 17347 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:18:47.827  INFO 17347 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:18:47.828  INFO 17347 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:18:47.832  INFO 17347 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-12-03 14:19:32.840  INFO 17347 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:19:32.841  INFO 17347 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:19:32.841  INFO 17347 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:19:32.843  INFO 17347 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:19:32.843  INFO 17347 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:19:32.844  INFO 17347 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:19:32.844  INFO 17347 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:19:35.287  INFO 17474 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 17474 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:19:35.292 DEBUG 17474 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:19:35.293  INFO 17474 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:19:35.906  INFO 17474 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:19:35.911  INFO 17474 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:19:35.912  INFO 17474 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:19:36.032  INFO 17474 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:19:36.037  INFO 17474 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:19:36.037  INFO 17474 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 719 ms
+2020-12-03 14:19:36.091  INFO 17474 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:19:36.093  INFO 17474 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:19:36.096  INFO 17474 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:19:36.111  INFO 17474 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:19:36.216  INFO 17474 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:19:36.271  INFO 17474 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:19:36.272  INFO 17474 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:19:36.272  INFO 17474 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:19:36.289  INFO 17474 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:19:36.290  INFO 17474 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.283 seconds (JVM running for 2.054)
+2020-12-03 14:19:36.291  INFO 17474 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:19:40.492  INFO 17474 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:19:40.492  INFO 17474 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:19:40.496  INFO 17474 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-12-03 14:20:23.495  INFO 17474 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:20:23.495  INFO 17474 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:20:23.496  INFO 17474 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:20:23.498  INFO 17474 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:20:23.498  INFO 17474 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:20:23.500  INFO 17474 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:20:23.501  INFO 17474 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:20:25.987  INFO 17632 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 17632 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:20:25.992 DEBUG 17632 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:20:25.993  INFO 17632 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:20:26.679  INFO 17632 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:20:26.684  INFO 17632 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:20:26.685  INFO 17632 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:20:26.811  INFO 17632 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:20:26.816  INFO 17632 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:20:26.816  INFO 17632 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 790 ms
+2020-12-03 14:20:26.872  INFO 17632 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:20:26.874  INFO 17632 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:20:26.877  INFO 17632 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:20:26.894  INFO 17632 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:20:27.020  INFO 17632 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:20:27.077  INFO 17632 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:20:27.078  INFO 17632 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:20:27.078  INFO 17632 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:20:27.095  INFO 17632 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:20:27.097  INFO 17632 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.385 seconds (JVM running for 1.995)
+2020-12-03 14:20:27.098  INFO 17632 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:20:31.599  INFO 17632 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:20:31.600  INFO 17632 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:20:31.605  INFO 17632 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-12-03 14:20:48.021  INFO 17632 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:20:48.021  INFO 17632 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:20:48.022  INFO 17632 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:20:48.024  INFO 17632 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:20:48.024  INFO 17632 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:20:48.025  INFO 17632 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:20:48.027  INFO 17632 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:20:58.010  INFO 17772 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 17772 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:20:58.016 DEBUG 17772 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:20:58.018  INFO 17772 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:20:58.608  INFO 17772 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:20:58.613  INFO 17772 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:20:58.613  INFO 17772 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:20:58.729  INFO 17772 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:20:58.734  INFO 17772 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:20:58.734  INFO 17772 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 686 ms
+2020-12-03 14:20:58.789  INFO 17772 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:20:58.791  INFO 17772 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:20:58.793  INFO 17772 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:20:58.807  INFO 17772 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:20:58.934  INFO 17772 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:20:58.997  INFO 17772 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:20:58.997  INFO 17772 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:20:58.998  INFO 17772 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:20:59.015  INFO 17772 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:20:59.017  INFO 17772 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.28 seconds (JVM running for 1.866)
+2020-12-03 14:20:59.018  INFO 17772 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:21:09.673  INFO 17772 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:21:09.674  INFO 17772 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:21:09.678  INFO 17772 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-12-03 14:21:58.807  INFO 17772 --- [MessageBroker-6] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 21], outboundChannel[pool size = 5, active threads = 0, queued tasks = 0, completed tasks = 5], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 11]
+2020-12-03 14:23:31.245  INFO 17772 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:23:31.245  INFO 17772 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:23:31.246  INFO 17772 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:23:31.247  INFO 17772 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:23:31.248  INFO 17772 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:23:31.249  INFO 17772 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:23:31.250  INFO 17772 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:23:34.095  INFO 17996 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 17996 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:23:34.101 DEBUG 17996 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:23:34.102  INFO 17996 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:23:34.640  INFO 17996 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:23:34.646  INFO 17996 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:23:34.647  INFO 17996 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:23:34.782  INFO 17996 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:23:34.787  INFO 17996 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:23:34.787  INFO 17996 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 659 ms
+2020-12-03 14:23:34.844  INFO 17996 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:23:34.846  INFO 17996 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:23:34.850  INFO 17996 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:23:34.865  INFO 17996 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:23:34.967  INFO 17996 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:23:35.024  INFO 17996 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:23:35.024  INFO 17996 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:23:35.025  INFO 17996 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:23:35.041  INFO 17996 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:23:35.042  INFO 17996 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.27 seconds (JVM running for 2.152)
+2020-12-03 14:23:35.043  INFO 17996 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:23:37.945  INFO 17996 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:23:37.946  INFO 17996 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:23:37.950  INFO 17996 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-12-03 14:24:34.864  INFO 17996 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 3 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(3)-CONNECTED(3)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 39], outboundChannel[pool size = 10, active threads = 0, queued tasks = 0, completed tasks = 10], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 13]
+2020-12-03 14:24:44.885  INFO 17996 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:24:44.885  INFO 17996 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:24:44.885  INFO 17996 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:24:44.888  INFO 17996 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:24:44.889  INFO 17996 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:24:44.892  INFO 17996 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:24:44.893  INFO 17996 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:24:48.359  INFO 18204 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 18204 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:24:48.365 DEBUG 18204 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:24:48.365  INFO 18204 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:24:49.059  INFO 18204 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:24:49.066  INFO 18204 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:24:49.066  INFO 18204 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:24:49.187  INFO 18204 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:24:49.193  INFO 18204 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:24:49.193  INFO 18204 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 793 ms
+2020-12-03 14:24:49.251  INFO 18204 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:24:49.253  INFO 18204 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:24:49.256  INFO 18204 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:24:49.275  INFO 18204 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:24:49.404  INFO 18204 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:24:49.463  INFO 18204 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:24:49.464  INFO 18204 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:24:49.464  INFO 18204 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:24:49.481  INFO 18204 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:24:49.483  INFO 18204 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.386 seconds (JVM running for 2.156)
+2020-12-03 14:24:49.484  INFO 18204 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:24:54.437  INFO 18204 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:24:54.438  INFO 18204 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:24:54.443  INFO 18204 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-12-03 14:25:49.273  INFO 18204 --- [MessageBroker-7] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 24], outboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 6], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 12]
+2020-12-03 14:27:06.601  INFO 18204 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:27:06.601  INFO 18204 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:27:06.601  INFO 18204 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:27:06.603  INFO 18204 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:27:06.603  INFO 18204 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:27:06.604  INFO 18204 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:27:06.604  INFO 18204 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:27:09.027  INFO 18490 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 18490 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:27:09.033 DEBUG 18490 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:27:09.035  INFO 18490 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:27:09.614  INFO 18490 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:27:09.620  INFO 18490 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:27:09.621  INFO 18490 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:27:09.743  INFO 18490 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:27:09.749  INFO 18490 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:27:09.749  INFO 18490 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 682 ms
+2020-12-03 14:27:09.804  INFO 18490 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:27:09.806  INFO 18490 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:27:09.808  INFO 18490 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:27:09.824  INFO 18490 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:27:09.941  INFO 18490 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:27:10.000  INFO 18490 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:27:10.000  INFO 18490 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:27:10.001  INFO 18490 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:27:10.020  INFO 18490 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:27:10.022  INFO 18490 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.475 seconds (JVM running for 2.191)
+2020-12-03 14:27:10.024  INFO 18490 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:27:18.675  INFO 18490 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:27:18.675  INFO 18490 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:27:18.679  INFO 18490 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-12-03 14:28:09.824  INFO 18490 --- [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 33], outboundChannel[pool size = 11, active threads = 0, queued tasks = 0, completed tasks = 11], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 1, completed tasks = 11]
+2020-12-03 14:28:28.359  INFO 18490 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:28:28.359  INFO 18490 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:28:28.359  INFO 18490 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:28:28.361  INFO 18490 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:28:28.361  INFO 18490 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:28:28.363  INFO 18490 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:28:28.363  INFO 18490 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:28:30.924  INFO 18783 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 18783 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:28:30.929 DEBUG 18783 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:28:30.930  INFO 18783 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:28:31.524  INFO 18783 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:28:31.529  INFO 18783 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:28:31.529  INFO 18783 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:28:31.645  INFO 18783 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:28:31.650  INFO 18783 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:28:31.651  INFO 18783 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 688 ms
+2020-12-03 14:28:31.705  INFO 18783 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:28:31.707  INFO 18783 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:28:31.710  INFO 18783 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:28:31.724  INFO 18783 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:28:31.844  INFO 18783 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-12-03 14:28:31.898  INFO 18783 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:28:31.898  INFO 18783 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:28:31.899  INFO 18783 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:28:31.916  INFO 18783 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:28:31.918  INFO 18783 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.304 seconds (JVM running for 1.939)
+2020-12-03 14:28:31.919  INFO 18783 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:28:39.137  INFO 18783 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:28:39.138  INFO 18783 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:28:39.143  INFO 18783 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-12-03 14:29:31.724  INFO 18783 --- [MessageBroker-8] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 3 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(3)-CONNECTED(3)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 54], outboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 19], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 11]
+2020-12-03 14:34:34.825  INFO 18783 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:34:34.826  INFO 18783 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:34:34.827  INFO 18783 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:34:34.828  INFO 18783 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:34:34.829  INFO 18783 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:34:34.830  INFO 18783 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:34:34.830  INFO 18783 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:34:37.852  INFO 19167 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 19167 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:34:37.857 DEBUG 19167 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:34:37.858  INFO 19167 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:34:38.457  INFO 19167 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:34:38.462  INFO 19167 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:34:38.463  INFO 19167 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:34:38.573  INFO 19167 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:34:38.578  INFO 19167 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:34:38.578  INFO 19167 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 689 ms
+2020-12-03 14:34:38.634  INFO 19167 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:34:38.636  INFO 19167 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:34:38.639  INFO 19167 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:34:38.653  INFO 19167 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:34:38.825  INFO 19167 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:34:38.826  INFO 19167 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:34:38.826  INFO 19167 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:34:38.843  INFO 19167 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:34:38.845  INFO 19167 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.287 seconds (JVM running for 1.873)
+2020-12-03 14:34:38.845  INFO 19167 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:34:47.980  INFO 19167 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:34:47.981  INFO 19167 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:34:47.986  INFO 19167 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-12-03 14:35:38.652  INFO 19167 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 21], outboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 6], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 3, completed tasks = 12]
+2020-12-03 14:37:06.538  INFO 19167 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:37:06.538  INFO 19167 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:37:06.538  INFO 19167 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:37:06.543  INFO 19167 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:37:06.543  INFO 19167 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:37:06.544  INFO 19167 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:37:06.544  INFO 19167 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:37:08.809  INFO 19440 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 19440 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:37:08.813 DEBUG 19440 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:37:08.814  INFO 19440 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:37:09.409  INFO 19440 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:37:09.415  INFO 19440 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:37:09.415  INFO 19440 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:37:09.530  INFO 19440 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:37:09.536  INFO 19440 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:37:09.536  INFO 19440 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 696 ms
+2020-12-03 14:37:09.596  INFO 19440 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:37:09.598  INFO 19440 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:37:09.601  INFO 19440 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:37:09.617  INFO 19440 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:37:09.807  INFO 19440 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:37:09.808  INFO 19440 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:37:09.808  INFO 19440 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:37:09.827  INFO 19440 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:37:09.830  INFO 19440 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.286 seconds (JVM running for 1.919)
+2020-12-03 14:37:09.831  INFO 19440 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:37:13.428  INFO 19440 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:37:13.429  INFO 19440 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:37:13.435  INFO 19440 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 6 ms
+2020-12-03 14:38:09.617  INFO 19440 --- [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 14]
+2020-12-03 14:39:00.404  INFO 19440 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:39:00.404  INFO 19440 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:39:00.405  INFO 19440 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:39:00.406  INFO 19440 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:39:00.407  INFO 19440 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:39:00.407  INFO 19440 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:39:00.408  INFO 19440 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:39:02.731  INFO 19605 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 19605 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:39:02.735 DEBUG 19605 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:39:02.736  INFO 19605 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:39:03.331  INFO 19605 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:39:03.337  INFO 19605 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:39:03.338  INFO 19605 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:39:03.475  INFO 19605 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:39:03.480  INFO 19605 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:39:03.480  INFO 19605 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 720 ms
+2020-12-03 14:39:03.540  INFO 19605 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:39:03.542  INFO 19605 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:39:03.545  INFO 19605 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:39:03.562  INFO 19605 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:39:03.724  INFO 19605 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:39:03.724  INFO 19605 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:39:03.725  INFO 19605 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:39:03.742  INFO 19605 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:39:03.744  INFO 19605 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.356 seconds (JVM running for 2.061)
+2020-12-03 14:39:03.745  INFO 19605 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:39:07.423  INFO 19605 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:39:07.424  INFO 19605 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:39:07.428  INFO 19605 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-12-03 14:40:03.562  INFO 19605 --- [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 24], outboundChannel[pool size = 7, active threads = 0, queued tasks = 0, completed tasks = 7], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 1, completed tasks = 12]
+2020-12-03 14:40:27.400  INFO 19605 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:40:27.401  INFO 19605 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:40:27.401  INFO 19605 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:40:27.402  INFO 19605 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:40:27.403  INFO 19605 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:40:27.404  INFO 19605 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:40:27.404  INFO 19605 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:40:29.781  INFO 19792 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 19792 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:40:29.788 DEBUG 19792 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:40:29.789  INFO 19792 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:40:30.411  INFO 19792 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:40:30.416  INFO 19792 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:40:30.417  INFO 19792 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:40:30.524  INFO 19792 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:40:30.529  INFO 19792 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:40:30.529  INFO 19792 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 704 ms
+2020-12-03 14:40:30.582  INFO 19792 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:40:30.584  INFO 19792 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:40:30.587  INFO 19792 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:40:30.601  INFO 19792 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:40:30.772  INFO 19792 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:40:30.772  INFO 19792 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:40:30.773  INFO 19792 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:40:30.791  INFO 19792 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:40:30.793  INFO 19792 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.424 seconds (JVM running for 1.998)
+2020-12-03 14:40:30.793  INFO 19792 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:40:43.390  INFO 19792 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:40:43.390  INFO 19792 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:40:43.394  INFO 19792 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-12-03 14:41:30.601  INFO 19792 --- [MessageBroker-8] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 9]
+2020-12-03 14:44:52.821  INFO 19792 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:44:52.821  INFO 19792 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:44:52.821  INFO 19792 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:44:52.823  INFO 19792 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:44:52.823  INFO 19792 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:44:52.824  INFO 19792 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:44:52.824  INFO 19792 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:44:55.032  INFO 20110 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 20110 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:44:55.038 DEBUG 20110 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:44:55.039  INFO 20110 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:44:55.636  INFO 20110 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:44:55.642  INFO 20110 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:44:55.642  INFO 20110 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:44:55.767  INFO 20110 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:44:55.772  INFO 20110 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:44:55.773  INFO 20110 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 701 ms
+2020-12-03 14:44:55.831  INFO 20110 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:44:55.833  INFO 20110 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:44:55.836  INFO 20110 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:44:55.853  INFO 20110 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:44:56.050  INFO 20110 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:44:56.050  INFO 20110 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:44:56.051  INFO 20110 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:44:56.071  INFO 20110 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:44:56.073  INFO 20110 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.292 seconds (JVM running for 1.858)
+2020-12-03 14:44:56.074  INFO 20110 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:45:11.088  INFO 20110 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:45:11.088  INFO 20110 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:45:11.092  INFO 20110 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-12-03 14:45:55.853  INFO 20110 --- [MessageBroker-8] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 10]
+2020-12-03 14:50:33.997  INFO 20110 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:50:33.998  INFO 20110 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:50:33.998  INFO 20110 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:50:34.000  INFO 20110 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:50:34.000  INFO 20110 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:50:34.001  INFO 20110 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:50:34.001  INFO 20110 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:50:36.321  INFO 20631 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 20631 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:50:36.327 DEBUG 20631 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:50:36.328  INFO 20631 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:50:36.929  INFO 20631 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:50:36.934  INFO 20631 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:50:36.934  INFO 20631 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:50:37.041  INFO 20631 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:50:37.046  INFO 20631 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:50:37.046  INFO 20631 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 689 ms
+2020-12-03 14:50:37.100  INFO 20631 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:50:37.102  INFO 20631 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:50:37.105  INFO 20631 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:50:37.119  INFO 20631 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:50:37.299  INFO 20631 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:50:37.299  INFO 20631 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:50:37.300  INFO 20631 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:50:37.317  INFO 20631 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:50:37.319  INFO 20631 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.289 seconds (JVM running for 1.9)
+2020-12-03 14:50:37.320  INFO 20631 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:50:42.597  INFO 20631 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:50:42.598  INFO 20631 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:50:42.603  INFO 20631 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-12-03 14:51:11.661  INFO 20631 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:51:11.662  INFO 20631 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:51:11.662  INFO 20631 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:51:11.664  INFO 20631 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:51:11.664  INFO 20631 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:51:11.665  INFO 20631 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:51:11.667  INFO 20631 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:51:13.944  INFO 20785 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 20785 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:51:13.950 DEBUG 20785 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:51:13.951  INFO 20785 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:51:14.528  INFO 20785 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:51:14.533  INFO 20785 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:51:14.534  INFO 20785 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:51:14.662  INFO 20785 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:51:14.667  INFO 20785 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:51:14.667  INFO 20785 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 686 ms
+2020-12-03 14:51:14.730  INFO 20785 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:51:14.737  INFO 20785 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:51:14.740  INFO 20785 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:51:14.758  INFO 20785 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:51:14.925  INFO 20785 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:51:14.925  INFO 20785 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:51:14.926  INFO 20785 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:51:14.944  INFO 20785 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:51:14.946  INFO 20785 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.374 seconds (JVM running for 1.973)
+2020-12-03 14:51:14.947  INFO 20785 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:51:20.370  INFO 20785 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:51:20.370  INFO 20785 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:51:20.374  INFO 20785 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-12-03 14:52:14.758  INFO 20785 --- [MessageBroker-7] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 16, active threads = 0, queued tasks = 0, completed tasks = 24], outboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 3, completed tasks = 13]
+2020-12-03 14:53:10.388  INFO 20785 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:53:10.388  INFO 20785 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:53:10.389  INFO 20785 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:53:10.391  INFO 20785 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:53:10.391  INFO 20785 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:53:10.392  INFO 20785 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:53:10.392  INFO 20785 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:53:13.312  INFO 20988 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 20988 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:53:13.317 DEBUG 20988 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:53:13.317  INFO 20988 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:53:13.894  INFO 20988 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:53:13.899  INFO 20988 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:53:13.899  INFO 20988 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:53:14.022  INFO 20988 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:53:14.027  INFO 20988 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:53:14.027  INFO 20988 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 680 ms
+2020-12-03 14:53:14.082  INFO 20988 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:53:14.084  INFO 20988 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:53:14.087  INFO 20988 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:53:14.105  INFO 20988 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:53:14.291  INFO 20988 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:53:14.292  INFO 20988 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:53:14.292  INFO 20988 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:53:14.311  INFO 20988 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:53:14.313  INFO 20988 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.262 seconds (JVM running for 1.951)
+2020-12-03 14:53:14.314  INFO 20988 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:53:19.742  INFO 20988 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:53:19.743  INFO 20988 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:53:19.748  INFO 20988 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-12-03 14:53:36.942  INFO 20988 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 14:53:36.942  INFO 20988 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:53:36.942  INFO 20988 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 14:53:36.944  INFO 20988 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:53:36.944  INFO 20988 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:53:36.945  INFO 20988 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:53:36.947  INFO 20988 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:53:39.232  INFO 21140 --- [main] c.s.b.BootBlogApplication                : Starting BootBlogApplication on micro with PID 21140 (/home/cashify/Desktop/cashify/SpringBootProject/target/classes started by cashify in /home/cashify/Desktop/cashify/SpringBootProject)
+2020-12-03 14:53:39.237 DEBUG 21140 --- [main] c.s.b.BootBlogApplication                : Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-12-03 14:53:39.237  INFO 21140 --- [main] c.s.b.BootBlogApplication                : No active profile set, falling back to default profiles: default
+2020-12-03 14:53:39.831  INFO 21140 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 9090 (http)
+2020-12-03 14:53:39.836  INFO 21140 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-12-03 14:53:39.836  INFO 21140 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-12-03 14:53:39.952  INFO 21140 --- [main] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-12-03 14:53:39.958  INFO 21140 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-12-03 14:53:39.959  INFO 21140 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 693 ms
+2020-12-03 14:53:40.011  INFO 21140 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-12-03 14:53:40.014  INFO 21140 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 14:53:40.018  INFO 21140 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 14:53:40.035  INFO 21140 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'brokerChannelExecutor'
+2020-12-03 14:53:40.218  INFO 21140 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2020-12-03 14:53:40.218  INFO 21140 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 14:53:40.219  INFO 21140 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2020-12-03 14:53:40.236  INFO 21140 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 9090 (http) with context path ''
+2020-12-03 14:53:40.238  INFO 21140 --- [main] c.s.b.BootBlogApplication                : Started BootBlogApplication in 1.287 seconds (JVM running for 1.906)
+2020-12-03 14:53:40.239  INFO 21140 --- [main] c.s.b.BootBlogApplication                : Starting main Boot function
+2020-12-03 14:54:40.034  INFO 21140 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2020-12-03 14:59:02.955  INFO 21140 --- [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-03 14:59:02.955  INFO 21140 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-12-03 14:59:02.960  INFO 21140 --- [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-12-03 15:00:36.090  INFO 21140 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2020-12-03 15:00:36.090  INFO 21140 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-12-03 15:00:36.091  INFO 21140 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2020-12-03 15:00:36.092  INFO 21140 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'brokerChannelExecutor'
+2020-12-03 15:00:36.093  INFO 21140 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-12-03 15:00:36.094  INFO 21140 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-12-03 15:00:36.094  INFO 21140 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'clientInboundChannelExecutor'
